@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:IOWpf"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Height="600" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid>
+    <Grid Background="#FF514A4A">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="201*"/>
             <ColumnDefinition Width="823*"/>
@@ -20,8 +20,8 @@
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,734,0">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FFF2EEEE"/>
-                    <GradientStop Color="#FFAEACAC" Offset="1"/>
+                    <GradientStop Color="#FF121212" Offset="0.006"/>
+                    <GradientStop Color="#FF4E4B4B" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.RowDefinitions>
@@ -32,61 +32,61 @@
                 <DropShadowEffect BlurRadius="20" Color="#FFC1C1C1" RenderingBias="Quality" ShadowDepth="1"/>
             </Grid.Effect>
 
-            <Grid Background="#FF9BA9FA">
-                <TextBlock Text="Monitorowanie Budżetu" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2744ED"/>
+            <Grid Background="#FF514A4A">
+                <TextBlock Text="Monitorowanie Budżetu" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
             </Grid>
 
             <StackPanel Grid.Row="1">
 
                 <Button Margin="10">
                     <Grid Width="150">
-                        <materialDesign:PackIcon Kind="Home" VerticalAlignment="Center" />
-                        <TextBlock HorizontalAlignment="Center" Text="Panel" FontFamily="Segoe UI Black"/>
+                        <materialDesign:PackIcon Kind="Home" VerticalAlignment="Center" Foreground="#FF514A4A" />
+                        <TextBlock HorizontalAlignment="Center" Text="Panel" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>
                     </Grid>
                 </Button>
 
                 <Button Margin="10">
                 <Grid Width="150">
-                    <materialDesign:PackIcon Kind="Minus" VerticalAlignment="Center" />
-                        <TextBlock HorizontalAlignment="Center" Text="Dodaj wydatek" FontFamily="Segoe UI Black"/>
+                    <materialDesign:PackIcon Kind="Minus" VerticalAlignment="Center" Foreground="#FF514A4A" />
+                        <TextBlock HorizontalAlignment="Center" Text="Dodaj wydatek" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>
                     </Grid>
                 </Button>
                 
                 <Button Margin="10">
                     <Grid Width="150">
-                        <materialDesign:PackIcon Kind="Add" VerticalAlignment="Center" />
-                        <TextBlock HorizontalAlignment="Center" Text="Dodaj przychod" FontFamily="Segoe UI Black"/>
+                        <materialDesign:PackIcon Kind="Add" VerticalAlignment="Center" Foreground="#FF514A4A" />
+                        <TextBlock HorizontalAlignment="Center" Text="Dodaj przychod" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>
                     </Grid>
                 </Button>
 
                 <Button Margin="10">
                     <Grid Width="150">
-                        <materialDesign:PackIcon Kind="PiggyBank" VerticalAlignment="Center" />
-                        <TextBlock HorizontalAlignment="Center" Text="Skarbonka" FontFamily="Segoe UI Black"/>
+                        <materialDesign:PackIcon Kind="PiggyBank" VerticalAlignment="Center" Foreground="#FF514A4A" />
+                        <TextBlock HorizontalAlignment="Center" Text="Skarbonka" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>
                     </Grid>
                 </Button>
 
                 <Button Margin="10">
                     <Grid Width="150">
-                        <materialDesign:PackIcon Kind="ChartBarStacked" VerticalAlignment="Center" />
-                        <TextBlock HorizontalAlignment="Center" Text="Statystyki" FontFamily="Segoe UI Black"/>
+                        <materialDesign:PackIcon Kind="ChartBarStacked" VerticalAlignment="Center" Foreground="#FF514A4A" />
+                        <TextBlock HorizontalAlignment="Center" Text="Statystyki" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>
                     </Grid>
                 </Button>
 
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#FF2744ED" MouseDown="GridBarTitle_MouseDown">
+        <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#FF2196F3" MouseDown="GridBarTitle_MouseDown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0" Background="{x:Null}">
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF514A4A">
                     <materialDesign:PackIcon Kind="HeadDotsHorizontal"/>
                 </Button>
 
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF514A4A">
                     <materialDesign:PackIcon Kind="Account"/>
                 </Button>
 
-                <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonFechar_Click">
+                <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF514A4A" Click="ButtonFechar_Click">
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
 
