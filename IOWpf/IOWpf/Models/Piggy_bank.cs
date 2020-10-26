@@ -8,6 +8,7 @@ namespace IOWpf.Models
 {
     public class Piggy_bank
     {
+        public int Piggy_bankId { get; set; }
         private string creator_name;
         private float goal;
         private string goal_date;

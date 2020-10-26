@@ -8,13 +8,14 @@ namespace IOWpf.Models
 {
     public class Balance
     {
+        public int BalanceId { get; set; }
         private float curr_balance;
-        private string users;
+        private int[] users;
 
 
         public Balance() { }
 
-        public Balance(float currBalance, string users)
+        public Balance(float currBalance, int[] users)
         {
             curr_balance = currBalance;
             this.users = users;

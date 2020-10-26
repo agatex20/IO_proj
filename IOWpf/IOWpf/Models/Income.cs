@@ -8,6 +8,8 @@ namespace IOWpf.Models
 {
     class Income : Money_flow
     {
+        public int IncomeId { get; set; }
+
         public Income() { }
 
         public Income(float amount, string creatorName, string date, string description, bool ifChilds) : base(amount, creatorName, date, description, ifChilds) { }

@@ -10,6 +10,7 @@ namespace IOWpf.Models
 {
     class Expense : Money_flow
     {
+        public int ExpenseId { get; set; }
         private ImageSource bill_photo;
         private string category;
 

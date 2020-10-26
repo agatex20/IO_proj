@@ -8,6 +8,7 @@ namespace IOWpf.Models
 {
     public abstract class User
     {
+        public int ID { get; set; }
         protected string name;
         protected string password;
 
