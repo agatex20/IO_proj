@@ -9,7 +9,7 @@ namespace IOWpf.Models
     public class Piggy_bank
     {
         public int Piggy_bankId { get; set; }
-        public virtual ICollection<User> Users { get; set; }                        // Many Piggy_banks to many Users
+        public virtual ICollection<User_Piggy_bank> User_Piggy_banks { get; set; }
 
         private string creator_name;
         private float goal;
@@ -21,10 +21,7 @@ namespace IOWpf.Models
         private float treasured_amount;
 
 
-        public Piggy_bank() 
-        {
-            this.Users = new HashSet<User>();
-        }
+        public Piggy_bank() { }
 
         public Piggy_bank(string creatorName, float goal, string goalDate, string goalNamel, bool ifChilds, float monthlyIncome, int startDay, float treasuredAmount)
         {

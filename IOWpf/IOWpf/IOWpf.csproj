@@ -173,7 +173,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\Application_context.cs" />
+    <Compile Include="Data\Application_context.cs" />
+    <Compile Include="Migrations\20201026212036_InitialCreate.cs" />
+    <Compile Include="Migrations\20201026212036_InitialCreate.designer.cs">
+      <DependentUpon>20201026212036_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Application_contextModelSnapshot.cs" />
+    <Compile Include="Models\User_Piggy_bank.cs" />
     <Compile Include="ViewsModels\PanelViewModel.cs" />
     <Compile Include="Views\PanelView.xaml.cs">
       <DependentUpon>PanelView.xaml</DependentUpon>
