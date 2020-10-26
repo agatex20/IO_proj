@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IOWpf.Classes
+namespace IOWpf.Models
 {
-    public class Grown_up : User
+    public class Admin : Grown_up
     {
-        public Grown_up(string name, string password) : base(name, password)
+        public Admin(string name, string password) : base(name, password)
         {
-
         }
 
         public override void add_expense()
@@ -38,6 +37,9 @@ namespace IOWpf.Classes
             base.edit_account();
         }
 
-       
+        public void add_user()
+        {
+
+        }
     }
 }

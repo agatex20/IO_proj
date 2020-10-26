@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IOWpf.Classes
+namespace IOWpf.Models
 {
     public class Balance
     {

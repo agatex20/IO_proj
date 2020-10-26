@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace IOWpf.Classes
+namespace IOWpf.Models
 {
     class Expense : Money_flow
     {
