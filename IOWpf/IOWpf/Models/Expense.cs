@@ -8,9 +8,12 @@ using System.Windows.Media;
 
 namespace IOWpf.Models
 {
-    class Expense : Money_flow
+    public class Expense : Money_flow
     {
         public int ExpenseId { get; set; }
+        public int? UserId { get; set; }                             // Foreign key 
+        public virtual User User { get; set; }                       // Expense is associated with one User
+
         private ImageSource bill_photo;
         private string category;
 

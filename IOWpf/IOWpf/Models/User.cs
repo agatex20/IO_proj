@@ -12,11 +12,24 @@ namespace IOWpf.Models
         protected string name;
         protected string password;
 
+        public virtual ICollection<Income> Incomes { get; set; }                        // one User to many Incomes
+        public virtual ICollection<Expense> Expenses { get; set; }                      // one User to many Expenses
+        public virtual ICollection<Piggy_bank> Piggy_Banks { get; set; }                // many Users to many Piggy_banks
+        public int BalanceId { get; set; }                                              // forein key
+        public Balance Balance { get; set; }
 
-        protected User() { }
+
+        protected User() 
+        {
+            this.Incomes = new HashSet<Income>();                       // ?
+            this.Expenses = new HashSet<Expense>();                     // ?
+            this.Piggy_Banks = new HashSet<Piggy_bank>();
+        }
 
         protected User(string name, string password)
         {
+            this.Piggy_Banks = new HashSet<Piggy_bank>();
+
             this.name = name;
             this.password = password;
         }

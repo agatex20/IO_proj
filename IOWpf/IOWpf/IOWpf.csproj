@@ -169,6 +169,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Application_context.cs" />
     <Compile Include="ViewsModels\PanelViewModel.cs" />
     <Compile Include="Views\PanelView.xaml.cs">
       <DependentUpon>PanelView.xaml</DependentUpon>

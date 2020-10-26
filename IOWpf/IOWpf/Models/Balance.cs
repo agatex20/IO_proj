@@ -9,6 +9,8 @@ namespace IOWpf.Models
     public class Balance
     {
         public int BalanceId { get; set; }
+        public ICollection<User> User { get; set; }
+
         private float curr_balance;
         private int[] users;
 
