@@ -8,9 +8,9 @@ namespace IOWpf.Models
 {
     public class Child : User
     {
-        public Child(string name, string password) : base(name, password)
-        {
-        }
+        public Child() { }
+
+        public Child(string name, string password) : base(name, password) { }
 
         public override void add_expense()
         {

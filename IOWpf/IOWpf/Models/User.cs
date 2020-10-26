@@ -8,9 +8,11 @@ namespace IOWpf.Models
 {
     public abstract class User
     {
-
         protected string name;
         protected string password;
+
+
+        protected User() { }
 
         protected User(string name, string password)
         {

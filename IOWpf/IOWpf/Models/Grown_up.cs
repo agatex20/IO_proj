@@ -8,10 +8,9 @@ namespace IOWpf.Models
 {
     public class Grown_up : User
     {
-        public Grown_up(string name, string password) : base(name, password)
-        {
+        public Grown_up() { }
 
-        }
+        public Grown_up(string name, string password) : base(name, password) { }
 
         public override void add_expense()
         {

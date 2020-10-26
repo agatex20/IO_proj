@@ -17,6 +17,9 @@ namespace IOWpf.Models
         private int start_day;
         private float treasured_amount;
 
+
+        public Piggy_bank() { }
+
         public Piggy_bank(string creatorName, float goal, string goalDate, string goalNamel, bool ifChilds, float monthlyIncome, int startDay, float treasuredAmount)
         {
             creator_name = creatorName;

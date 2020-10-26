@@ -14,6 +14,9 @@ namespace IOWpf.Models
         protected string description;
         private bool if_childs;
 
+
+        protected Money_flow() { }
+
         protected Money_flow(float amount, string creatorName, string date, string description, bool ifChilds)
         {
             this.amount = amount;

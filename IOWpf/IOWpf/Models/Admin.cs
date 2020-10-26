@@ -8,9 +8,9 @@ namespace IOWpf.Models
 {
     public class Admin : Grown_up
     {
-        public Admin(string name, string password) : base(name, password)
-        {
-        }
+        public Admin() { }
+
+        public Admin(string name, string password) : base(name, password) { }
 
         public override void add_expense()
         {

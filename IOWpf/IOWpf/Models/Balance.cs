@@ -8,9 +8,11 @@ namespace IOWpf.Models
 {
     public class Balance
     {
-
         private float curr_balance;
         private string users;
+
+
+        public Balance() { }
 
         public Balance(float currBalance, string users)
         {
