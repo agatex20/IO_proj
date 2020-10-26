@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IOWpf.Views;
 
 namespace IOWpf
 {
@@ -33,6 +34,11 @@ namespace IOWpf
         private void GridBarTitle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void PanelViewClicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new PanelView();
         }
     }
 }
