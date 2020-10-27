@@ -69,5 +69,11 @@ namespace IOWpf
         {
             DataContext = new DodajWydatek();
         }
+
+        private void DodajPrzychodClicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new DodajPrzychod();
+        }
     }
+       
 }

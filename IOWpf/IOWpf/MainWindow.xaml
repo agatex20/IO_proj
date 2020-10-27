@@ -18,6 +18,11 @@
             <Views:DodajWydatek DataContext="{Binding}"/>
 
         </DataTemplate>
+
+        <DataTemplate x:Name="PrzychodTemplate" DataType="{x:Type ViewModels:DodajPrzychod}">
+            <Views:DodajPrzychod DataContext="{Binding}"/>
+
+        </DataTemplate>
     </Window.Resources>
 
     <Grid Background="#FF514A4A">
@@ -66,7 +71,7 @@
                     </Grid>
                 </Button>
 
-                <Button Margin="10">
+                <Button Margin="10"  Click="DodajPrzychodClicked">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Add" VerticalAlignment="Center" Foreground="#FF514A4A" />
                         <TextBlock HorizontalAlignment="Center" Text="Dodaj przychod" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>

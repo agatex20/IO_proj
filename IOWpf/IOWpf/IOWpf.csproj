@@ -180,8 +180,12 @@
     </Compile>
     <Compile Include="Migrations\Application_contextModelSnapshot.cs" />
     <Compile Include="Models\User_Piggy_bank.cs" />
+    <Compile Include="ViewsModels\DodajPrzychod.cs" />
     <Compile Include="ViewsModels\DodajWydatek.cs" />
     <Compile Include="ViewsModels\PanelViewModel.cs" />
+    <Compile Include="Views\DodajPrzychod.xaml.cs">
+      <DependentUpon>DodajPrzychod.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DodajWydatek.xaml.cs">
       <DependentUpon>DodajWydatek.xaml</DependentUpon>
     </Compile>
@@ -209,6 +213,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\DodajPrzychod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DodajWydatek.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

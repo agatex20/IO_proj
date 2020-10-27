@@ -26,8 +26,8 @@
 
             <TextBox materialDesign:HintAssist.Hint="Opis" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3"/>
             <Grid>
-                <TextBox Text="Kategoria" Foreground="#FF2196F3" />
-                <ComboBox IsEditable="True" IsReadOnly="False" Background="#FF514A4A">
+                <TextBox Text="Kategoria" Foreground="#FF2196F3" Width="100" HorizontalAlignment="Left" />
+                <ComboBox IsEditable="True" IsReadOnly="False" Background="#FF514A4A" Width="700" HorizontalAlignment="Right" Margin="100,0,0,0">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
                         <Setter Property="Background" Value="#FF514A4A" />
