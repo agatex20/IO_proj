@@ -40,5 +40,10 @@ namespace IOWpf
         {
             DataContext = new PanelView();
         }
+
+        private void DodajWydatekClicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new DodajWydatek();
+        }
     }
 }

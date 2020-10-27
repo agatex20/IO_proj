@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace IOWpf.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy PanelView.xaml
+    /// Logika interakcji dla klasy DodajWydatek.xaml
     /// </summary>
-    public partial class PanelView : UserControl
+    public partial class DodajWydatek : UserControl
     {
-        public PanelView()
+        public DodajWydatek()
         {
             InitializeComponent();
+        }
+
+        private void Data(object sender, TextCompositionEventArgs e)
+        {
+
         }
     }
 }

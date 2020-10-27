@@ -13,6 +13,11 @@
             <Views:PanelView DataContext="{Binding}"/>
 
         </DataTemplate>
+
+        <DataTemplate x:Name="WydatekTemplate" DataType="{x:Type ViewModels:DodajWydatek}">
+            <Views:DodajWydatek DataContext="{Binding}"/>
+
+        </DataTemplate>
     </Window.Resources>
 
     <Grid Background="#FF514A4A">
@@ -54,7 +59,7 @@
                     </Grid>
                 </Button>
 
-                <Button Margin="10">
+                <Button Margin="10" Click="DodajWydatekClicked">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Minus" VerticalAlignment="Center" Foreground="#FF514A4A" />
                         <TextBlock HorizontalAlignment="Center" Text="Dodaj wydatek" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>

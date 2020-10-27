@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="IOWpf.Views.DodajWydatek"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:IOWpf.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#FF514A4A">
+
+        
+            <StackPanel>
+                <TextBlock Text="Wydatek:" FontSize="30" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3"/>
+
+                <Grid Margin="0 0 0 20">
+                    <Button Content="Dodaj paragon" HorizontalAlignment="Right" Margin="0,0,10,0" Foreground="#FF514A4A"/>
+                   
+                </Grid>
+
+            <TextBox materialDesign:HintAssist.Hint="Kwota" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold"/>
+            <Grid>
+                <TextBox Text="Data" Foreground="#FF2196F3" />
+                <DatePicker Text="Data" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            </Grid>
+
+            <TextBox materialDesign:HintAssist.Hint="Opis" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3"/>
+            <Grid>
+                <TextBox Text="Kategoria" Foreground="#FF2196F3" />
+                <ComboBox IsEditable="True" IsReadOnly="False" Background="#FF514A4A">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#FF514A4A" />
+                        <Setter Property="BorderBrush" Value="#FF514A4A"/>
+                        
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+                <TextBox materialDesign:HintAssist.Hint="Użytkownik" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <ComboBoxItem Content="Dom i rachunki" />
+                <ComboBoxItem Content="Jedzenie"/>
+                <ComboBoxItem Content="Samochód i transport"/>
+                <ComboBoxItem Content="Rozrywka"/>
+                <ComboBoxItem Content="Odzież i obuwie"/>
+                <ComboBoxItem Content="Edukacja"/>
+                <ComboBoxItem Content="Zdrowie i uroda"/>
+                
+            </ComboBox>
+            </Grid>
+                <TextBox materialDesign:HintAssist.Hint="Użytkownik" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold"/>
+                <Button Content="Dodaj" Margin="0 20" Foreground="#FF514A4A"/>
+            </StackPanel>
+       
+
+    </Grid>
+</UserControl>
