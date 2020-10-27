@@ -183,6 +183,7 @@
     <Compile Include="ViewsModels\DodajPrzychod.cs" />
     <Compile Include="ViewsModels\DodajWydatek.cs" />
     <Compile Include="ViewsModels\PanelViewModel.cs" />
+    <Compile Include="ViewsModels\Skarbonka.cs" />
     <Compile Include="Views\DodajPrzychod.xaml.cs">
       <DependentUpon>DodajPrzychod.xaml</DependentUpon>
     </Compile>
@@ -191,6 +192,9 @@
     </Compile>
     <Compile Include="Views\PanelView.xaml.cs">
       <DependentUpon>PanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Skarbonka.xaml.cs">
+      <DependentUpon>Skarbonka.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -222,6 +226,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Skarbonka.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

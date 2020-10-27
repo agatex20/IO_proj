@@ -74,6 +74,11 @@ namespace IOWpf
         {
             DataContext = new DodajPrzychod();
         }
+
+        private void SkarbonkaClicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Skarbonka();
+        }
     }
        
 }
