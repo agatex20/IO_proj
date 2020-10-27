@@ -8,11 +8,11 @@ namespace IOWpf.Models
 {
     public abstract class Money_flow
     {
-        protected float amount;
-        private string creator_name;
-        protected string date;
-        protected string description;
-        private bool if_childs;
+        protected float amount { get; set; }
+        private string creator_name { get; set; }
+        protected string date { get; set; }
+        protected string description { get; set; }
+        private bool if_childs { get; set; }
 
 
         protected Money_flow() { }

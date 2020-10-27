@@ -11,16 +11,14 @@ namespace IOWpf.Models
         public int BalanceId { get; set; }
         public ICollection<User> User { get; set; }
 
-        private float curr_balance;
-        private int[] users;
+        private float curr_balance { get; set; }
 
 
         public Balance() { }
 
-        public Balance(float currBalance, int[] users)
+        public Balance(float currBalance)
         {
             curr_balance = currBalance;
-            this.users = users;
         }
 
         public float calc_balance()

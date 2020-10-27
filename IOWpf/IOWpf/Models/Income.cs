@@ -10,7 +10,7 @@ namespace IOWpf.Models
     {
         public int IncomeId { get; set; }
         public int? UserId { get; set; }                            // Foreign key 
-        public virtual User User{ get; set; }                       // Income is associated with one User
+        public virtual User User { get; set; }                       // Income is associated with one User
 
         public Income() { }
 
