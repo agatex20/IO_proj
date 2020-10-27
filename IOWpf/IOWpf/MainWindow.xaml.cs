@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IOWpf.Models;
 using IOWpf.Views;
 
 namespace IOWpf
@@ -39,6 +40,29 @@ namespace IOWpf
         private void PanelViewClicked(object sender, RoutedEventArgs e)
         {
             DataContext = new PanelView();
+
+            using (var db = new Application_context())
+            {
+                // ------------- Create --------------- //
+                //Balance newBalance = new Balance(10.0);
+                //db.Balances.Add(newBalance);
+                //db.SaveChanges();
+
+                // -------------- Read ---------------- //
+                //List<Balance> lists = db.Balances.ToList();
+                //ICollection<Balance> balans = lists;
+
+                // ------------- Update ---------------- //
+                //Balance firstBalance = db.Balances.FirstOrDefault();
+                //firstBalance.curr_balance = 1337.00;
+                //db.SaveChanges();
+
+                // -------------- Delete ---------------- //
+                //Balance firstBalance = db.Balances.FirstOrDefault();
+                //db.Balances.Remove(firstBalance);
+                //db.SaveChanges();
+            }
+
         }
 
         private void DodajWydatekClicked(object sender, RoutedEventArgs e)

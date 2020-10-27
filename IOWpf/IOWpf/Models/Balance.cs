@@ -11,12 +11,12 @@ namespace IOWpf.Models
         public int BalanceId { get; set; }
         public ICollection<User> User { get; set; }
 
-        public float curr_balance { get; set; }
+        public double curr_balance { get; set; }
 
 
         public Balance() { }
 
-        public Balance(float currBalance)
+        public Balance(double currBalance)
         {
             curr_balance = currBalance;
         }
