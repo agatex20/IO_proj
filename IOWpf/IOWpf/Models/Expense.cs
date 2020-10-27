@@ -15,7 +15,7 @@ namespace IOWpf.Models
         public virtual User User { get; set; }                       // Expense is associated with one User
 
         //private ImageSource bill_photo { get; set; }
-        private string category { get; set; }
+        public string category { get; set; }
 
 
         public Expense() { }

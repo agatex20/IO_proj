@@ -9,8 +9,8 @@ namespace IOWpf.Models
     public abstract class User
     {
         public int ID { get; set; }
-        protected string name { get; set; }
-        protected string password { get; set; }
+        public string name { get; set; }
+        public string password { get; set; }
 
         public virtual ICollection<Income> Incomes { get; set; }                        // one User to many Incomes
         public virtual ICollection<Expense> Expenses { get; set; }                      // one User to many Expenses

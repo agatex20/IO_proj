@@ -11,14 +11,14 @@ namespace IOWpf.Models
         public int Piggy_bankId { get; set; }
         public virtual ICollection<User_Piggy_bank> User_Piggy_banks { get; set; }
 
-        private string creator_name { get; set; }
-        private float goal { get; set; }
-        private string goal_date { get; set; }
-        private string goal_namel { get; set; }
-        private bool if_childs { get; set; }
-        private float monthly_income { get; set; }
-        private int start_day { get; set; }
-        private float treasured_amount { get; set; }
+        public string creator_name { get; set; }
+        public float goal { get; set; }
+        public string goal_date { get; set; }
+        public string goal_namel { get; set; }
+        public bool if_childs { get; set; }
+        public float monthly_income { get; set; }
+        public int start_day { get; set; }
+        public float treasured_amount { get; set; }
 
 
         public Piggy_bank() { }
