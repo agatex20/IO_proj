@@ -81,5 +81,16 @@ namespace IOWpf
         {
             DataContext = new DodajWydatek();
         }
+
+        private void DodajPrzychodClicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new DodajPrzychod();
+        }
+
+        private void SkarbonkaClicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Skarbonka();
+        }
     }
+       
 }
