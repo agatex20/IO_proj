@@ -44,8 +44,20 @@ namespace IOWpf
             using (var db = new Application_context())
             {
                 // ------------- Create --------------- //
-                //Balance newBalance = new Balance(10.0);
+                //Balance newBalance = new Balance(1200.0);
                 //db.Balances.Add(newBalance);
+                //db.SaveChanges();
+
+                Grown_up adult = new Grown_up();
+                adult.name = "Tomek";
+                adult.password = "qwerty12345";
+                adult.BalanceId = 1;
+                db.Grown_Ups.Add(adult);
+                db.SaveChanges();
+
+                //Income newIncome = new Income();
+                //newIncome.amount = 1000;
+                //db.Incomes.Add(newIncome);
                 //db.SaveChanges();
 
                 // -------------- Read ---------------- //

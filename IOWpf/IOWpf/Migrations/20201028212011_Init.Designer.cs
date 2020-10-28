@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IOWpf.Migrations
 {
     [DbContext(typeof(Application_context))]
-    [Migration("20201027154130_Init")]
+    [Migration("20201028212011_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace IOWpf.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("curr_balance")
+                    b.Property<double>("curr_balance")
                         .HasColumnType("REAL");
 
                     b.HasKey("BalanceId");
@@ -155,7 +155,7 @@ namespace IOWpf.Migrations
 
                     b.HasIndex("BalanceId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("User");
                 });

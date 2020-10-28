@@ -22,7 +22,7 @@ namespace IOWpf.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("curr_balance")
+                    b.Property<double>("curr_balance")
                         .HasColumnType("REAL");
 
                     b.HasKey("BalanceId");
@@ -153,7 +153,7 @@ namespace IOWpf.Migrations
 
                     b.HasIndex("BalanceId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("User");
                 });

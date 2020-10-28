@@ -12,7 +12,7 @@ namespace IOWpf.Migrations
                 {
                     BalanceId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    curr_balance = table.Column<float>(nullable: false)
+                    curr_balance = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,7 +40,7 @@ namespace IOWpf.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Users",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -52,9 +52,9 @@ namespace IOWpf.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.ID);
+                    table.PrimaryKey("PK_Users", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_User_Balances_BalanceId",
+                        name: "FK_Users_Balances_BalanceId",
                         column: x => x.BalanceId,
                         principalTable: "Balances",
                         principalColumn: "BalanceId",
@@ -79,9 +79,9 @@ namespace IOWpf.Migrations
                 {
                     table.PrimaryKey("PK_Expenses", x => x.ExpenseId);
                     table.ForeignKey(
-                        name: "FK_Expenses_User_UserId",
+                        name: "FK_Expenses_Users_UserId",
                         column: x => x.UserId,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -103,9 +103,9 @@ namespace IOWpf.Migrations
                 {
                     table.PrimaryKey("PK_Incomes", x => x.IncomeId);
                     table.ForeignKey(
-                        name: "FK_Incomes_User_UserId",
+                        name: "FK_Incomes_Users_UserId",
                         column: x => x.UserId,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -127,9 +127,9 @@ namespace IOWpf.Migrations
                         principalColumn: "Piggy_bankId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_User_Piggy_banks_User_UserId",
+                        name: "FK_User_Piggy_banks_Users_UserId",
                         column: x => x.UserId,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -145,14 +145,14 @@ namespace IOWpf.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_User_BalanceId",
-                table: "User",
-                column: "BalanceId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_User_Piggy_banks_Piggy_bankId",
                 table: "User_Piggy_banks",
                 column: "Piggy_bankId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_BalanceId",
+                table: "Users",
+                column: "BalanceId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -170,7 +170,7 @@ namespace IOWpf.Migrations
                 name: "Piggy_Banks");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Balances");

@@ -24,6 +24,7 @@ namespace IOWpf.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<User_Piggy_bank>()
                 .HasKey(c => new { c.UserId, c.Piggy_bankId });
         }
