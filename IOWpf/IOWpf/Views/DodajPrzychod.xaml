@@ -14,14 +14,14 @@
             <TextBlock Text="Przychod:" FontSize="30" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3"/>
 
 
-            <TextBox materialDesign:HintAssist.Hint="Kwota" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold"/>
+            <TextBox materialDesign:HintAssist.Hint="Kwota" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" TextChanged="TextBox_TextChanged" Name="amount"/>
             <Grid>
                 <TextBox Text="Data" Foreground="#FF2196F3" />
-                <DatePicker Text="Data" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                <DatePicker Text="Data" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Name="date" />
             </Grid>
 
-            <TextBox materialDesign:HintAssist.Hint="Opis" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3"/>
-            <Button Content="Dodaj" Margin="0 20" Foreground="#FF514A4A"/>
+            <TextBox materialDesign:HintAssist.Hint="Opis" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3" Name="des"/>
+            <Button Content="Dodaj" Margin="0 20" Foreground="#FF514A4A" Click="AddClicked"/>
         </StackPanel>
 
 

@@ -37,7 +37,7 @@ namespace IOWpf
             DragMove();
         }
 
-        private void PanelViewClicked(object sender, RoutedEventArgs e)
+        private void  PanelViewClicked(object sender, RoutedEventArgs e)
         {
             DataContext = new PanelView();
 
@@ -47,14 +47,14 @@ namespace IOWpf
                 //Balance newBalance = new Balance(1200.0);
                 //db.Balances.Add(newBalance);
                 //db.SaveChanges();
-
+                /*
                 Grown_up adult = new Grown_up();
                 adult.name = "Tomek";
                 adult.password = "qwerty12345";
                 adult.BalanceId = 1;
                 db.Grown_Ups.Add(adult);
                 db.SaveChanges();
-
+                */
                 //Income newIncome = new Income();
                 //newIncome.amount = 1000;
                 //db.Incomes.Add(newIncome);

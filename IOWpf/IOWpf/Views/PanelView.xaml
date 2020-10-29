@@ -34,7 +34,7 @@
         <TextBlock Text="10" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3" Grid.Column="2" Margin="0,0,10,0"/>
 
 
-        <TextBlock Text="Kategoria" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" FontStyle="Italic"/>
+        <TextBlock Text="Opis" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" FontStyle="Italic"/>
         <TextBlock Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"  Grid.Row="1" Grid.Column="1" FontStyle="Italic"/>
         <TextBlock Text="Data" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="2" FontStyle="Italic"/>
 
@@ -46,6 +46,18 @@
 
         <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF373333">
         </Grid>
+
+        <ListView Margin="0,1.6,0,-0.4" Name="lvDataBinding" Grid.Row="2" Grid.RowSpan="6" Grid.ColumnSpan="3">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding description}"  FontWeight="Bold" Margin="0,0,350,17" />
+                        <TextBlock Text="{Binding amount}"  FontWeight="Bold" Margin="0,0,150,17" />
+                        <TextBlock Text="{Binding date}"   FontWeight="Bold" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 
     </Grid>

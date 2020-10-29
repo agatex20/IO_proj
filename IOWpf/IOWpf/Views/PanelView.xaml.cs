@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IOWpf.Models;
+using IOWpf.Views;
 
 namespace IOWpf.Views
 {
@@ -23,6 +25,17 @@ namespace IOWpf.Views
         public PanelView()
         {
             InitializeComponent();
+            using (var db = new Application_context())
+            {
+                List<Expense> lists = db.Expenses.ToList();
+                // ICollection<Expense> expens = lists;
+                int number_of_expenses = lists.Count();
+                if (number_of_expenses > 6)
+                    lists.RemoveRange(0, number_of_expenses - 6);
+                 
+                    lvDataBinding.ItemsSource = lists;
+            }
+            
         }
     }
 }

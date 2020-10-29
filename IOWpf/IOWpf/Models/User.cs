@@ -31,12 +31,12 @@ namespace IOWpf.Models
             this.password = password;
         }
 
-        public virtual void add_expense()
+        public virtual void add_expense(float _amount, string _date, string _description, string _category)
         {
 
         }
 
-        public virtual void add_income()
+        public virtual void add_income(float _amount, string _date, string _description)
         {
 
         }

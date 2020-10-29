@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IOWpf.Models;
+using IOWpf.Views;
 
 namespace IOWpf.Views
 {
@@ -24,8 +26,27 @@ namespace IOWpf.Views
         {
             InitializeComponent();
         }
-
+        
         private void Data(object sender, TextCompositionEventArgs e)
+        {
+
+        }
+        
+        private void AddClicked(object sender, RoutedEventArgs e)
+        {
+            Grown_up adult = new Grown_up("XYZ","xyz");
+            adult.ID = 1;
+            float am = float.Parse(amount.Text);
+
+            adult.add_expense(am, date.Text, des.Text, cat.Text);
+        }
+        
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 
         }

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IOWpf.Models;
+using IOWpf.Views;
 
 namespace IOWpf.Views
 {
@@ -23,6 +25,19 @@ namespace IOWpf.Views
         public DodajPrzychod()
         {
             InitializeComponent();
+        }
+
+        private void AddClicked(object sender, RoutedEventArgs e)
+        {
+            Grown_up adult = new Grown_up("XYZ", "xyz");
+            adult.ID = 1;
+            float am = float.Parse(amount.Text);
+
+            adult.add_income(am, date.Text, des.Text);
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
