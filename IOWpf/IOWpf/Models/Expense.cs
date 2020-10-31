@@ -26,19 +26,5 @@ namespace IOWpf.Models
             this.category = category;
         }
 
-        public override void edit()
-        {
-            base.edit();
-        }
-
-        public override bool get_direction()
-        {
-            return base.get_direction();
-        }
-
-        public void add_photo()
-        {
-
-        }
     }
 }

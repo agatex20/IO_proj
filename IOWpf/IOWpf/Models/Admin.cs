@@ -12,34 +12,5 @@ namespace IOWpf.Models
 
         public Admin(string name, string password) : base(name, password) { }
 
-        public override void add_expense(float _amount, string _date, string _description, string _category)
-        {
-           // base.add_expense();
-        }
-
-        public override void add_income(float _amount, string _date, string _description)
-        {
-           // base.add_income();
-        }
-
-        public override void add_piggy_banks()
-        {
-            base.add_piggy_banks();
-        }
-
-        public override void check_statistics()
-        {
-            base.check_statistics();
-        }
-
-        public override void edit_account()
-        {
-            base.edit_account();
-        }
-
-        public void add_user()
-        {
-
-        }
     }
 }

@@ -180,6 +180,15 @@
     </Compile>
     <Compile Include="Migrations\Application_contextModelSnapshot.cs" />
     <Compile Include="Models\User_Piggy_bank.cs" />
+    <Compile Include="Services\Admin_service.cs" />
+    <Compile Include="Services\Balance_service.cs" />
+    <Compile Include="Services\Child_service.cs" />
+    <Compile Include="Services\Expense_service.cs" />
+    <Compile Include="Services\Grown_up_service.cs" />
+    <Compile Include="Services\Income_service.cs" />
+    <Compile Include="Services\I_Money_flow_service.cs" />
+    <Compile Include="Services\I_User_service.cs" />
+    <Compile Include="Services\Piggy_bank_service.cs" />
     <Compile Include="ViewsModels\DodajPrzychod.cs" />
     <Compile Include="ViewsModels\DodajWydatek.cs" />
     <Compile Include="ViewsModels\PanelViewModel.cs" />

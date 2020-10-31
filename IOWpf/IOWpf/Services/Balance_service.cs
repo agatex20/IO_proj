@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace IOWpf.Services
 {
-    class Balance_service
+    public class Balance_service
     {
+        public float calc_balance()
+        {
+            return 0.0f;
+        }
     }
 }

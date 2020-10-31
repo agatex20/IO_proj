@@ -34,21 +34,5 @@ namespace IOWpf.Models
             start_day = startDay;
             treasured_amount = treasuredAmount;
         }
-
-        public void deposit()
-        {
-
-        }
-
-        public void end_piggy_bank()
-        {
-
-        }
-
-        public void withdraw()
-        {
-
-        }
-
     }
 }

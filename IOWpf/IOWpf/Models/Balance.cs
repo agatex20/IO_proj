@@ -20,11 +20,5 @@ namespace IOWpf.Models
         {
             curr_balance = currBalance;
         }
-
-        public float calc_balance()
-        {
-            return 0.0f;
-        }
-
     }
 }

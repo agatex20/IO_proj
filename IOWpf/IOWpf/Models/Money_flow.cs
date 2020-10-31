@@ -25,28 +25,5 @@ namespace IOWpf.Models
             this.description = description;
             if_childs = ifChilds;
         }
-
-        public virtual void cancel()
-        {
-
-        }
-
-        public virtual void edit()
-        {
-
-        }
-
-        public virtual bool get_direction()
-        {
-            return false;
-        }
-
-        public virtual void set_cyclic()
-        {
-
-        }
-
-
-
     }
 }

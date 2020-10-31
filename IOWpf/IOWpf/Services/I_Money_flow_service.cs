@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace IOWpf.Services
 {
-    class I_Money_flow_service
+    public interface I_Money_flow_service
     {
+        void cancel();
+
+        void edit();
+
+        bool get_direction();
+
+        void set_cyclic();
     }
 }

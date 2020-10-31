@@ -30,32 +30,5 @@ namespace IOWpf.Models
             this.name = name;
             this.password = password;
         }
-
-        public virtual void add_expense(float _amount, string _date, string _description, string _category)
-        {
-
-        }
-
-        public virtual void add_income(float _amount, string _date, string _description)
-        {
-
-        }
-
-        public virtual void add_piggy_banks()
-        {
-
-        }
-
-        public virtual void check_statistics()
-        {
-
-        }
-
-        public virtual void edit_account()
-        {
-
-        }
-
-
     }
 }

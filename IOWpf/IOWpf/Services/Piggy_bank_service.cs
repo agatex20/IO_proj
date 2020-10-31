@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace IOWpf.Services
 {
-    class Piggy_bank_service
+    public class Piggy_bank_service
     {
+        void deposit()
+        {
+
+        }
+
+        void end_piggy_bank()
+        {
+
+        }
+
+        void withdraw()
+        {
+
+        }
     }
 }

@@ -6,7 +6,26 @@ using System.Threading.Tasks;
 
 namespace IOWpf.Services
 {
-    class Income_service
+    public class Income_service
     {
+        void cancel()
+        {
+
+        }
+
+        void edit()
+        {
+
+        }
+
+        bool get_direction()
+        {
+            return false;
+        }
+
+        void set_cyclic()
+        {
+
+        }
     }
 }

@@ -16,14 +16,5 @@ namespace IOWpf.Models
 
         public Income(float amount, string creatorName, string date, string description, bool ifChilds) : base(amount, creatorName, date, description, ifChilds) { }
 
-        public override void edit()
-        {
-            base.edit();
-        }
-
-        public override bool get_direction()
-        {
-            return base.get_direction();
-        }
     }
 }
