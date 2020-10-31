@@ -179,6 +179,8 @@
       <DependentUpon>20201028212011_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Application_contextModelSnapshot.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Expense_Category.cs" />
     <Compile Include="Models\User_Piggy_bank.cs" />
     <Compile Include="Services\Admin_service.cs" />
     <Compile Include="Services\Balance_service.cs" />

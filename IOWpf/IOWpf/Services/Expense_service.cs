@@ -18,11 +18,6 @@ namespace IOWpf.Services
 
         }
 
-        bool get_direction()
-        {
-            return false;
-        }
-
         void set_cyclic()
         {
 

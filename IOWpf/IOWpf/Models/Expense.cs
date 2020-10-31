@@ -21,7 +21,7 @@ namespace IOWpf.Models
 
         public Expense() { }
 
-        public Expense(float amount, string creatorName, string date, string description, bool ifChilds, /*ImageSource billPhoto,*/) : base(amount, creatorName, date, description, ifChilds)
+        public Expense(float amount, string creatorName, string date, string description, bool ifChilds /*ImageSource billPhoto,*/) : base(amount, creatorName, date, description, ifChilds)
         {
             //bill_photo = billPhoto;
             

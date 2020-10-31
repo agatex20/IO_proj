@@ -18,7 +18,6 @@ namespace IOWpf.Services
                 exp.amount = _amount;
                 exp.date = _date;
                 exp.description = _description;
-                exp.category = _category;
                 //exp.creator_name = this.name;             // zamiast this najpierw trzeba pobrac danego usera z bazy
                 //exp.UserId = this.ID;
                 exp.if_childs = false;

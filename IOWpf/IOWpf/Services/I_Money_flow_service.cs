@@ -12,8 +12,6 @@ namespace IOWpf.Services
 
         void edit();
 
-        bool get_direction();
-
         void set_cyclic();
     }
 }

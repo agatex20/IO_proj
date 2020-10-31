@@ -33,7 +33,7 @@ namespace IOWpf.Views
             adult.ID = 1;
             float am = float.Parse(amount.Text);
 
-            adult.add_income(am, date.Text, des.Text);
+            //adult.add_income(am, date.Text, des.Text);                //zmienic ze nie Grown_up ma ta metode tylko Grown_up_service
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

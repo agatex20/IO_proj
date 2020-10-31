@@ -38,7 +38,7 @@ namespace IOWpf.Views
             adult.ID = 1;
             float am = float.Parse(amount.Text);
 
-            adult.add_expense(am, date.Text, des.Text, cat.Text);
+            //adult.add_expense(am, date.Text, des.Text, cat.Text);             //zmienic ze nie Grown_up ma ta metode tylko Grown_up_service
         }
         
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
