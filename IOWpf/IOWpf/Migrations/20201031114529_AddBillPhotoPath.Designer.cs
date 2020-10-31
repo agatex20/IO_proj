@@ -3,14 +3,16 @@ using System;
 using IOWpf.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IOWpf.Migrations
 {
     [DbContext(typeof(Application_context))]
-    partial class Application_contextModelSnapshot : ModelSnapshot
+    [Migration("20201031114529_AddBillPhotoPath")]
+    partial class AddBillPhotoPath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

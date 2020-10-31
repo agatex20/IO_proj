@@ -178,6 +178,10 @@
     <Compile Include="Migrations\20201031113220_Init.designer.cs">
       <DependentUpon>20201031113220_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20201031114529_AddBillPhotoPath.cs" />
+    <Compile Include="Migrations\20201031114529_AddBillPhotoPath.designer.cs">
+      <DependentUpon>20201031114529_AddBillPhotoPath.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Application_contextModelSnapshot.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Expense_Category.cs" />
