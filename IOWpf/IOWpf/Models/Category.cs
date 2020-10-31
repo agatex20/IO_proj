@@ -11,7 +11,7 @@ namespace IOWpf.Models
         public int CategoryId { get; set; }
 
         public string Category_name { get; set; }
-        public virtual ICollection<Expense> Expenses { get; set; }
+        public virtual ICollection<Expense_Category> Expense_Categories { get; set; }
 
     }
 }

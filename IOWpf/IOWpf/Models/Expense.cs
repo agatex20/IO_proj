@@ -16,7 +16,7 @@ namespace IOWpf.Models
 
         //private ImageSource bill_photo { get; set; }
 
-        public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<Expense_Category> Expense_Categories { get; set; }
 
 
         public Expense() { }
