@@ -20,6 +20,19 @@ namespace IOWpf.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    CategoryId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Category_name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Piggy_Banks",
                 columns: table => new
                 {
@@ -72,8 +85,7 @@ namespace IOWpf.Migrations
                     date = table.Column<string>(nullable: true),
                     description = table.Column<string>(nullable: true),
                     if_childs = table.Column<bool>(nullable: false),
-                    UserId = table.Column<int>(nullable: true),
-                    category = table.Column<string>(nullable: true)
+                    UserId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -134,6 +146,35 @@ namespace IOWpf.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Expense_Categories",
+                columns: table => new
+                {
+                    ExpenseId = table.Column<int>(nullable: false),
+                    CategoryId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Expense_Categories", x => new { x.ExpenseId, x.CategoryId });
+                    table.ForeignKey(
+                        name: "FK_Expense_Categories_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Expense_Categories_Expenses_ExpenseId",
+                        column: x => x.ExpenseId,
+                        principalTable: "Expenses",
+                        principalColumn: "ExpenseId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Expense_Categories_CategoryId",
+                table: "Expense_Categories",
+                column: "CategoryId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Expenses_UserId",
                 table: "Expenses",
@@ -158,13 +199,19 @@ namespace IOWpf.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Expenses");
+                name: "Expense_Categories");
 
             migrationBuilder.DropTable(
                 name: "Incomes");
 
             migrationBuilder.DropTable(
                 name: "User_Piggy_banks");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Expenses");
 
             migrationBuilder.DropTable(
                 name: "Piggy_Banks");

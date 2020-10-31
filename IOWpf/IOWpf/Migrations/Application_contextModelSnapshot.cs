@@ -30,6 +30,20 @@ namespace IOWpf.Migrations
                     b.ToTable("Balances");
                 });
 
+            modelBuilder.Entity("IOWpf.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Category_name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("IOWpf.Models.Expense", b =>
                 {
                     b.Property<int>("ExpenseId")
@@ -41,9 +55,6 @@ namespace IOWpf.Migrations
 
                     b.Property<float>("amount")
                         .HasColumnType("REAL");
-
-                    b.Property<string>("category")
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("creator_name")
                         .HasColumnType("TEXT");
@@ -62,6 +73,21 @@ namespace IOWpf.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Expenses");
+                });
+
+            modelBuilder.Entity("IOWpf.Models.Expense_Category", b =>
+                {
+                    b.Property<int>("ExpenseId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ExpenseId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Expense_Categories");
                 });
 
             modelBuilder.Entity("IOWpf.Models.Income", b =>
@@ -199,6 +225,21 @@ namespace IOWpf.Migrations
                     b.HasOne("IOWpf.Models.User", "User")
                         .WithMany("Expenses")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("IOWpf.Models.Expense_Category", b =>
+                {
+                    b.HasOne("IOWpf.Models.Category", "Category")
+                        .WithMany("Expense_Categories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("IOWpf.Models.Expense", "Expense")
+                        .WithMany("Expense_Categories")
+                        .HasForeignKey("ExpenseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("IOWpf.Models.Income", b =>
