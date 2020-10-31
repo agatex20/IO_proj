@@ -15,15 +15,16 @@ namespace IOWpf.Models
         public virtual User User { get; set; }                       // Expense is associated with one User
 
         //private ImageSource bill_photo { get; set; }
-        public string category { get; set; }
+
+        public virtual ICollection<Category> Categories { get; set; }
 
 
         public Expense() { }
 
-        public Expense(float amount, string creatorName, string date, string description, bool ifChilds, /*ImageSource billPhoto,*/ string category) : base(amount, creatorName, date, description, ifChilds)
+        public Expense(float amount, string creatorName, string date, string description, bool ifChilds, /*ImageSource billPhoto,*/) : base(amount, creatorName, date, description, ifChilds)
         {
             //bill_photo = billPhoto;
-            this.category = category;
+            
         }
 
     }

@@ -17,7 +17,9 @@ namespace IOWpf.Models
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Income> Incomes { get; set; }
         public DbSet<Expense> Expenses { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<User_Piggy_bank> User_Piggy_banks { get; set; }
+        public DbSet<Expense_Category> Expense_Categories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("Data Source=database.db");
@@ -27,6 +29,8 @@ namespace IOWpf.Models
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<User_Piggy_bank>()
                 .HasKey(c => new { c.UserId, c.Piggy_bankId });
+            modelBuilder.Entity<Expense_Category>()
+                .HasKey(c => new { c.ExpenseId, c.CategoryId });
         }
     }
 }
