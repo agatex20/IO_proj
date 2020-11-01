@@ -14,24 +14,22 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using IOWpf.Models;
 using IOWpf.Views;
-using IOWpf;
 
 namespace IOWpf.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy Skarbonka.xaml
+    /// Logika interakcji dla klasy DodajSkarbonke.xaml
     /// </summary>
-    public partial class Skarbonka : UserControl
+    public partial class DodajSkarbonke : UserControl
     {
-        public Skarbonka()
+        public DodajSkarbonke()
         {
             InitializeComponent();
         }
 
-        private void AddBankClicked(object sender, RoutedEventArgs e)
+        private void AddClicked(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = Window.GetWindow(this) as MainWindow;
-            mw.DodajSkarbonkeClicked(sender, e);
+            
         }
     }
 }

@@ -33,7 +33,7 @@
 
         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" Background="#FF373333">
             <TextBlock Grid.Column="0"  Grid.ColumnSpan="2" Text="Skarbonki:" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="36" Foreground="#FF2196F3"  Margin="10,-1,0,57" Height="44" Width="172"/>
-            <Button Content="Dodaj skarbonkę" HorizontalAlignment="Right" Margin="0,0,10,0" Foreground="#FF514A4A"/>
+            <Button Click="AddBankClicked" Content="Dodaj skarbonkę" HorizontalAlignment="Right" Margin="0,0,10,0" Foreground="#FF514A4A"/>
 
         </Grid>
 

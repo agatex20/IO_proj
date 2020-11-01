@@ -195,12 +195,16 @@
     <Compile Include="Services\I_Money_flow_service.cs" />
     <Compile Include="Services\I_User_service.cs" />
     <Compile Include="Services\Piggy_bank_service.cs" />
+    <Compile Include="ViewsModels\DodajSkarbonke.cs" />
     <Compile Include="ViewsModels\DodajPrzychod.cs" />
     <Compile Include="ViewsModels\DodajWydatek.cs" />
     <Compile Include="ViewsModels\PanelViewModel.cs" />
     <Compile Include="ViewsModels\Skarbonka.cs" />
     <Compile Include="Views\DodajPrzychod.xaml.cs">
       <DependentUpon>DodajPrzychod.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DodajSkarbonke.xaml.cs">
+      <DependentUpon>DodajSkarbonke.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DodajWydatek.xaml.cs">
       <DependentUpon>DodajWydatek.xaml</DependentUpon>
@@ -233,6 +237,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\DodajPrzychod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DodajSkarbonke.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

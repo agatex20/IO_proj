@@ -28,6 +28,11 @@
             <Views:Skarbonka DataContext="{Binding}"/>
 
         </DataTemplate>
+
+        <DataTemplate x:Name="DodajSkarbonkeTemplate" DataType="{x:Type ViewModels:DodajSkarbonke}">
+            <Views:DodajSkarbonke DataContext="{Binding}"/>
+
+        </DataTemplate>
     </Window.Resources>
 
     <Grid Background="#FF514A4A">
