@@ -29,6 +29,11 @@
 
         </DataTemplate>
 
+        <DataTemplate x:Name="StatystykiTemplate" DataType="{x:Type ViewModels:Stats}">
+            <Views:Stats DataContext="{Binding}"/>
+
+        </DataTemplate>
+
         <DataTemplate x:Name="DodajSkarbonkeTemplate" DataType="{x:Type ViewModels:DodajSkarbonke}">
             <Views:DodajSkarbonke DataContext="{Binding}"/>
 
@@ -95,7 +100,7 @@
                     </Grid>
                 </Button>
 
-                <Button Margin="10">
+                <Button Margin="10" Click="StatystykiClicked">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="ChartBarStacked" VerticalAlignment="Center" Foreground="#FF514A4A" />
                         <TextBlock HorizontalAlignment="Center" Text="Statystyki" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>

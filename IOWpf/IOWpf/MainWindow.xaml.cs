@@ -92,6 +92,11 @@ namespace IOWpf
             DataContext = new Skarbonka();
         }
 
+        private void StatystykiClicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Stats();
+        }
+
         public void DodajSkarbonkeClicked(object sender, RoutedEventArgs e)
         {
            DataContext = new DodajSkarbonke();

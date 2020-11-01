@@ -137,6 +137,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -155,6 +156,7 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -200,6 +202,7 @@
     <Compile Include="ViewsModels\DodajWydatek.cs" />
     <Compile Include="ViewsModels\PanelViewModel.cs" />
     <Compile Include="ViewsModels\Skarbonka.cs" />
+    <Compile Include="ViewsModels\Stats.cs" />
     <Compile Include="Views\DodajPrzychod.xaml.cs">
       <DependentUpon>DodajPrzychod.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,9 @@
     </Compile>
     <Compile Include="Views\Skarbonka.xaml.cs">
       <DependentUpon>Skarbonka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Stats.xaml.cs">
+      <DependentUpon>Stats.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -253,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Skarbonka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Stats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
