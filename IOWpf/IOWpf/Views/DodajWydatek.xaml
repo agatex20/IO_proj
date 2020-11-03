@@ -11,8 +11,7 @@
 
 
         <StackPanel>
-            <TextBlock Text="Wydatek:" FontSize="30" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3"/>
-
+            <TextBlock Text="Wydatek:" FontSize="40" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3" Height="60"/>
             <Grid Margin="0 0 0 20">
                 <Button Content="Dodaj paragon" HorizontalAlignment="Right" Margin="0,0,10,0" Foreground="#FF514A4A"/>
 

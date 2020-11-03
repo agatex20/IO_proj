@@ -11,7 +11,7 @@
 
 
         <StackPanel>
-            <TextBlock Text="Nowa skarbonka:" FontSize="30" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3"/>
+            <TextBlock Text="Nowa skarbonka:" FontSize="40" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3"/>
 
             <TextBox materialDesign:HintAssist.Hint="Nazwa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="pb_name"/>
             <Grid>
