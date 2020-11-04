@@ -38,6 +38,11 @@
             <Views:DodajSkarbonke DataContext="{Binding}"/>
 
         </DataTemplate>
+
+        <DataTemplate x:Name="LoginTemplate" DataType="{x:Type ViewModels:Login}">
+            <Views:Login DataContext="{Binding}"/>
+
+        </DataTemplate>
     </Window.Resources>
 
     <Grid Background="#FF514A4A">
@@ -51,23 +56,18 @@
         </Grid.RowDefinitions>
 
 
-        <Grid Grid.Row="1" Margin="0,0,3,0">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FF252526" Offset="0.006"/>
-                    <GradientStop Color="#FF4E4B4B" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+        <Grid Grid.Row="1" Margin="0,0,3,0" Background="#FF373333">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.Effect>
-                <DropShadowEffect BlurRadius="20" Color="#FFC1C1C1" RenderingBias="Quality" ShadowDepth="1"/>
+                <DropShadowEffect BlurRadius="20" Color="#FFC1C1C1" RenderingBias="Quality" ShadowDepth="1" />
             </Grid.Effect>
 
-            <Grid Background="#FF514A4A">
-                <TextBlock Text="Monitorowanie Budżetu" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
+            <Grid Background="#FF2196F3">
+                <TextBlock Text="Monitorowanie Budżetu" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF514A4A" Margin="0,38,44.333,38"/>
             </Grid>
 
             <StackPanel Grid.Row="1">
@@ -109,8 +109,8 @@
 
             </StackPanel>
         </Grid>
-        
-        
+
+
         <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding}"/>
 
         <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#FF2196F3" MouseDown="GridBarTitle_MouseDown">
@@ -119,7 +119,7 @@
                     <materialDesign:PackIcon Kind="HeadDotsHorizontal"/>
                 </Button>
 
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF514A4A">
+                <Button Click="LoginClicked" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF514A4A">
                     <materialDesign:PackIcon Kind="Account"/>
                 </Button>
 

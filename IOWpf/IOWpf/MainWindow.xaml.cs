@@ -101,6 +101,11 @@ namespace IOWpf
         {
            DataContext = new DodajSkarbonke();
         }
+
+        public void LoginClicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Login();
+        }
     }
        
 }

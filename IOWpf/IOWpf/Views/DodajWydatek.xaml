@@ -7,51 +7,53 @@
              xmlns:local="clr-namespace:IOWpf.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#FF514A4A">
+    <Border Background="#FF373333" CornerRadius="20" Margin="20">
+        <Grid>
 
 
-        <StackPanel>
-            <TextBlock Text="Wydatek:" FontSize="40" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3" Height="60"/>
-            <Grid Margin="0 0 0 20">
-                <Button Content="Dodaj paragon" HorizontalAlignment="Right" Margin="0,0,10,0" Foreground="#FF514A4A"/>
+            <StackPanel>
+                <TextBlock Text="Wydatek:" FontSize="40" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3" Height="60"/>
+                <Grid Margin="0 0 0 20">
+                    <Button Content="Dodaj paragon" HorizontalAlignment="Right" Margin="0,0,10,0" Foreground="#FF514A4A" FontFamily="Impact"/>
 
-            </Grid>
+                </Grid>
+                
+                <Label Content="Kwota" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
+                <TextBox  Margin="10 0 10 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="amount"/>
 
-            <TextBox materialDesign:HintAssist.Hint="Kwota" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="amount"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="91*"/>
-                    <ColumnDefinition Width="709*"/>
-                </Grid.ColumnDefinitions>
-                <TextBox Text="Data" Foreground="#FF2196F3" Grid.ColumnSpan="2" Margin="0,0,0,-0.6" />
-                <DatePicker Text="Data" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Grid.ColumnSpan="2" Margin="0,0,0,0.4" Name="date" />
-            </Grid>
+                <Label Content="Data" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
+                <DatePicker  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Grid.ColumnSpan="2" Margin="10,0,10,5" Name="date" Foreground="#FF2196F3" FontWeight="Bold" BorderBrush="#89000000" />
 
-            <TextBox materialDesign:HintAssist.Hint="Opis" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3" TextChanged="TextBox_TextChanged_1" Name="des"/>
-            <Grid>
-                <TextBox Text="Kategoria" Foreground="#FF2196F3" Width="100" HorizontalAlignment="Left" />
-                <ComboBox HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="False" Background="#FF514A4A" Width="700" HorizontalAlignment="Right" Margin="100,0,0,0" Name="cat">
-                    <ComboBox.ItemContainerStyle>
-                        <Style TargetType="ComboBoxItem">
-                            <Setter Property="Background" Value="#FF514A4A" />
-                            <Setter Property="BorderBrush" Value="#FF514A4A"/>
+                <Label Content="Opis" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
+                <TextBox Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3" TextChanged="TextBox_TextChanged_1" Name="des"/>
 
-                        </Style>
-                    </ComboBox.ItemContainerStyle>
-                    <TextBox materialDesign:HintAssist.Hint="Użytkownik" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <ComboBoxItem Content="Dom i rachunki" />
-                    <ComboBoxItem Content="Jedzenie"/>
-                    <ComboBoxItem Content="Samochód i transport"/>
-                    <ComboBoxItem Content="Rozrywka"/>
-                    <ComboBoxItem Content="Odzież i obuwie"/>
-                    <ComboBoxItem Content="Edukacja"/>
-                    <ComboBoxItem Content="Zdrowie i uroda"/>
+                <Label Content="Kategoria" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
+               
+                    <ComboBox HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="False" Background="#FF373333"  Margin="10,0,10,5" Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="25">
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+                                <Setter Property="Background" Value="#FF373333"/>
+                                <Setter Property="BorderBrush" Value="#FF373333"/>
+                                <Setter Property="Foreground" Value="#FF2196F3"/>
 
-                </ComboBox>
-            </Grid>
-            <Button Content="Dodaj" Margin="0 20" Click="AddClicked" Foreground="#FF514A4A"/>
-        </StackPanel>
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+                       
+                      <TextBox materialDesign:HintAssist.Hint="Użytkownik" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <ComboBoxItem Content="Dom i rachunki" />
+                        <ComboBoxItem Content="Jedzenie"/>
+                        <ComboBoxItem Content="Samochód i transport"/>
+                        <ComboBoxItem Content="Rozrywka"/>
+                        <ComboBoxItem Content="Odzież i obuwie"/>
+                        <ComboBoxItem Content="Edukacja"/>
+                        <ComboBoxItem Content="Zdrowie i uroda"/>
+
+                    </ComboBox>
+                
+                <Button Content="Dodaj" Margin="60 20" Click="AddClicked" Foreground="#FF514A4A" FontFamily="Impact"/>
+            </StackPanel>
 
 
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>
