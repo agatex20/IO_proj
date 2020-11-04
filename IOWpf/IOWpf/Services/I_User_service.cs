@@ -12,7 +12,7 @@ namespace IOWpf.Services
 
         void add_income(float _amount, string _date, string _description);
 
-        void add_piggy_banks();
+        void add_piggy_banks(float _inamount, float _goal, float _montlyincome, string _goaldate, string _goalname);
 
         void check_piggy_banks();
 

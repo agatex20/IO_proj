@@ -25,6 +25,7 @@
 
             <TextBox materialDesign:HintAssist.Hint="Kwota początkowa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="start_amount"/>
             <TextBox materialDesign:HintAssist.Hint="Kwota docelowa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="goal_amount"/>
+            <TextBox materialDesign:HintAssist.Hint="Miesięczna wpłata" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="monthly_income"/>
             
             <Button Content="Dodaj" Margin="0 20" Click="AddClicked" Foreground="#FF514A4A"/>
         </StackPanel>

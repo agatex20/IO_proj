@@ -14,7 +14,7 @@ namespace IOWpf.Models
         public string creator_name { get; set; }
         public float goal { get; set; }
         public string goal_date { get; set; }
-        public string goal_namel { get; set; }
+        public string goal_name { get; set; }
         public bool if_childs { get; set; }
         public float monthly_income { get; set; }
         public int start_day { get; set; }
@@ -28,7 +28,7 @@ namespace IOWpf.Models
             creator_name = creatorName;
             this.goal = goal;
             goal_date = goalDate;
-            goal_namel = goalNamel;
+            goal_name = goalNamel;
             if_childs = ifChilds;
             monthly_income = monthlyIncome;
             start_day = startDay;
