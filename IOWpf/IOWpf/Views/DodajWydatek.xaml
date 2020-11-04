@@ -29,20 +29,15 @@
                 <TextBox Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3" TextChanged="TextBox_TextChanged_1" Name="des"/>
 
                 <Label Content="Kategoria" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
-               
-                    <ListBox HorizontalContentAlignment="Center" SelectionMode="Multiple" Background="#FF373333"  Margin="10,0,10,5" Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="150" SelectedValue="categoryname">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="Background" Value="#FF373333"/>
-                                <Setter Property="BorderBrush" Value="#FF373333"/>
+
+                <ListBox HorizontalContentAlignment="Center"  SelectionMode="Multiple" Background="#FF373333"  Margin="10,0,10,5" Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="150" ItemsSource="{Binding Category}">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Background" Value="#FF373333"/>
+                            <Setter Property="BorderBrush" Value="#FF373333"/>
                             <Setter Property="Foreground" Value="#FF2196F3"/>
                         </Style>
-                        </ListBox.ItemContainerStyle>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Category_name}" />
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
+                    </ListBox.ItemContainerStyle>
                 </ListBox>
                 
                 <Button Content="Dodaj" Margin="60 20" Click="AddClicked" Foreground="#FF514A4A" FontFamily="Impact"/>

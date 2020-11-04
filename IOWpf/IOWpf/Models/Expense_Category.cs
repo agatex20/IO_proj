@@ -20,7 +20,8 @@ namespace IOWpf.Models
             using (var db = new Application_context())
             {
                 var category = db.Categories.First(i => i.Category_name == cat);
-                var expen = db.Expenses.Last();
+                //var expen = db.Expenses.Last(i => i.ExpenseId > 0);
+                var expen = db.Expenses.OrderByDescending(p => p.ExpenseId).FirstOrDefault();
 
                 var Exp_Cat = new Expense_Category
                 {

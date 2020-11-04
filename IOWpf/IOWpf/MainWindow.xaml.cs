@@ -24,8 +24,8 @@ namespace IOWpf
     {
         public static List<Expense> explist;
         public static List<Income> inclist;
-        public static List<Category> catlist;
-        public MainWindow()
+        public static List<string> catlist=new List<string> { };
+    public MainWindow()
         {
             InitializeComponent();
             using (var db = new Application_context())
@@ -37,8 +37,13 @@ namespace IOWpf
                 inclist = db.Incomes.ToList();
             }
             using (var db = new Application_context())
-            {              
-                catlist = db.Categories.ToList();
+            {
+                List<Category> cats = new List<Category> { };
+                cats = db.Categories.ToList();
+                for (int i = 0; i <cats.Count(); i++)
+                {
+                    catlist.Add(cats[i].Category_name);
+                }
             }
         }
 

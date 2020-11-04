@@ -10,7 +10,7 @@ namespace IOWpf.Services
 {
     public class Grown_up_service : I_User_service
     {
-        public List<string> catlist;
+        public List<string> catlist = new List<string> { };
         public void add_expense(float _amount, string _date, string _description, int _creator_id, string _creator_name, string bill_path)
         {
             Expense_service controller = new Expense_service();

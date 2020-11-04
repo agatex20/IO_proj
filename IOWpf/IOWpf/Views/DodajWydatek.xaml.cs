@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -26,6 +25,7 @@ namespace IOWpf.Views
     /// </summary>
     public partial class DodajWydatek : UserControl
     {
+        
         public DodajWydatek()
         {
             InitializeComponent();
@@ -41,23 +41,22 @@ namespace IOWpf.Views
         {
             Grown_up_service g_controller = new Grown_up_service();
             Child_service c_controller = new Child_service();
-
             
 
             float am = float.Parse(amount.Text);
-            if (Login.type==3)
+            if (Login.type == 3)
             {
                 foreach (var item in cat.SelectedItems)
                 {
                     c_controller.catlist.Add(item.ToString());
                 }
-                c_controller.add_expense(am, date.Text, des.Text, Login.id, Login.name, path.Text);    
+                c_controller.add_expense(am, date.Text, des.Text, Login.id, Login.name, path.Text);
             }
             else
             {
                 foreach (var item in cat.SelectedItems)
                 {
-                    g_controller.catlist.Add(item.ToString()) ;
+                    g_controller.catlist.Add(item.ToString());
                 }
                 g_controller.add_expense(am, date.Text, des.Text, Login.id, Login.name, path.Text);            
             }
