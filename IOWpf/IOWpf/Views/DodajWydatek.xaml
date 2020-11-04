@@ -12,11 +12,12 @@
 
 
             <StackPanel>
-                <TextBlock Text="Wydatek:" FontSize="40" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3" Height="60"/>
-                <Grid Margin="0 0 0 20">
-                    <Button Content="Dodaj paragon" HorizontalAlignment="Right" Margin="0,0,10,0" Foreground="#FF514A4A" FontFamily="Impact"/>
+                <TextBlock Text="Wydatek:" FontSize="40" Margin="10 0 0 10" FontFamily="Impact" Foreground="#FF2196F3" Height="50"/>
+                <Grid Margin="0 0 0 0">
+                    <Button Content="Dodaj paragon" HorizontalAlignment="Right" Margin="0,0,10,0" Click="OpenFileClicked" Foreground="#FF514A4A" FontFamily="Impact"/>
 
                 </Grid>
+                <TextBlock Name="path" FontSize="18"  HorizontalAlignment="Right" Margin="0 0 15 0" FontFamily="Impact" Foreground="#FF2196F3" Height="20"/>
                 
                 <Label Content="Kwota" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
                 <TextBox  Margin="10 0 10 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="amount"/>
@@ -29,26 +30,20 @@
 
                 <Label Content="Kategoria" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
                
-                    <ComboBox HorizontalContentAlignment="Center" IsEditable="True" IsReadOnly="False" Background="#FF373333"  Margin="10,0,10,5" Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="25">
-                        <ComboBox.ItemContainerStyle>
-                            <Style TargetType="ComboBoxItem">
+                    <ListBox HorizontalContentAlignment="Center" SelectionMode="Multiple" Background="#FF373333"  Margin="10,0,10,5" Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="150" SelectedValue="categoryname">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
                                 <Setter Property="Background" Value="#FF373333"/>
                                 <Setter Property="BorderBrush" Value="#FF373333"/>
-                                <Setter Property="Foreground" Value="#FF2196F3"/>
-
-                            </Style>
-                        </ComboBox.ItemContainerStyle>
-                       
-                      <TextBox materialDesign:HintAssist.Hint="Użytkownik" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        <ComboBoxItem Content="Dom i rachunki" />
-                        <ComboBoxItem Content="Jedzenie"/>
-                        <ComboBoxItem Content="Samochód i transport"/>
-                        <ComboBoxItem Content="Rozrywka"/>
-                        <ComboBoxItem Content="Odzież i obuwie"/>
-                        <ComboBoxItem Content="Edukacja"/>
-                        <ComboBoxItem Content="Zdrowie i uroda"/>
-
-                    </ComboBox>
+                            <Setter Property="Foreground" Value="#FF2196F3"/>
+                        </Style>
+                        </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Category_name}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
                 
                 <Button Content="Dodaj" Margin="60 20" Click="AddClicked" Foreground="#FF514A4A" FontFamily="Impact"/>
             </StackPanel>

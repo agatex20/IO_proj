@@ -9,14 +9,17 @@ namespace IOWpf.Services
 {
     public class Child_service : I_User_service
     {
-        public void add_expense(float _amount, string _date, string _description, string _category)
+        public List<string> catlist;
+        public void add_expense(float _amount, string _date, string _description, int _creator_id, string _creator_name, string bill_path)
         {
-
+            Expense_service controller = new Expense_service();
+            controller.add(_creator_id, _creator_name, _amount, _date, true, _description,bill_path);
         }
 
-        public void add_income(float _amount, string _date, string _description)
+        public void add_income(float _amount, string _date, string _description, int _creator_id, string _creator_name)
         {
-
+            Income_service controller = new Income_service();
+            controller.add(_creator_id, _creator_name, _amount, _date, true, _description,"");
         }
 
         public void add_piggy_banks(float _inamount, float _goal, float _montlyincome, string _goaldate, string _goalname)

@@ -20,10 +20,27 @@ namespace IOWpf.Models
 
         public Expense() { }
 
+     
         public Expense(float amount, string creatorName, string date, string description, bool ifChilds, string bill_photo_path) : base(amount, creatorName, date, description, ifChilds)
         {
             this.bill_photo_path = bill_photo_path;
         }
 
+        public override void add()
+        {
+            Expense exp = new Expense();
+            exp.amount = amount;
+            exp.date=date;
+            exp.creator_name=creator_name;
+            exp.description=description;
+           // exp.UserId = UserId; gdy będzie działać dodawanie userów to włączyć
+            exp.if_childs=if_childs;
+            exp.bill_photo_path = bill_photo_path;
+            using (var db = new Application_context())
+            {
+              db.Expenses.Add(exp);
+              db.SaveChanges();
+            }
+        }
     }
 }

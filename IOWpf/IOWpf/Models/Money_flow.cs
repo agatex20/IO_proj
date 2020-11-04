@@ -25,5 +25,9 @@ namespace IOWpf.Models
             this.description = description;
             if_childs = ifChilds;
         }
+
+        public virtual void add()
+        {
+        }
     }
 }

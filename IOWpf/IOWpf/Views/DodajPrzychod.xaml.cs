@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using IOWpf.Models;
+using IOWpf.Services;
 using IOWpf.Views;
 
 namespace IOWpf.Views
@@ -29,12 +30,25 @@ namespace IOWpf.Views
 
         private void AddClicked(object sender, RoutedEventArgs e)
         {
-            Grown_up adult = new Grown_up("XYZ", "xyz");
-            adult.ID = 1;
-            float am = float.Parse(amount.Text);
+            Grown_up_service g_controller = new Grown_up_service();
+            Child_service c_controller = new Child_service();
 
-            //adult.add_income(am, date.Text, des.Text);                //zmienic ze nie Grown_up ma ta metode tylko Grown_up_service
+            float am = float.Parse(amount.Text);
+            if (Login.type == 3)
+            {
+                c_controller.add_income(am, date.Text, des.Text, Login.id, Login.name);
+            }
+            else
+            {
+                g_controller.add_income(am, date.Text, des.Text, Login.id, Login.name);
+            }
+
+            using (var db = new Application_context())
+            {
+                MainWindow.inclist = db.Incomes.ToList();
+            }
         }
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 

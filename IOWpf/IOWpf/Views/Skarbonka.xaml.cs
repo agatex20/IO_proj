@@ -33,5 +33,10 @@ namespace IOWpf.Views
             MainWindow mw = Window.GetWindow(this) as MainWindow;
             mw.DodajSkarbonkeClicked(sender, e);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

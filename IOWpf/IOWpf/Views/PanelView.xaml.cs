@@ -22,20 +22,22 @@ namespace IOWpf.Views
     /// </summary>
     public partial class PanelView : UserControl
     {
+
         public PanelView()
         {
             InitializeComponent();
-            using (var db = new Application_context())
-            {
-                List<Expense> lists = db.Expenses.ToList();
-                // ICollection<Expense> expens = lists;
-                int number_of_expenses = lists.Count();
-                if (number_of_expenses > 6)
-                    lists.RemoveRange(0, number_of_expenses - 6);
-                 
-                    lvDataBinding.ItemsSource = lists;
-            }
-            
+            lvDataBinding.ItemsSource = MainWindow.explist;
         }
+
+        private void ExpensesClicked(object sender, RoutedEventArgs e)
+        {
+            lvDataBinding.ItemsSource = MainWindow.explist;
+        }
+
+        private void IncomesClicked(object sender, RoutedEventArgs e)
+        {
+            lvDataBinding.ItemsSource = MainWindow.inclist;
+        }
+
     }
 }

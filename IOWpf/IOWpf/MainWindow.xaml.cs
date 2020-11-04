@@ -22,9 +22,24 @@ namespace IOWpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static List<Expense> explist;
+        public static List<Income> inclist;
+        public static List<Category> catlist;
         public MainWindow()
         {
             InitializeComponent();
+            using (var db = new Application_context())
+            {
+                explist = db.Expenses.ToList();
+            }
+            using (var db = new Application_context())
+            {
+                inclist = db.Incomes.ToList();
+            }
+            using (var db = new Application_context())
+            {              
+                catlist = db.Categories.ToList();
+            }
         }
 
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)

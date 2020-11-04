@@ -7,67 +7,71 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-   
-        <Grid Background="#FF373333">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="369*"/>
 
-                <ColumnDefinition Width="207*"/>
-                <ColumnDefinition Width="224*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
+    <Grid Background="#FF373333">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="369*"/>
 
-                <RowDefinition Height="219*"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="Historia" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="36" Foreground="#FF2196F3"  Margin="5,0,0,0"/>
+            <ColumnDefinition Width="207*"/>
+            <ColumnDefinition Width="224*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
 
-            <TextBlock Text="Saldo" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="5,0,0,0" />
-            <TextBlock Text="24 zl" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="0,48,10,48" Width="43" />
-
-
-            <TextBlock Text="Data Rozliczeniowa" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3" Grid.Column="2" Margin="5,0,0,0"/>
-            <TextBlock Text="10" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3" Grid.Column="2" Margin="0,0,10,0"/>
+            <RowDefinition Height="219*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Historia" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="36" Foreground="#FF2196F3"  Margin="5,0,0,0"/>
+        <Button  Content="Wydatki" Margin="230,0,0,0" Click="ExpensesClicked" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
+        <Button  Content="Przychody" Margin="30,0,0,0" Click="IncomesClicked" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
+        <TextBlock Text="Saldo" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="5,0,0,0" />
+        <TextBlock Text="24 zl" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="0,48,10,48" Width="43" />
 
 
-            <TextBlock Text="Opis" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" FontStyle="Italic"/>
-            <TextBlock Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"  Grid.Row="1" Grid.Column="1" FontStyle="Italic"/>
-            <TextBlock Text="Data" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="2" FontStyle="Italic"/>
-
-            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF373333">
-            </Grid>
-            <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
-            </Grid>
-
-            <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF373333">
-            </Grid>
-            <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
-            </Grid>
-
-            <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF373333">
-            </Grid>
-            <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
-            </Grid>
-
-            <ListView Margin="0,1.6,0,-0.4" Name="lvDataBinding" Grid.Row="2" Grid.RowSpan="6" Grid.ColumnSpan="3">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <WrapPanel>
-                            <TextBlock Text="{Binding description}"  Foreground="#FF2196F3" FontSize="18" Grid.Column="0"/>
-                            <TextBlock Text="{Binding amount}"  Foreground="#FF2196F3" FontSize="18" Grid.Column="1" />
-                            <TextBlock Text="{Binding date}"   Foreground="#FF2196F3" FontSize="18" Grid.Column="2" />
-                        </WrapPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <TextBlock Text="Data Rozliczeniowa" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3" Grid.Column="2" Margin="5,0,0,0"/>
+        <TextBlock Text="10" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3" Grid.Column="2" Margin="0,0,10,0"/>
 
 
+        <TextBlock Text="Opis" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" FontStyle="Italic"/>
+        <TextBlock Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"  Grid.Row="1" Grid.Column="1" FontStyle="Italic"/>
+        <TextBlock Text="Data" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="2" FontStyle="Italic"/>
+
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF373333">
         </Grid>
-   
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF373333">
+        </Grid>
+        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
+        </Grid>
+
+        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF373333">
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
+        </Grid>
+
+        <ListView Margin="0,1.6,0,-0.4" Name="lvDataBinding"  Grid.RowSpan="6" Grid.ColumnSpan="3" Grid.Row="2" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        
+                            <TextBlock Text="{Binding description}"  Foreground="#FF2196F3" FontSize="18" Grid.Column="1" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding amount}"  Foreground="#FF2196F3" FontSize="18" Grid.Column="2" HorizontalAlignment="Center" />
+                            <TextBlock Text="{Binding date}"   Foreground="#FF2196F3" FontSize="18" Grid.Column="3" HorizontalAlignment="Center" />
+                        <Button  Content="Edytuj" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
+                        
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+    </Grid>
+
 </UserControl>

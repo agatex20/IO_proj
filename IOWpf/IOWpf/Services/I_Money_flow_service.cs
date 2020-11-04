@@ -13,5 +13,7 @@ namespace IOWpf.Services
         void edit();
 
         void set_cyclic();
+
+        void add(int _creator_id, string _creator_name, float _amount, string _date, bool _ifchilds, string _description,string bill_path);
     }
 }

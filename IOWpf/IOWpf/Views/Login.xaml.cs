@@ -20,6 +20,9 @@ namespace IOWpf.Views
     /// </summary>
     public partial class Login : UserControl
     {
+        public static int id = 1;
+        public static int type = 1;
+        public static string name = "Jarek";
         public Login()
         {
             InitializeComponent();

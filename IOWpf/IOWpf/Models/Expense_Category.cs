@@ -14,5 +14,23 @@ namespace IOWpf.Models
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public void newitem(string cat)
+        {
+            using (var db = new Application_context())
+            {
+                var category = db.Categories.First(i => i.Category_name == cat);
+                var expen = db.Expenses.Last();
+
+                var Exp_Cat = new Expense_Category
+                {
+                    Expense = expen,
+                    Category=category
+                };
+
+                db.Expense_Categories.Add(Exp_Cat);
+                db.SaveChanges();
+            }           
+        }
     }
 }
