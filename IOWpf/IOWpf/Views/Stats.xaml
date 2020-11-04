@@ -6,10 +6,11 @@
              xmlns:local="clr-namespace:IOWpf.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#FF514A4A">
-        <TextBlock Text="Analiza wydatków:" FontSize="40" Margin="10,0,0,401.21" FontFamily="Impact" Foreground="#FF2196F3"/>
-        <TextBlock FontSize="20" Margin="10,65,0,357" FontFamily="Impact" Foreground="#FF2196F3"><Run Text="Wybrane konto:"/></TextBlock>
-        <TextBlock FontSize="20" Margin="10,98,0,324" FontFamily="Impact" Foreground="#FF2196F3"><Run Text="Zakres dat"/><Run Text=":    "/><InlineUIContainer>
+    <Border Background="#FF373333" CornerRadius="20" Margin="20">
+        <Grid >
+            <TextBlock Text="Analiza wydatków:" FontSize="40" Margin="10,0,0,401.21" FontFamily="Impact" Foreground="#FF2196F3"/>
+            <TextBlock FontSize="20" Margin="10,65,0,357" FontFamily="Impact" Foreground="#FF2196F3"><Run Text="Wybrane konto:"/></TextBlock>
+            <TextBlock FontSize="20" Margin="10,98,0,324" FontFamily="Impact" Foreground="#FF2196F3"><Run Text="Zakres dat"/><Run Text=":    "/><InlineUIContainer>
                 <TextBlock FontSize="20" FontFamily="Impact" Foreground="#FF2196F3" Height="28" Width="222"><Run Text="Początek"/><Run Text=":"/><InlineUIContainer>
                         <DatePicker Style="{StaticResource MaterialDesignFloatingHintDatePicker}" x:Name="start_date" Width="138" IsTodayHighlighted="True" SelectedDateFormat="Long" Text="siema" />
                     </InlineUIContainer></TextBlock>
@@ -19,9 +20,10 @@
                         <DatePicker Text="Data" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" x:Name="end_date" Width="138" />
                     </InlineUIContainer></TextBlock>
             </InlineUIContainer></TextBlock>
-        <TextBlock FontSize="20" Margin="10,131,0,291" FontFamily="Impact" Foreground="#FF2196F3"><Run Text="Wydatki"/><Run Text=":"/></TextBlock>
-        <TextBlock FontSize="20" Margin="10,159,0,263" FontFamily="Impact" Foreground="#FF2196F3" Text="Wpłaty:"/>
-        <Label x:Name="label1" HorizontalAlignment="Left" Height="212" Margin="33,201,0,0" VerticalAlignment="Top" Width="720" Content="tutaj będą jakieś wykresy albo coś innego"/>
+            <TextBlock FontSize="20" Margin="10,131,0,291" FontFamily="Impact" Foreground="#FF2196F3"><Run Text="Wydatki"/><Run Text=":"/></TextBlock>
+            <TextBlock FontSize="20" Margin="10,159,0,263" FontFamily="Impact" Foreground="#FF2196F3" Text="Wpłaty:"/>
+            <Label x:Name="label1" HorizontalAlignment="Left" Height="212" Margin="33,201,0,0" VerticalAlignment="Top" Width="720" Content="tutaj będą jakieś wykresy albo coś innego"/>
 
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>

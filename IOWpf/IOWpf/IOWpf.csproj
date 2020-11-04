@@ -200,6 +200,7 @@
     <Compile Include="ViewsModels\DodajSkarbonke.cs" />
     <Compile Include="ViewsModels\DodajPrzychod.cs" />
     <Compile Include="ViewsModels\DodajWydatek.cs" />
+    <Compile Include="ViewsModels\Login.cs" />
     <Compile Include="ViewsModels\PanelViewModel.cs" />
     <Compile Include="ViewsModels\Skarbonka.cs" />
     <Compile Include="ViewsModels\Stats.cs" />
@@ -211,6 +212,9 @@
     </Compile>
     <Compile Include="Views\DodajWydatek.xaml.cs">
       <DependentUpon>DodajWydatek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PanelView.xaml.cs">
       <DependentUpon>PanelView.xaml</DependentUpon>
@@ -251,6 +255,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DodajWydatek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

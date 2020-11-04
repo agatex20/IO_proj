@@ -7,28 +7,29 @@
              xmlns:local="clr-namespace:IOWpf.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#FF514A4A">
+    <Border Background="#FF373333" CornerRadius="20" Margin="20">
+        <Grid >
 
 
-        <StackPanel>
-            <TextBlock Text="Nowa skarbonka:" FontSize="40" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3"/>
+            <StackPanel>
+                <TextBlock Text="Nowa skarbonka:" FontSize="40" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3"/>
 
-            <TextBox materialDesign:HintAssist.Hint="Nazwa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="pb_name"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="91*"/>
-                    <ColumnDefinition Width="709*"/>
-                </Grid.ColumnDefinitions>
-                <TextBox Text="Termin" Foreground="#FF2196F3" Grid.ColumnSpan="2" Margin="0,0,0,-0.6" />
-                <DatePicker Text="Data" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Grid.ColumnSpan="2" Margin="0,0,0,0.4" Name="date" />
-            </Grid>
+                <Label Content="Nazwa" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
+                <TextBox  Margin="10 0 10 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="pb_name"/>
 
-            <TextBox materialDesign:HintAssist.Hint="Kwota początkowa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="start_amount"/>
-            <TextBox materialDesign:HintAssist.Hint="Kwota docelowa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="goal_amount"/>
-            
-            <Button Content="Dodaj" Margin="0 20" Click="AddClicked" Foreground="#FF514A4A"/>
-        </StackPanel>
+                <Label Content="Termin" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
+              
+                    <DatePicker  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Grid.ColumnSpan="2" Margin="10,0" Name="date" Foreground="#FF2196F3" FontWeight="Bold" />
+
+                <Label Content="Kwota początkowa" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
+                <TextBox Margin="10 0 10 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="start_amount"/>
+                <Label Content="Kwota docelowa" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
+                <TextBox Margin="10 0 10 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="goal_amount"/>
+
+                <Button Content="Dodaj" Margin="60 20" Click="AddClicked" Foreground="#FF514A4A" FontFamily="Impact"/>
+            </StackPanel>
 
 
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>

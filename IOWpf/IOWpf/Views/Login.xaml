@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="IOWpf.Views.Login"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IOWpf.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Border Background="#FF373333" CornerRadius="20" Margin="20">
+                <StackPanel Margin="10">
+                <Label Content="Login" Foreground="#FF2196F3" FontSize="35" HorizontalAlignment="Left" FontFamily="Impact" Margin="10,0,0,0"/>
+                    <Separator Background="#FF2196F3"></Separator>
+                <Label Content="Username" Foreground="#FF2196F3" FontFamily="Impact"/>
+                <TextBox Name="txtUsername"  Foreground="#FF2196F3" FontSize="18"/>
+                <Label Content="Password" Foreground="#FF2196F3" FontFamily="Impact"/>
+                <PasswordBox Name="txtPassword"  Foreground="#FF2196F3" FontSize="18"/>
+                <Button Name="btnSubmit" Content="Zaloguj" Margin="60 20" Foreground="#FF514A4A" Background="#FF2196F3" FontSize="18" FontFamily="Impact"/>
+                </StackPanel>
+            </Border>
+      
+    </Grid>
+</UserControl>
