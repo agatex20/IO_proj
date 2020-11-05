@@ -39,5 +39,26 @@ namespace IOWpf.Views
         {
 
         }
+
+        private void Deposit(object sender, RoutedEventArgs e)
+        {
+            int id = (int)(((sender as Button).TransformToAncestor(lvDataBinding).Transform(new Point(0, 0)).Y)/49);
+            
+            WybierzKwote wk = new WybierzKwote(id, true);
+            wk.Show();
+            
+
+        }
+
+        private void Payout(object sender, RoutedEventArgs e)
+        {
+            int id = (int)(((sender as Button).TransformToAncestor(lvDataBinding).Transform(new Point(0, 0)).Y) / 49);
+            
+            WybierzKwote wk = new WybierzKwote(id, false);
+            wk.Show();
+            
+            DataContext = new Skarbonka();
+
+        }
     }
 }

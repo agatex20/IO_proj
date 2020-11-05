@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IOWpf.Migrations;
+using IOWpf.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,18 @@ namespace IOWpf.Services
 {
     public class Piggy_bank_service
     {
-        void deposit()
+        public void deposit(float _amount, int PbId)
         {
-
+            using (var db = new Application_context())
+            {
+                var query = from pb in db.Piggy_Banks
+                            where pb.Piggy_bankId == PbId
+                            select pb;
+                query.FirstOrDefault().treasured_amount += _amount;
+                db.SaveChanges();
+                MainWindow.pblist.Clear();
+                MainWindow.pblist = db.Piggy_Banks.ToList();
+            }
         }
 
         void end_piggy_bank()
@@ -18,9 +29,18 @@ namespace IOWpf.Services
 
         }
 
-        void withdraw()
+        public void withdraw(float _amount, int PbId)
         {
-
+            using (var db = new Application_context())
+            {
+                var query = from pb in db.Piggy_Banks
+                            where pb.Piggy_bankId == PbId
+                            select pb;
+                query.FirstOrDefault().treasured_amount -= _amount;
+                db.SaveChanges();
+                MainWindow.pblist.Clear();
+                MainWindow.pblist = db.Piggy_Banks.ToList();
+            }
         }
     }
 }

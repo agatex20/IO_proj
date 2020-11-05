@@ -89,21 +89,21 @@
                             <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button  Content="Edytuj" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
+                                        <Button Content="Edytuj" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Wpłać" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
+                                        <Button Tag="" Click="Deposit" Content="Wpłać" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Wypłać" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
+                                        <Button Click="Payout" Content="Wypłać" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

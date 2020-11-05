@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IOWpf.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,27 @@ namespace IOWpf.Views
     /// </summary>
     public partial class WybierzKwote : Window
     {
-        public WybierzKwote()
+        private int ElementId;
+        private bool IsDeposit;
+        public WybierzKwote(int id, bool op)
         {
             InitializeComponent();
+            ElementId = id;
+            IsDeposit = op;
+        }
+
+        public void ConfirmAmount(object sender, RoutedEventArgs e)
+        {
+            Piggy_bank_service pbs = new Piggy_bank_service();
+            if(IsDeposit)
+            {
+                pbs.deposit(float.Parse(amount.Text), ElementId);
+            }
+            else
+            {
+                pbs.withdraw(float.Parse(amount.Text), ElementId);
+            }
+            this.Close();
         }
     }
 }
