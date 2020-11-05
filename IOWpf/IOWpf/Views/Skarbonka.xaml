@@ -30,153 +30,100 @@
 
         </Grid>
 
-        <Grid Grid.Row="1" Grid.ColumnSpan="7" Background="#FF514A4A">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
+        <Grid Grid.Row="1" Grid.ColumnSpan="7" Grid.RowSpan="7" Background="#FF514A4A">
+            
+                <!--<ListView Name="lvDataBinding"  Grid.RowSpan="6" Grid.ColumnSpan="7" Grid.Row="0" >
 
-            </Grid.ColumnDefinitions>
+                    <ListView.View>
+                        
+                        <GridView>
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Grid.Column="0" Text="{Binding description}"  Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="207">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Grid.Column="1" Text="{Binding amount}"  Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="224">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Grid.Column="2" Text="{Binding date}"   Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
 
-            <TextBlock Grid.Column="0" Text="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <TextBlock Grid.Column="1" Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" />
-            <TextBlock Grid.Column="2" Text="Cel" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <Button Grid.Column="5" Content="Wypłać" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="4" Content="Wpłać" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="3" Content="Edytuj" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="6" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3">
-                <materialDesign:PackIcon Kind="InfoCircle"/>
-            </Button>
+                    </ListView.View>
+                </ListView>-->
+            <ListView Name="lvDataBinding" Grid.Row="1">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="105">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding goal_namel}" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="95">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding treasured_amount}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="95">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding monthly_income}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="95">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button  Content="Edytuj" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="95">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Wpłać" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="95">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Wypłać" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="95">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3">
+                                            <materialDesign:PackIcon Kind="InfoCircle"/>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                        
+                    </ListView.View>
+                </ListView>
 
+            </Grid>
 
-        </Grid>
-
-        <Grid Grid.Row="2" Grid.ColumnSpan="7" Background="#FF514A4A">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Column="0" Text="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <TextBlock Grid.Column="1" Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" />
-            <TextBlock Grid.Column="2" Text="Cel" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <Button Grid.Column="5" Content="Wypłać" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="4" Content="Wpłać" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="3" Content="Edytuj" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="6" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3">
-                <materialDesign:PackIcon Kind="InfoCircle"/>
-            </Button>
-
-
-        </Grid>
-
-        <Grid Grid.Row="3" Grid.ColumnSpan="7" Background="#FF514A4A">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Column="0" Text="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <TextBlock Grid.Column="1" Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" />
-            <TextBlock Grid.Column="2" Text="Cel" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <Button Grid.Column="5" Content="Wypłać" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="4" Content="Wpłać" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="3" Content="Edytuj" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="6" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3">
-                <materialDesign:PackIcon Kind="InfoCircle"/>
-            </Button>
-
-
-        </Grid>
-        <Grid Grid.Row="4" Grid.ColumnSpan="7" Background="#FF514A4A">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Column="0" Text="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <TextBlock Grid.Column="1" Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" />
-            <TextBlock Grid.Column="2" Text="Cel" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <Button Grid.Column="5" Content="Wypłać" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="4" Content="Wpłać" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="3" Content="Edytuj" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="6" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3">
-                <materialDesign:PackIcon Kind="InfoCircle"/>
-            </Button>
-
-
-        </Grid>
-
-        <Grid Grid.Row="5" Grid.ColumnSpan="7" Background="#FF514A4A">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Column="0" Text="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <TextBlock Grid.Column="1" Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" />
-            <TextBlock Grid.Column="2" Text="Cel" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <Button Grid.Column="5" Content="Wypłać" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="4" Content="Wpłać" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="3" Content="Edytuj" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="6" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3">
-                <materialDesign:PackIcon Kind="InfoCircle"/>
-            </Button>
-
-
-        </Grid>
-        <Grid Grid.Row="6" Grid.ColumnSpan="7" Background="#FF514A4A">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Column="0" Text="Nazwa" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <TextBlock Grid.Column="1" Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" />
-            <TextBlock Grid.Column="2" Text="Cel" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
-            <Button Grid.Column="5" Content="Wypłać" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="4" Content="Wpłać" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="3" Content="Edytuj" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
-            <Button Grid.Column="6" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3">
-                <materialDesign:PackIcon Kind="InfoCircle"/>
-            </Button>
-
-
-        </Grid>
+        
 
     </Grid>
 

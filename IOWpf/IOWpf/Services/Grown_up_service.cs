@@ -40,9 +40,12 @@ namespace IOWpf.Services
                 pBank.Piggy_bankId = next_id;
                 pBank.treasured_amount = _inamount;
                 pBank.goal = _goal;
-                pBank.goal_name = _goalname;
-                pBank.if_childs = false;
+                pBank.goal_namel = _goalname;
+                pBank.if_childs = false; //temp
                 pBank.monthly_income = _montlyincome;
+                pBank.start_day = 0; //temp
+                pBank.creator_name = "Seba"; //temp
+                pBank.goal_date = _goaldate;
 
                 db.Piggy_Banks.Add(pBank);
                 db.SaveChanges();

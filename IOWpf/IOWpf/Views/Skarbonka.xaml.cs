@@ -26,6 +26,7 @@ namespace IOWpf.Views
         public Skarbonka()
         {
             InitializeComponent();
+            lvDataBinding.ItemsSource = MainWindow.pblist;
         }
 
         private void AddBankClicked(object sender, RoutedEventArgs e)

@@ -34,7 +34,7 @@ namespace IOWpf.Services
                 pBank.Piggy_bankId = next_id;
                 pBank.treasured_amount = _inamount;
                 pBank.goal = _goal;
-                pBank.goal_name = _goalname;
+                pBank.goal_namel = _goalname;
                 pBank.if_childs = true;
                 pBank.monthly_income = _montlyincome;
 

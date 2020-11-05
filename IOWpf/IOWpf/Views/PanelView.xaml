@@ -41,7 +41,7 @@
         <TextBlock Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"  Grid.Row="1" Grid.Column="1" FontStyle="Italic"/>
         <TextBlock Text="Data" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="2" FontStyle="Italic"/>
 
-        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF373333">
+        <!--<Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF373333">
         </Grid>
         <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
         </Grid>
@@ -54,14 +54,14 @@
         <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF373333">
         </Grid>
         <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
-        </Grid>
-        <Grid Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="6">
-            <Grid.ColumnDefinitions>
+        </Grid>-->
+        <Grid Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="7">
+            <!--<Grid.ColumnDefinitions>
                 <ColumnDefinition Width="369*"/>
                 <ColumnDefinition Width="207*"/>
-                <ColumnDefinition Width="224*"/>
-            </Grid.ColumnDefinitions>
-            <ListView Name="lvDataBinding"  Grid.RowSpan="6" Grid.ColumnSpan="3" Grid.Row="2" >
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>-->
+            <ListView Name="lvDataBinding"  Grid.RowSpan="6" Grid.ColumnSpan="3" Grid.Row="0" >
 
                 <ListView.View>
                     <!--<WrapPanel>
@@ -86,7 +86,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Width="224">
+                        <GridViewColumn>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Grid.Column="2" Text="{Binding date}"   Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
