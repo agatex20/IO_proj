@@ -30,7 +30,7 @@
         <Button  Content="Wydatki" Margin="230,0,0,0" Click="ExpensesClicked" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
         <Button  Content="Przychody" Margin="30,0,0,0" Click="IncomesClicked" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
         <TextBlock Text="Saldo" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="5,0,0,0" />
-        <TextBlock Text="24 zl" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="0,48,10,48" Width="43" />
+        <TextBlock Text="{Binding curr_balance}" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="0,48,10,48" Width="43" />
 
 
         <TextBlock Text="Data Rozliczeniowa" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3" Grid.Column="2" Margin="5,0,0,0"/>
