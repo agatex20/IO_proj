@@ -31,7 +31,30 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.ColumnSpan="7" Grid.RowSpan="7" Background="#FF514A4A">
-            
+                <Grid.RowDefinitions>
+
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="105"/>
+                    <ColumnDefinition Width="105"/>
+                    <ColumnDefinition Width="105"/>
+                    <ColumnDefinition Width="105"/>
+                    <ColumnDefinition Width="105"/>
+                    <ColumnDefinition Width="105"/>
+                    <ColumnDefinition Width="105"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Cel" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" />
+                <TextBlock Text="Zebrano" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"  Grid.Row="1" Grid.Column="1"/>
+                <TextBlock Text="Wpłata" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="2"/>
+
                 <!--<ListView Name="lvDataBinding"  Grid.RowSpan="6" Grid.ColumnSpan="7" Grid.Row="0" >
 
                     <ListView.View>
@@ -62,7 +85,7 @@
 
                     </ListView.View>
                 </ListView>-->
-            <ListView Name="lvDataBinding" Grid.Row="1">
+            <ListView Name="lvDataBinding" Grid.RowSpan="7" Grid.ColumnSpan="7" Grid.Row="1">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="105">
