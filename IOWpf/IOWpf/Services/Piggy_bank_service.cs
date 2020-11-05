@@ -37,6 +37,10 @@ namespace IOWpf.Services
                             where pb.Piggy_bankId == PbId
                             select pb;
                 query.FirstOrDefault().treasured_amount -= _amount;
+                if(query.FirstOrDefault().treasured_amount < 0)
+                {
+                    query.FirstOrDefault().treasured_amount += _amount;
+                }
                 db.SaveChanges();
                 MainWindow.pblist.Clear();
                 MainWindow.pblist = db.Piggy_Banks.ToList();
