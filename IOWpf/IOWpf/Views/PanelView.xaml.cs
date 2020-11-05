@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using IOWpf.Models;
+using IOWpf.Services;
 using IOWpf.Views;
 
 namespace IOWpf.Views
@@ -27,6 +28,8 @@ namespace IOWpf.Views
         {
             InitializeComponent();
             lvDataBinding.ItemsSource = MainWindow.explist;
+            Balance_service bs = new Balance_service();
+            bs.calc_balance();
         }
 
         private void ExpensesClicked(object sender, RoutedEventArgs e)

@@ -30,7 +30,6 @@ namespace IOWpf.Services
                 var query = from b in db.Balances
                             select b;
                 Balance bal = new Balance(expsum);
-
                 db.Balances.Add(bal);
                 db.SaveChanges();
 
