@@ -37,7 +37,7 @@
         <TextBlock Text="10" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3" Grid.Column="2" Margin="0,0,10,0"/>
 
 
-        <TextBlock Text="Opis" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" FontStyle="Italic"/>
+        <TextBlock Text="Opis" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" FontStyle="Italic" />
         <TextBlock Text="Kwota" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"  Grid.Row="1" Grid.Column="1" FontStyle="Italic"/>
         <TextBlock Text="Data" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="2" FontStyle="Italic"/>
 
@@ -56,17 +56,26 @@
         <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
         </Grid>
 
-        <ListView Margin="0,1.6,0,-0.4" Name="lvDataBinding"  Grid.RowSpan="6" Grid.ColumnSpan="3" Grid.Row="2" >
+
+
+
+
+        <ListView  Name="lvDataBinding" Grid.ColumnSpan="3" Margin="0" Grid.Row="2" Grid.RowSpan="6" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <WrapPanel>
-                        
-                            <TextBlock Text="{Binding description}"  Foreground="#FF2196F3" FontSize="18" Grid.Column="1" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding amount}"  Foreground="#FF2196F3" FontSize="18" Grid.Column="2" HorizontalAlignment="Center" />
-                            <TextBlock Text="{Binding date}"   Foreground="#FF2196F3" FontSize="18" Grid.Column="3" HorizontalAlignment="Center" />
-                        <Button  Content="Edytuj" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
-                        
-                    </WrapPanel>
+
+
+                    <StackPanel Orientation="Horizontal">
+
+
+                        <Button  Content="Edytuj"   Foreground="#FF514A4A" Width="100"/>
+                        <TextBlock Text="{Binding description}"  Foreground="#FF2196F3" FontSize="18" Margin="20,0,0,0" Width="269"  />
+                        <TextBlock Text="{Binding amount}" Grid.Column="1" Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" Margin="10,0,0,0" Width="197"  />
+                        <TextBlock Text="{Binding date}"   Grid.Column="2" Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" Margin="0" Width="224"  />
+                    </StackPanel>
+
+
+
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

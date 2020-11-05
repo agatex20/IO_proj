@@ -66,9 +66,11 @@
                 <DropShadowEffect BlurRadius="20" Color="#FFC1C1C1" RenderingBias="Quality" ShadowDepth="1" />
             </Grid.Effect>
 
-            <Grid Background="#FF2196F3">
-                <TextBlock Text="Monitorowanie Budżetu" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF514A4A" Margin="0,38,44.333,38"/>
-            </Grid>
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="logo.jpg"/>
+                </Grid.Background>
+                </Grid>
 
             <StackPanel Grid.Row="1">
 
