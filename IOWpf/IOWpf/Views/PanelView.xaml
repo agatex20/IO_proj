@@ -55,21 +55,49 @@
         </Grid>
         <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
         </Grid>
+        <Grid Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="369*"/>
+                <ColumnDefinition Width="207*"/>
+                <ColumnDefinition Width="224*"/>
+            </Grid.ColumnDefinitions>
+            <ListView Name="lvDataBinding"  Grid.RowSpan="6" Grid.ColumnSpan="3" Grid.Row="2" >
 
-        <ListView Margin="0,1.6,0,-0.4" Name="lvDataBinding"  Grid.RowSpan="6" Grid.ColumnSpan="3" Grid.Row="2" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel>
+                <ListView.View>
+                    <!--<WrapPanel>
+                        <TextBlock Grid.Column="0" Text="{Binding description}"  Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
+                        <TextBlock Grid.Column="1" Text="{Binding amount}"  Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
+                        <TextBlock Grid.Column="2" Text="{Binding date}"   Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
+                        <Button  Content="Edytuj" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#FF514A4A"/>
                         
-                            <TextBlock Text="{Binding description}"  Foreground="#FF2196F3" FontSize="18" Grid.Column="1" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding amount}"  Foreground="#FF2196F3" FontSize="18" Grid.Column="2" HorizontalAlignment="Center" />
-                            <TextBlock Text="{Binding date}"   Foreground="#FF2196F3" FontSize="18" Grid.Column="3" HorizontalAlignment="Center" />
-                        <Button  Content="Edytuj" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
-                        
-                    </WrapPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+                    </WrapPanel>-->
+                    <GridView>
+                        <GridViewColumn Width="369">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Grid.Column="0" Text="{Binding description}"  Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="207">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Grid.Column="1" Text="{Binding amount}"  Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="224">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Grid.Column="2" Text="{Binding date}"   Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                
+            </ListView.View>
         </ListView>
+        </Grid>
 
 
     </Grid>
