@@ -33,6 +33,7 @@ namespace IOWpf.Views
         {
             MainWindow mw = Window.GetWindow(this) as MainWindow;
             mw.DodajSkarbonkeClicked(sender, e);
+            lvDataBinding.ItemsSource = MainWindow.pblist;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,7 +47,6 @@ namespace IOWpf.Views
             
             WybierzKwote wk = new WybierzKwote(id, true);
             wk.Show();
-            
 
         }
 

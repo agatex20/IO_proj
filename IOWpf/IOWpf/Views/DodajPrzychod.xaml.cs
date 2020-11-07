@@ -27,7 +27,7 @@ namespace IOWpf.Views
         {
             InitializeComponent();
         }
-
+        /*
         private void AddClicked(object sender, RoutedEventArgs e)
         {
             Grown_up_service g_controller = new Grown_up_service();
@@ -47,7 +47,7 @@ namespace IOWpf.Views
             {
                 MainWindow.inclist = db.Incomes.ToList();
             }
-        }
+        }*/
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

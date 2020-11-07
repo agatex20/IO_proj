@@ -5,25 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:IOWpf.Views"
+             xmlns:mw="clr-namespace:IOWpf.ViewsModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <mw:DodajPrzychod/>
+    </UserControl.DataContext>
     <Border Background="#FF373333" CornerRadius="20" Margin="20">
-        <Grid >
-
-
+        <Grid>
             <StackPanel>
                 <TextBlock Text="Przychod:" FontSize="40" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3"/>
 
                 <Label Content="Kwota" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
-                <TextBox Margin="10 0 10 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" TextChanged="TextBox_TextChanged" Name="amount" FontSize="18"/>
+                <TextBox Text="{Binding Path=amount, Mode=TwoWay}" Margin="10 0 10 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold"  Name="amount" FontSize="18"/>
 
 
                 <Label Content="Data" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
-                <DatePicker Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Name="date" Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold"/>
+                <DatePicker Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Text="{Binding Path=date, Mode=TwoWay}" Name="date" Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold"/>
 
                 <Label Content="Opis" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
-                <TextBox  Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3" Name="des"/>
-                <Button Content="Dodaj"  Foreground="#FF514A4A" Click="AddClicked" Margin="60 20" FontFamily="Impact" />
+                <TextBox  Text="{Binding Path=description, Mode=TwoWay}" Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3" Name="des"/>
+                <Button Content="Dodaj" Command="{Binding Path=SaveCommand}" Foreground="#FF514A4A"  Margin="60 20" FontFamily="Impact"  />
             </StackPanel>
 
 

@@ -31,9 +31,9 @@ namespace IOWpf.Models
              //exp.UserId = UserId; gdy będzie działać dodawanie userów to włączyć
              inc.if_childs = if_childs;
                 
-                
              db.Incomes.Add(inc);
              db.SaveChanges();
+             MainWindow.inclist = db.Incomes.ToList();
             }
         }
     }
