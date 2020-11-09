@@ -11,6 +11,8 @@ namespace IOWpf.ViewsModels
 {
     using Models;
     using Commands;
+    using System.Runtime.InteropServices.WindowsRuntime;
+
     public class DodajPrzychod : INotifyPropertyChanged
     {
         private Income Inc = new Income();
@@ -20,6 +22,7 @@ namespace IOWpf.ViewsModels
             set
             {
                 Inc.amount = (float)value;
+                onPropertyChanged(nameof(amount));
             }
         }
 
@@ -28,6 +31,7 @@ namespace IOWpf.ViewsModels
             set
             {
                 Inc.date = value;
+                onPropertyChanged(nameof(date));
             }
         }
 
@@ -36,8 +40,10 @@ namespace IOWpf.ViewsModels
             set
             {
                 Inc.description = value;
+                onPropertyChanged(nameof(description));
             }
         }
+
 
         private ICommand _saveCommand;
 
@@ -45,6 +51,13 @@ namespace IOWpf.ViewsModels
         {
             get
             {
+                Inc.creator_name = MainWindow.curr_name;
+                if (MainWindow.curr_type == 3)
+                    Inc.if_childs = true;
+                else
+                    Inc.if_childs = false;
+                Inc.UserId = MainWindow.curr_id;
+
                 if (_saveCommand == null)
                 {
                     _saveCommand = new RelayCommand(param => this.SaveObject(),param => this.CanSave()
@@ -66,5 +79,10 @@ namespace IOWpf.ViewsModels
 
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void onPropertyChanged(string property_name)
+        {
+            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(property_name));
+        }
     }
 }

@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IOWpf.Views"
+             xmlns:mw="clr-namespace:IOWpf.ViewsModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <mw:Login/>
+    </UserControl.DataContext>
     <Grid>
         <Border Background="#FF373333" CornerRadius="20" Margin="20">
                 <StackPanel Margin="10">

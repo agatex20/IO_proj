@@ -5,8 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:IOWpf.Views"
+             xmlns:mw="clr-namespace:IOWpf.ViewsModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <mw:DodajWydatek/>
+    </UserControl.DataContext>
     <Border Background="#FF373333" CornerRadius="20" Margin="20">
         <Grid>
 
@@ -14,33 +18,34 @@
             <StackPanel>
                 <TextBlock Text="Wydatek:" FontSize="40" Margin="10 0 0 10" FontFamily="Impact" Foreground="#FF2196F3" Height="50"/>
                 <Grid Margin="0 0 0 0">
-                    <Button Content="Dodaj paragon" HorizontalAlignment="Right" Margin="0,0,10,0" Click="OpenFileClicked" Foreground="#FF514A4A" FontFamily="Impact"/>
+                    <Button Content="Dodaj paragon" HorizontalAlignment="Right" Margin="0,0,10,0" Command="{Binding Path=path}" Foreground="#FF514A4A" FontFamily="Impact"/>
 
                 </Grid>
-                <TextBlock Name="path" FontSize="18"  HorizontalAlignment="Right" Margin="0 0 15 0" FontFamily="Impact" Foreground="#FF2196F3" Height="20"/>
+                <TextBlock Name="path" FontSize="18"   HorizontalAlignment="Right" Margin="0 0 15 0" FontFamily="Impact" Foreground="#FF2196F3" Height="20"/>
                 
                 <Label Content="Kwota" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
-                <TextBox  Margin="10 0 10 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="amount"/>
+                <TextBox  Margin="10 0 10 5" Text="{Binding Path=amount, Mode=TwoWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
 
                 <Label Content="Data" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
-                <DatePicker  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Grid.ColumnSpan="2" Margin="10,0,10,5" Name="date" Foreground="#FF2196F3" FontWeight="Bold" BorderBrush="#89000000" />
+                <DatePicker  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Text="{Binding Path=date, Mode=TwoWay}" Grid.ColumnSpan="2" Margin="10,0,10,5"  Foreground="#FF2196F3" FontWeight="Bold" BorderBrush="#89000000" />
 
                 <Label Content="Opis" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
-                <TextBox Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3" TextChanged="TextBox_TextChanged_1" Name="des"/>
+                <TextBox Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3" Text="{Binding Path=description, Mode=TwoWay}"/>
 
                 <Label Content="Kategoria" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
 
-                <ListBox HorizontalContentAlignment="Center"  SelectionMode="Multiple" Background="#FF373333"  Margin="10,0,10,5" Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="150" ItemsSource="{Binding Category}">
+                <ListBox HorizontalContentAlignment="Center"  SelectionMode="Multiple" Background="#FF373333"  Margin="10,0,10,5" Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="150" ItemsSource="{Binding Category, NotifyOnSourceUpdated=True}" SelectedItem="{Binding Path=SelectedItems,UpdateSourceTrigger=PropertyChanged}">
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="Background" Value="#FF373333"/>
                             <Setter Property="BorderBrush" Value="#FF373333"/>
                             <Setter Property="Foreground" Value="#FF2196F3"/>
+                            <Setter Property="IsSelected" Value="{Binding Mode=TwoWay, Path=IsSelected}"/>
                         </Style>
                     </ListBox.ItemContainerStyle>
                 </ListBox>
-                
-                <Button Content="Dodaj" Margin="60 20" Click="AddClicked" Foreground="#FF514A4A" FontFamily="Impact"/>
+
+                <Button Content="Dodaj" Margin="60 20" Command="{Binding Path=SaveCommand}" Foreground="#FF514A4A" FontFamily="Impact"/>
             </StackPanel>
 
 

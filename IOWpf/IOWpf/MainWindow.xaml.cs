@@ -25,7 +25,10 @@ namespace IOWpf
         public static List<Expense> explist;
         public static List<Income> inclist;
         public static List<Piggy_bank> pblist;
-        public static List<string> catlist=new List<string> { };
+        public static List<string> catlist = new List<string> { };
+        public static int curr_id;
+        public static string curr_name;
+        public static int curr_type;//1-admin, 2- dorosły, 3-dziecko
     public MainWindow()
         {
             InitializeComponent();
@@ -45,7 +48,7 @@ namespace IOWpf
             {
                 List<Category> cats = new List<Category> { };
                 cats = db.Categories.ToList();
-                for (int i = 0; i <cats.Count(); i++)
+                for (int i = 0; i < cats.Count(); i++)
                 {
                     catlist.Add(cats[i].Category_name);
                 }

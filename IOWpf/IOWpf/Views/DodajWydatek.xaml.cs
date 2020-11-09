@@ -31,7 +31,7 @@ namespace IOWpf.Views
             InitializeComponent();
             cat.ItemsSource = MainWindow.catlist;
         }
-        
+        /*
         private void Data(object sender, TextCompositionEventArgs e)
         {
 
@@ -74,15 +74,6 @@ namespace IOWpf.Views
                 path.Text = openFileDialog.FileName;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
+        */
     }
 }

@@ -21,7 +21,7 @@
 
 
                 <Label Content="Data" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
-                <DatePicker Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Text="{Binding Path=date, Mode=TwoWay}" Name="date" Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold"/>
+                <DatePicker Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Text="{Binding Path=date, Mode=TwoWay}"  Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold"/>
 
                 <Label Content="Opis" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
                 <TextBox  Text="{Binding Path=description, Mode=TwoWay}" Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3" Name="des"/>
