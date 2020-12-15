@@ -23,17 +23,24 @@ namespace IOWpf.Models
         {
             using (var db = new Application_context())
             {
-             Income inc = new Income();
-             inc.amount = amount;
-             inc.date = date;
-             inc.creator_name = creator_name;
-             inc.description = description;
-             //exp.UserId = UserId; gdy będzie działać dodawanie userów to włączyć
-             inc.if_childs = if_childs;
+                Income inc = new Income();
+                inc.amount = amount;
+                inc.date = date;
+                inc.creator_name = creator_name;
+                inc.description = description;
+                //exp.UserId = UserId; gdy będzie działać dodawanie userów to włączyć
+                inc.if_childs = if_childs;
                 
-             db.Incomes.Add(inc);
-             db.SaveChanges();
-             MainWindow.inclist = db.Incomes.ToList();
+                db.Incomes.Add(inc);
+
+                var balance = db.Balances.SingleOrDefault(b => b.BalanceId == 1);       // poki co dla konta nr 1, jak bedzie podzial na userow to bedzie inaczej
+                if (balance != null)
+                {
+                    balance.curr_balance += inc.amount;
+                }
+
+                db.SaveChanges();
+                MainWindow.inclist = db.Incomes.ToList();
             }
         }
     }

@@ -25,6 +25,7 @@ namespace IOWpf
         public static List<Expense> explist;
         public static List<Income> inclist;
         public static List<Piggy_bank> pblist;
+        public static List<Balance> ballist;
         public static List<string> catlist = new List<string> { };
         public static int curr_id;
         public static string curr_name;
@@ -43,6 +44,10 @@ namespace IOWpf
             using (var db = new Application_context())
             {
                 pblist = db.Piggy_Banks.ToList();
+            }
+            using (var db = new Application_context())
+            {
+                ballist = db.Balances.ToList();
             }
             using (var db = new Application_context())
             {

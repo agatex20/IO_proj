@@ -38,8 +38,15 @@ namespace IOWpf.Models
             exp.bill_photo_path = bill_photo_path;
             using (var db = new Application_context())
             {
-              db.Expenses.Add(exp);
-              db.SaveChanges();
+                db.Expenses.Add(exp);
+
+                var balance = db.Balances.SingleOrDefault(b => b.BalanceId == 1);       // poki co dla konta nr 1, jak bedzie podzial na userow to bedzie inaczej
+                if (balance != null)
+                {
+                    balance.curr_balance -= exp.amount;
+                }
+                
+                db.SaveChanges();
             }
         }
     }

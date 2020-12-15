@@ -32,8 +32,9 @@ namespace IOWpf.Views
                 lvDataBinding.ItemsSource = MainWindow.inclist;
             else
                 lvDataBinding.ItemsSource = MainWindow.explist;
-            Balance_service bs = new Balance_service();
-            bs.calc_balance();
+
+            //Balance_service bs = new Balance_service();
+            //bs.calc_balance();
         }
         /*
         private void ExpensesClicked(object sender, RoutedEventArgs e)
