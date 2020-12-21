@@ -43,5 +43,18 @@ namespace IOWpf.Models
                 MainWindow.inclist = db.Incomes.ToList();
             }
         }
+
+        public double summing()
+        {
+
+            var sum = 0.0;
+
+            for (int i = 0; i < MainWindow.inclist.Count; i++)
+            {
+                sum += MainWindow.inclist[i].amount;
+            }
+
+            return sum;
+        }
     }
 }

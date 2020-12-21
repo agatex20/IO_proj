@@ -49,5 +49,19 @@ namespace IOWpf.Models
                 db.SaveChanges();
             }
         }
+
+        public double summing()
+        {
+
+            var sum = 0.0;
+
+            for (int i = 0; i < MainWindow.explist.Count; i++)
+            {
+                sum += MainWindow.explist[i].amount;
+            }
+
+            return sum;
+        }
     }
 }
+

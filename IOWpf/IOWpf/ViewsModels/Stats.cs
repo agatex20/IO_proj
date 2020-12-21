@@ -12,14 +12,32 @@ namespace IOWpf.ViewsModels
     using Commands;
     public class Stats : INotifyPropertyChanged
     {
+        private Expense exp = new Expense();
+        private Income inc = new Income();
 
 
+        public string incomes
+        {
+            get
+            {
+                return inc.summing() + " zł";
+            }
+
+        }
+        public string expences
+        {
+            get
+            {
+                return exp.summing() + " zł";
+            }
+
+        }
 
 
-    public event PropertyChangedEventHandler PropertyChanged;
-    private void onPropertyChanged(string property_name)
-    {
-        if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(property_name));
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void onPropertyChanged(string property_name)
+        {
+            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(property_name));
+        }
     }
-}
 }
