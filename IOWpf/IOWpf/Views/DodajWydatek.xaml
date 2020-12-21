@@ -16,13 +16,20 @@
 
 
             <StackPanel>
-                <TextBlock Text="Wydatek:" FontSize="40" Margin="10 0 0 10" FontFamily="Impact" Foreground="#FF2196F3" Height="50"/>
-                <Grid Margin="0 0 0 0">
-                    <Button Content="Dodaj paragon" HorizontalAlignment="Right" Margin="0,0,10,0" Command="{Binding Path=path}" Foreground="#FF514A4A" FontFamily="Impact"/>
-
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="55" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Column="0" Grid.Row="0" Text="{Binding titleString,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="30" Margin="10 0 0 10" FontFamily="Impact" Foreground="#FF2196F3" Height="55"/>
+                    <Button Grid.Column="1" Grid.Row="0" Content="Dodaj kategorię" HorizontalAlignment="Center" Margin="0,0,0,0" Command="{Binding addCat}" Foreground="#FF514A4A" FontFamily="Impact"/>
+                    <Button Grid.Column="1" Grid.Row="1" Content="Dodaj paragon" HorizontalAlignment="Center" Margin="0,0,0,0" Command="{Binding path}" Foreground="#FF514A4A" FontFamily="Impact"/>
+                    <TextBox Text="{Binding pathString,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Grid.Column="0" Grid.Row="1" FontSize="18" HorizontalAlignment="Right" Margin="5 0 15 0" FontFamily="Impact" Foreground="#FF2196F3" Height="40"/>
                 </Grid>
-                <TextBlock Name="path" FontSize="18"   HorizontalAlignment="Right" Margin="0 0 15 0" FontFamily="Impact" Foreground="#FF2196F3" Height="20"/>
-                
                 <Label Content="Kwota" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
                 <TextBox  Margin="10 0 10 5" Text="{Binding Path=amount, Mode=TwoWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
 
@@ -34,13 +41,12 @@
 
                 <Label Content="Kategoria" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
 
-                <ListBox HorizontalContentAlignment="Center"  SelectionMode="Multiple" Background="#FF373333"  Margin="10,0,10,5" x:Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="150" ItemsSource="{Binding Category, NotifyOnSourceUpdated=True}"  >
+                <ListBox HorizontalContentAlignment="Center"  SelectionMode="Multiple" Background="#FF373333"  Margin="10,0,10,5" x:Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="150" ItemsSource="{Binding CategoryList, Mode=OneWay, NotifyOnSourceUpdated=True}"  >
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="Background" Value="#FF373333"/>
                             <Setter Property="BorderBrush" Value="#FF373333"/>
                             <Setter Property="Foreground" Value="#FF2196F3"/>
-                            <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
                         </Style>
                     </ListBox.ItemContainerStyle>
                 </ListBox>

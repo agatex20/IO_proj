@@ -14,14 +14,54 @@ namespace IOWpf.ViewsModels
     using Views;
     using Models;
     using Commands;
+    using System.Collections.ObjectModel;
 
     public class DodajWydatek : INotifyPropertyChanged
     {
         private Expense exp = new Expense();
         private Expense_Category exp_cat = new Expense_Category();
+        private Category cat = new Category();
         private List<String> selected_categories = new List<string>();
+        public ObservableCollection<String> CategoryList { get; set; }
+
+        public DodajWydatek()
+        {
+            this.CategoryList = new ObservableCollection<string>(cat.getList());
+        }
+
+        private String _titleString = "Wydatek:";
+        public String titleString
+        {
+            get { return _titleString; }
+            set
+            {
+                if(value!= _titleString)
+                {
+                    _titleString = value;
+                    onPropertyChanged(nameof(titleString));
+                }
+            }
+        }
+        private String _pathString;
+        public String pathString
+        {
+            get
+            {
+                return _pathString;
+            }
+            set
+            {
+                if (value != _pathString)
+                {
+                    _pathString = value;
+                    onPropertyChanged(nameof(pathString));
+                }
+            }
+        }
+
         public double amount
         {
+            get { return exp.amount; }
             set
             {
                 exp.amount = (float)value;
@@ -31,6 +71,7 @@ namespace IOWpf.ViewsModels
 
         public string date
         {
+            get { return exp.date; }
             set
             {
                 exp.date = value;
@@ -40,28 +81,14 @@ namespace IOWpf.ViewsModels
 
         public string description
         {
+            get { return exp.description; }
             set
             {
                 exp.description = value;
                 onPropertyChanged(nameof(description));
             }
         }
-        /*
-        public String  SelectedItems
-        {
-            set
-            {
-                selected_categories.Add(value);
-            }
-        }
-        */
-        public String IsSelected
-        {
-            set
-            {
-                selected_categories.Add(value);
-            }
-        }
+        
 
         private ICommand _path;
         public ICommand path
@@ -88,13 +115,13 @@ namespace IOWpf.ViewsModels
             if (openFileDialog.ShowDialog() == true)
             {
                 exp.bill_photo_path = openFileDialog.FileName;
+                pathString = exp.bill_photo_path;
             }
         }
 
         
 
         private ICommand _saveCommand;
-
         public ICommand SaveCommand
         {
             get
@@ -129,7 +156,37 @@ namespace IOWpf.ViewsModels
             }
         }
 
+        private ICommand _addCat;
+        public ICommand addCat
+        {
+            get
+            {
+                if (_addCat == null)
+                {
+                    _addCat = new RelayCommand(param => this.addWindow(), param => this.canAddCategory());
+                }
+                return _addCat;
+            }
+        }
 
+        private void addWindow()
+        {
+            if(titleString=="Wydatek:")
+            {
+                titleString = "Wpisz nazwę kategorii i naciśnij dodaj";
+            }
+            else
+            {
+                cat.addCategory(titleString);
+                this.CategoryList.Add(titleString);
+                titleString = "Wydatek:";
+            }
+        }
+
+        private bool canAddCategory()
+        {
+            return true;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

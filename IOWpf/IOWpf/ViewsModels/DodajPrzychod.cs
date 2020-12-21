@@ -26,7 +26,6 @@ namespace IOWpf.ViewsModels
             }
             
         }
-
         public string date
         {
             set
