@@ -34,18 +34,18 @@
 
                 <Label Content="Kategoria" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
 
-                <ListBox HorizontalContentAlignment="Center"  SelectionMode="Multiple" Background="#FF373333"  Margin="10,0,10,5" Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="150" ItemsSource="{Binding Category, NotifyOnSourceUpdated=True}" SelectedItem="{Binding Path=SelectedItems,UpdateSourceTrigger=PropertyChanged}">
+                <ListBox HorizontalContentAlignment="Center"  SelectionMode="Multiple" Background="#FF373333"  Margin="10,0,10,5" x:Name="cat" Foreground="#FF2196F3" FontWeight="Bold" Height="150" ItemsSource="{Binding Category, NotifyOnSourceUpdated=True}"  >
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="Background" Value="#FF373333"/>
                             <Setter Property="BorderBrush" Value="#FF373333"/>
                             <Setter Property="Foreground" Value="#FF2196F3"/>
-                            <Setter Property="IsSelected" Value="{Binding Mode=TwoWay, Path=IsSelected}"/>
+                            <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
                         </Style>
                     </ListBox.ItemContainerStyle>
                 </ListBox>
 
-                <Button Content="Dodaj" Margin="60 20" Command="{Binding Path=SaveCommand}" Foreground="#FF514A4A" FontFamily="Impact"/>
+                <Button Content="Dodaj" Margin="60 20" Command="{Binding Path=SaveCommand}" CommandParameter="{Binding ElementName=cat, Path=SelectedItems}" Foreground="#FF514A4A" FontFamily="Impact"/>
             </StackPanel>
 
 

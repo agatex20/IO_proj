@@ -19,6 +19,7 @@ namespace IOWpf.ViewsModels
     {
         private Expense exp = new Expense();
         private Expense_Category exp_cat = new Expense_Category();
+        private List<String> selected_categories = new List<string>();
         public double amount
         {
             set
@@ -46,13 +47,21 @@ namespace IOWpf.ViewsModels
             }
         }
         /*
-        public ICollection<Category> SelectedItems
+        public String  SelectedItems
         {
             set
             {
-                selected_categories = value;
+                selected_categories.Add(value);
             }
-        }*/
+        }
+        */
+        public String IsSelected
+        {
+            set
+            {
+                selected_categories.Add(value);
+            }
+        }
 
         private ICommand _path;
         public ICommand path
@@ -98,7 +107,7 @@ namespace IOWpf.ViewsModels
                 exp.UserId = MainWindow.curr_id;
                 if (_saveCommand == null)
                 {
-                    _saveCommand = new RelayCommand(param => this.SaveObject(), param => this.CanSave());
+                    _saveCommand = new RelayCommand(SaveObject, param => this.CanSave());
                 }
                 return _saveCommand;
             }
@@ -109,14 +118,15 @@ namespace IOWpf.ViewsModels
             return true;
         }
 
-        private void SaveObject()
+        private void SaveObject(Object param)
         {
             exp.add();
-            /*
-            foreach (var item in selected_categories)
+            System.Collections.IList items = (System.Collections.IList)param;
+            var collection = items.Cast<String>();
+            foreach (var item in collection)
             {
-                exp_cat.newitem(item.Category_name);
-            }*/
+                exp_cat.newitem(item);
+            }
         }
 
 

@@ -31,6 +31,7 @@ namespace IOWpf.Views
             InitializeComponent();
             cat.ItemsSource = MainWindow.catlist;
         }
+
         /*
         private void Data(object sender, TextCompositionEventArgs e)
         {

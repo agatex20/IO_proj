@@ -24,6 +24,7 @@ namespace IOWpf.ViewsModels
                 Inc.amount = (float)value;
                 onPropertyChanged(nameof(amount));
             }
+            
         }
 
         public string date
