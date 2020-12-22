@@ -1,17 +1,17 @@
-﻿<UserControl x:Class="IOWpf.Views.Stats"
+﻿<UserControl
+             x:Class="IOWpf.Views.Stats"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IOWpf.Views"
-             xmlns:mw="clr-namespace:IOWpf.ViewsModels"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <mw:Stats/>
-    </UserControl.DataContext>
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance local:Stats}">
+
     <Border Background="#FF373333" CornerRadius="20" Margin="20">
-        <Grid >
+        <Grid>
             <TextBlock Text="Analiza wydatków:" FontSize="40" Margin="10,0,0,349.6" FontFamily="Impact" Foreground="#FF2196F3"/>
             <Label x:Name="label" Content="Wpłaty" FontSize="20" HorizontalAlignment="Left" Margin="30,119,0,0" FontFamily="Impact" Foreground="#FF2196F3" VerticalAlignment="Top"/>
             <Label x:Name="label2" Content="Wydatki" FontSize="20" HorizontalAlignment="Left" Margin="30,156,0,0" FontFamily="Impact" Foreground="#FF2196F3" VerticalAlignment="Top"/>
@@ -22,6 +22,20 @@
                 <DatePicker FontSize="16" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Text="{Binding endDate, Mode=TwoWay}" Margin="395,20,101,87"  Foreground="#FF2196F3" FontWeight="Bold" BorderBrush="#89000000" Height="52" RenderTransformOrigin="0.5,0.5" />
                 <TextBox FontSize="18" IsReadOnly="True" Margin="110,57,345,54" Text="{Binding incomes, Mode=OneWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
                 <TextBox FontSize="18" IsReadOnly="True" Margin="110,90,345,21" Text="{Binding expences, Mode=OneWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="294" Margin="224,176,0,-60.4" VerticalAlignment="Top" Width="383">
+                <lvc:PieChart LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}" Margin="10">
+                    <lvc:PieChart.Series>
+                        <lvc:PieSeries Title="Maria" Values="3" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="Charles" Values="4" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="Frida" Values="6" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="Frederic" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                    </lvc:PieChart.Series>
+                </lvc:PieChart>
             </Grid>
 
         </Grid>

@@ -50,13 +50,19 @@ namespace IOWpf.Models
             }
         }
 
-        public double summing()
+        public double summing(/*string startDate, string endDate*/)
         {
 
             var sum = 0.0;
 
             for (int i = 0; i < MainWindow.explist.Count; i++)
             {
+
+                //if (DateTime.Parse(MainWindow.explist[i].date) >= DateTime.Parse(startDate) &&
+                //    DateTime.Parse(MainWindow.explist[i].date) <= DateTime.Parse(endDate))
+                //{
+                //    sum += MainWindow.explist[i].amount;
+                //}
                 sum += MainWindow.explist[i].amount;
             }
 

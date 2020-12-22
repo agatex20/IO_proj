@@ -15,12 +15,34 @@ namespace IOWpf.ViewsModels
         private Expense exp = new Expense();
         private Income inc = new Income();
 
+       //private string _startDate;
+       //private string _endDate;
+
+
+       // public string startDate
+       // {
+       //     get { return _startDate; }
+       //     set
+       //     {
+       //         onPropertyChanged(nameof(startDate));
+       //     }
+       // }
+
+       // public string endDate
+       // {
+       //     get { return _endDate; }
+       //     set
+       //     {
+       //         onPropertyChanged(nameof(endDate));
+       //     }
+       // }
+
 
         public string incomes
         {
             get
             {
-                return inc.summing() + " zł";
+                return inc.summing(/*startDate, endDate*/) + " zł";
             }
 
         }
@@ -28,7 +50,7 @@ namespace IOWpf.ViewsModels
         {
             get
             {
-                return exp.summing() + " zł";
+                return exp.summing(/*startDate, endDate*/) + " zł";
             }
 
         }
