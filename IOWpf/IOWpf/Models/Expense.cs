@@ -48,6 +48,8 @@ namespace IOWpf.Models
                 }
                 
                 db.SaveChanges();
+                MainWindow.explist = db.Expenses.ToList();
+                MainWindow.ballist = db.Balances.ToList();
             }
         }
 

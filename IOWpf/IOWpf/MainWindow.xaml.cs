@@ -37,24 +37,11 @@ namespace IOWpf
             using (var db = new Application_context())
             {
                 explist = db.Expenses.ToList();
-            }
-            using (var db = new Application_context())
-            {
                 inclist = db.Incomes.ToList();
-            }
-            using (var db = new Application_context())
-            {
                 pblist = db.Piggy_Banks.ToList();
-            }
-            using (var db = new Application_context())
-            {
                 ballist = db.Balances.ToList();
-            }
-            using (var db = new Application_context())
-            {
                 expense_categories_list = db.Expense_Categories.ToList();
             }
-
         }
 
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)

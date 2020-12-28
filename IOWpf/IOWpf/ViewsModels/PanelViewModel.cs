@@ -59,6 +59,13 @@ namespace IOWpf.ViewsModels
         {
             return true;
         }
+        public double curr_balance
+        {
+            get
+            {
+                return MainWindow.ballist[0].curr_balance;                  // poki co balans[0] bo nie rozrozniamy userow
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void onPropertyChanged(string property_name)

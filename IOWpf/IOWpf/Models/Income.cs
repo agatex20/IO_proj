@@ -41,6 +41,7 @@ namespace IOWpf.Models
 
                 db.SaveChanges();
                 MainWindow.inclist = db.Incomes.ToList();
+                MainWindow.ballist = db.Balances.ToList();
             }
         }
 
