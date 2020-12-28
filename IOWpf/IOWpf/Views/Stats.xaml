@@ -23,16 +23,22 @@
                 <TextBox FontSize="18" IsReadOnly="True" Margin="110,57,345,54" Text="{Binding incomes, Mode=OneWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
                 <TextBox FontSize="18" IsReadOnly="True" Margin="110,90,345,21" Text="{Binding expences, Mode=OneWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="294" Margin="224,176,0,-60.4" VerticalAlignment="Top" Width="383">
+            <Grid HorizontalAlignment="Left" Height="294" Margin="191,204,0,-88.4" VerticalAlignment="Top" Width="383">
                 <lvc:PieChart LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}" Margin="10">
                     <lvc:PieChart.Series>
-                        <lvc:PieSeries Title="Maria" Values="3" DataLabels="True"
+                        <lvc:PieSeries Title="Dom i rachunki" Values="{Binding home, Mode=OneWay}" DataLabels="True"
                                LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Charles" Values="4" DataLabels="True" 
+                        <lvc:PieSeries Title="Jedzienie" Values="{Binding food, Mode=OneWay}" DataLabels="True" 
                                LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Frida" Values="6" DataLabels="True" 
+                        <lvc:PieSeries Title="Samochód i transport" Values="{Binding car, Mode=OneWay}" DataLabels="True" 
                                LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Frederic" Values="2" DataLabels="True" 
+                        <lvc:PieSeries Title="Rozrywka" Values="{Binding fun, Mode=OneWay}" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="Odzież i obuwie" Values="{Binding clothing, Mode=OneWay}" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="Edukacja" Values="{Binding education, Mode=OneWay}" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                        <lvc:PieSeries Title="Zdrowie i uroda" Values="{Binding health, Mode=OneWay}" DataLabels="True" 
                                LabelPoint="{Binding PointLabel}"/>
                     </lvc:PieChart.Series>
                 </lvc:PieChart>

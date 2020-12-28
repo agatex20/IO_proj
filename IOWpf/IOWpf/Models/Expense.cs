@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiveCharts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
@@ -68,6 +69,22 @@ namespace IOWpf.Models
 
             return sum;
         }
-    }
+
+        public IChartValues categorySum(int id)
+        {
+            var sum = 0.0;
+
+            for (int i = 0; i < MainWindow.explist.Count; i++)
+            {
+                if(MainWindow.explist[i].ExpenseId == id)
+                    sum += MainWindow.explist[i].amount;
+            }
+
+
+            var doubleValue = new ChartValues<double> { sum };
+
+            return doubleValue;
+        }
+    }   
 }
 

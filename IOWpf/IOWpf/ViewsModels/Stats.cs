@@ -10,6 +10,8 @@ namespace IOWpf.ViewsModels
     using Views;
     using Models;
     using Commands;
+    using LiveCharts;
+
     public class Stats : INotifyPropertyChanged
     {
         private Expense exp = new Expense();
@@ -51,6 +53,63 @@ namespace IOWpf.ViewsModels
             get
             {
                 return exp.summing(/*startDate, endDate*/) + " zł";
+            }
+
+        }
+
+        public IChartValues home
+        {
+            get
+            {
+                return exp.categorySum(1);
+            }
+
+        }
+        public IChartValues food
+        {
+            get
+            {
+                return exp.categorySum(2);
+            }
+
+        }
+        public IChartValues car
+        {
+            get
+            {
+                return exp.categorySum(3);
+            }
+
+        }
+        public IChartValues fun
+        {
+            get
+            {
+                return exp.categorySum(4);
+            }
+
+        }
+        public IChartValues clothing
+        {
+            get
+            {
+                return exp.categorySum(5);
+            }
+
+        }
+        public IChartValues education
+        {
+            get
+            {
+                return exp.categorySum(6);
+            }
+
+        }
+        public IChartValues health
+        {
+            get
+            {
+                return exp.categorySum(7);
             }
 
         }

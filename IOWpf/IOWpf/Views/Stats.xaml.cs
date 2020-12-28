@@ -31,6 +31,8 @@ namespace IOWpf.Views
             PointLabel = chartPoint =>
                 string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
 
+   
+
             DataContext = this;
         }
 
