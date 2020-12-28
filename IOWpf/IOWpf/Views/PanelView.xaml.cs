@@ -28,15 +28,15 @@ namespace IOWpf.Views
         public PanelView()
         {
             InitializeComponent();
-            if(which)
-                lvDataBinding.ItemsSource = MainWindow.inclist;
-            else
-                lvDataBinding.ItemsSource = MainWindow.explist;
 
-            //Balance_service bs = new Balance_service();
-            //bs.calc_balance();
+            lvDataBinding.ItemsSource = MainWindow.inclist;
+
+            //if (which)
+            //    lvDataBinding.ItemsSource = MainWindow.inclist;
+            //else
+            //    lvDataBinding.ItemsSource = MainWindow.explist;
         }
-        /*
+
         private void ExpensesClicked(object sender, RoutedEventArgs e)
         {
             lvDataBinding.ItemsSource = MainWindow.explist;
@@ -46,6 +46,6 @@ namespace IOWpf.Views
         {
             lvDataBinding.ItemsSource = MainWindow.inclist;
         }
-        */
+
     }
 }
