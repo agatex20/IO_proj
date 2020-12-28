@@ -11,11 +11,13 @@ namespace IOWpf.ViewsModels
     using Models;
     using Commands;
     using LiveCharts;
+    using LiveCharts.Wpf;
 
     public class Stats : INotifyPropertyChanged
     {
         private Expense exp = new Expense();
         private Income inc = new Income();
+        private Category category = new Category();
 
        //private string _startDate;
        //private string _endDate;
@@ -57,61 +59,20 @@ namespace IOWpf.ViewsModels
 
         }
 
-        public IChartValues home
-        {
+        public ChartValues<double> categoriesValues 
+        { 
             get
             {
-                return exp.categorySum(1);
+                return new ChartValues<double>(exp.categorySum());
             }
-
         }
-        public IChartValues food
+
+        public ChartValues<string> categoriesNames 
         {
             get
             {
-                return exp.categorySum(2);
+                return new ChartValues<string>(category.getList());
             }
-
-        }
-        public IChartValues car
-        {
-            get
-            {
-                return exp.categorySum(3);
-            }
-
-        }
-        public IChartValues fun
-        {
-            get
-            {
-                return exp.categorySum(4);
-            }
-
-        }
-        public IChartValues clothing
-        {
-            get
-            {
-                return exp.categorySum(5);
-            }
-
-        }
-        public IChartValues education
-        {
-            get
-            {
-                return exp.categorySum(6);
-            }
-
-        }
-        public IChartValues health
-        {
-            get
-            {
-                return exp.categorySum(7);
-            }
-
         }
 
 

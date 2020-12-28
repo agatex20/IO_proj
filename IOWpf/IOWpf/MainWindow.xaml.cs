@@ -26,6 +26,8 @@ namespace IOWpf
         public static List<Income> inclist;
         public static List<Piggy_bank> pblist;
         public static List<Balance> ballist;
+        public static List<Expense_Category> expense_categories_list;
+
         public static int curr_id;
         public static string curr_name;
         public static int curr_type;//1-admin, 2- dorosły, 3-dziecko
@@ -48,7 +50,11 @@ namespace IOWpf
             {
                 ballist = db.Balances.ToList();
             }
-            
+            using (var db = new Application_context())
+            {
+                expense_categories_list = db.Expense_Categories.ToList();
+            }
+
         }
 
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)

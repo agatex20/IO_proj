@@ -5,11 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IOWpf.Views"
+             xmlns:mw="clr-namespace:IOWpf.ViewsModels"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             d:DataContext="{d:DesignInstance local:Stats}">
-
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <mw:Stats/>
+    </UserControl.DataContext>
     <Border Background="#FF373333" CornerRadius="20" Margin="20">
         <Grid>
             <TextBlock Text="Analiza wydatków:" FontSize="40" Margin="10,0,0,349.6" FontFamily="Impact" Foreground="#FF2196F3"/>
@@ -23,25 +25,27 @@
                 <TextBox FontSize="18" IsReadOnly="True" Margin="110,57,345,54" Text="{Binding incomes, Mode=OneWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
                 <TextBox FontSize="18" IsReadOnly="True" Margin="110,90,345,21" Text="{Binding expences, Mode=OneWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="294" Margin="191,204,0,-88.4" VerticalAlignment="Top" Width="383">
-                <lvc:PieChart LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}" Margin="10">
-                    <lvc:PieChart.Series>
-                        <lvc:PieSeries Title="Dom i rachunki" Values="{Binding home, Mode=OneWay}" DataLabels="True"
-                               LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Jedzienie" Values="{Binding food, Mode=OneWay}" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Samochód i transport" Values="{Binding car, Mode=OneWay}" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Rozrywka" Values="{Binding fun, Mode=OneWay}" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Odzież i obuwie" Values="{Binding clothing, Mode=OneWay}" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Edukacja" Values="{Binding education, Mode=OneWay}" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Zdrowie i uroda" Values="{Binding health, Mode=OneWay}" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                    </lvc:PieChart.Series>
-                </lvc:PieChart>
+
+            <Grid HorizontalAlignment="Left" Height="294" Margin="30,204,0,-88" VerticalAlignment="Top" Width="688">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="378*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <lvc:CartesianChart Margin="0,0,10,0" ScrollMode="X">
+                    <lvc:CartesianChart.Series>
+                        <lvc:ColumnSeries Title="Tyle wydałem w tej kategorii" Values="{Binding categoriesValues}"/>
+                    </lvc:CartesianChart.Series>
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis FontSize="12" Labels="{Binding categoriesNames}">
+                        <lvc:Axis.Separator>
+                            <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
+                        </lvc:Axis.Separator>
+                        </lvc:Axis>
+                    </lvc:CartesianChart.AxisX>
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis Title="Suma"/>
+                    </lvc:CartesianChart.AxisY>
+                </lvc:CartesianChart>
             </Grid>
 
         </Grid>

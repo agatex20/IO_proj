@@ -70,21 +70,36 @@ namespace IOWpf.Models
             return sum;
         }
 
-        public IChartValues categorySum(int id)
+        public List<double> categorySum()
         {
-            var sum = 0.0;
+            List<double> returning = new List<double>();
 
-            for (int i = 0; i < MainWindow.explist.Count; i++)
+            for (int i = 1; i < 8; i++)
             {
-                if(MainWindow.explist[i].ExpenseId == id)
-                    sum += MainWindow.explist[i].amount;
+                var sum = 0.0;
+
+                for (int j = 0; j < MainWindow.expense_categories_list.Count; j++)
+                {
+                    if (MainWindow.expense_categories_list[j].CategoryId == i)
+                    {
+                        int k = 0;
+                        while (MainWindow.explist[k].ExpenseId != MainWindow.expense_categories_list[j].ExpenseId)
+                        {
+                            k++;
+                        }
+                        if (MainWindow.explist[k].ExpenseId == MainWindow.expense_categories_list[j].ExpenseId)
+                        {
+                            sum += MainWindow.explist[k].amount;
+                        }
+                    }
+                }
+
+                returning.Add(sum);
             }
 
-
-            var doubleValue = new ChartValues<double> { sum };
-
-            return doubleValue;
+            return returning;
         }
+
     }   
 }
 
