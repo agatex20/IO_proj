@@ -42,6 +42,8 @@ namespace IOWpf
                 ballist = db.Balances.ToList();
                 expense_categories_list = db.Expense_Categories.ToList();
             }
+
+            DataContext = new Login();
         }
 
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)
@@ -122,6 +124,11 @@ namespace IOWpf
         public void LoginClicked(object sender, RoutedEventArgs e)
         {
             DataContext = new Login();
+        }
+
+        public void DodajUzytkownikaClicked(object sender, RoutedEventArgs e)
+        {
+            DataContext = new DodajUzytkownika();
         }
     }
        

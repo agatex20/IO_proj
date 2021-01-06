@@ -16,17 +16,13 @@ using System.Windows.Shapes;
 namespace IOWpf.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy Login.xaml
+    /// Logika interakcji dla klasy DodajUzytkownika.xaml
     /// </summary>
-    public partial class Login : UserControl
+    public partial class DodajUzytkownika : UserControl
     {
-        public Login()
+        public DodajUzytkownika()
         {
             InitializeComponent();
-        }
-        public void ZalogujClicked(object sender, RoutedEventArgs e)
-        {
-           
         }
     }
 }
