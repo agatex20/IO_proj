@@ -7,6 +7,9 @@
              xmlns:mw="clr-namespace:IOWpf.ViewsModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+   
+
     <UserControl.DataContext>
         <mw:Login/>
     </UserControl.DataContext>
@@ -16,10 +19,11 @@
                 <Label Content="Login" Foreground="#FF2196F3" FontSize="35" HorizontalAlignment="Left" FontFamily="Impact" Margin="10,0,0,0"/>
                     <Separator Background="#FF2196F3"></Separator>
                 <Label Content="Username" Foreground="#FF2196F3" FontFamily="Impact"/>
-                <TextBox Name="txtUsername"  Foreground="#FF2196F3" FontSize="18"/>
+                <TextBox Name="txtUsername"  Foreground="#FF2196F3" FontSize="18" Text="{Binding Path=username, Mode=TwoWay}"/>
                 <Label Content="Password" Foreground="#FF2196F3" FontFamily="Impact"/>
-                <PasswordBox Name="txtPassword"  Foreground="#FF2196F3" FontSize="18"/>
-                <Button Name="btnSubmit" Content="Zaloguj" Margin="60 20" Foreground="#FF514A4A" Background="#FF2196F3" FontSize="18" FontFamily="Impact"/>
+                <TextBox Name="txtPassword"  Foreground="#FF2196F3" FontSize="18" Text="{Binding Path=password, Mode=TwoWay}"/>
+                <Button  Click="ZalogujClicked" Command="{Binding Path=LoginCommand}" Content="Zaloguj" Margin="60 20" Foreground="#FF514A4A" Background="#FF2196F3" FontSize="18" FontFamily="Impact"/>
+                <Button Command="{Binding Path=AddAdminCommand}" Content="Dodaj admina" Margin="60 20" Foreground="#FF514A4A" Background="#FF2196F3" FontSize="18" FontFamily="Impact"/>            
                 </StackPanel>
             </Border>
       

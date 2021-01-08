@@ -30,5 +30,19 @@ namespace IOWpf.Models
             this.name = name;
             this.password = password;
         }
+
+        /*
+        public bool LoginPasswordCorrect(String password, String login)
+        {
+            // List < Balance > lists = db.Balances.ToList();
+            //ICollection<Balance> balans = lists;
+            using (var db = new Application_context())
+            {
+                db.Users.ToList();
+                
+            }
+        }
+        */
+
     }
 }

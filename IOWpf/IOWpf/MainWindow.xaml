@@ -43,6 +43,11 @@
             <Views:Login DataContext="{Binding}"/>
 
         </DataTemplate>
+
+        <DataTemplate x:Name="DodajUzytkownikaTemplate" DataType="{x:Type ViewModels:DodajUzytkownika}">
+            <Views:DodajUzytkownika DataContext="{Binding}"/>
+
+        </DataTemplate>
     </Window.Resources>
 
     <Grid Background="#FF514A4A">
@@ -117,7 +122,8 @@
 
         <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#FF2196F3" MouseDown="GridBarTitle_MouseDown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0" Background="{x:Null}">
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF514A4A">
+
+                <Button Click="DodajUzytkownikaClicked" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF514A4A">
                     <materialDesign:PackIcon Kind="HeadDotsHorizontal"/>
                 </Button>
 
