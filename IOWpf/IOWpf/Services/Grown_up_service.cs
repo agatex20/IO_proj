@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IOWpf.Services
 {
-    public class Grown_up_service : I_User_service
+    public class Grown_up_service 
     {
         public List<string> catlist = new List<string> { };
         

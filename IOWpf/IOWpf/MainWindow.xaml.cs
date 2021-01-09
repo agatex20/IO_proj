@@ -27,7 +27,8 @@ namespace IOWpf
         public static List<Piggy_bank> pblist;
         public static List<Balance> ballist;
         public static List<Expense_Category> expense_categories_list;
-
+        public static User user = new Admin();
+        
         public static int curr_id;
         public static string curr_name;
         public static int curr_type;//1-admin, 2- dorosły, 3-dziecko
@@ -58,10 +59,9 @@ namespace IOWpf
 
         private void  PanelViewClicked(object sender, RoutedEventArgs e)
         {
+            if(user.name!="Unlogged")
             DataContext = new PanelView();
 
-            using (var db = new Application_context())
-            {
                 // ------------- Create --------------- //
                 //Balance newBalance = new Balance(1200.0);
                 //db.Balances.Add(newBalance);
@@ -92,43 +92,49 @@ namespace IOWpf
                 //Balance firstBalance = db.Balances.FirstOrDefault();
                 //db.Balances.Remove(firstBalance);
                 //db.SaveChanges();
-            }
 
         }
 
         private void DodajWydatekClicked(object sender, RoutedEventArgs e)
         {
-            DataContext = new DodajWydatek();
+            if (user.name != "Unlogged")
+                DataContext = new DodajWydatek();
         }
 
         private void DodajPrzychodClicked(object sender, RoutedEventArgs e)
         {
-            DataContext = new DodajPrzychod();
+            if (user.name != "Unlogged")
+                DataContext = new DodajPrzychod();
         }
 
         public void SkarbonkaClicked(object sender, RoutedEventArgs e)
         {
-            DataContext = new Skarbonka();
+            if (user.name != "Unlogged")
+                DataContext = new Skarbonka();
         }
 
         private void StatystykiClicked(object sender, RoutedEventArgs e)
         {
-            DataContext = new Stats();
+            if (user.name != "Unlogged")
+                DataContext = new Stats();
         }
 
         public void DodajSkarbonkeClicked(object sender, RoutedEventArgs e)
         {
-           DataContext = new DodajSkarbonke();
+            if (user.name != "Unlogged")
+                DataContext = new DodajSkarbonke();
         }
 
         public void LoginClicked(object sender, RoutedEventArgs e)
         {
-            DataContext = new Login();
+            if (user.name != "Unlogged")
+                DataContext = new Login();
         }
 
         public void DodajUzytkownikaClicked(object sender, RoutedEventArgs e)
         {
-            DataContext = new DodajUzytkownika();
+            if (user.name != "Unlogged")
+                DataContext = new DodajUzytkownika();
         }
     }
        

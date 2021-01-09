@@ -15,76 +15,129 @@ namespace IOWpf.ViewsModels
 
     public class Login : INotifyPropertyChanged
     {
-        private ObservableCollection<string> usersList;
-        
 
-        /*
+
+        private string _username;
         public string username
         {
-            get { return username; }
+            get { return _username; }
             set
             {
-                username = value;
+                _username = value;
                 onPropertyChanged(nameof(username));
             }
         }
 
+
+        private string _password;
         public string password
         {
-            get { return password; }
+            get { return _password; }
             set
             {
-                password = value;
+                _password = value;
                 onPropertyChanged(nameof(password));
             }
         }
-        */
 
-/*
+        private string _errorLog;
+        public string errorLog
+        {
+            get { return _errorLog; }
+            set
+            {
+                _errorLog = value;
+                onPropertyChanged(nameof(errorLog));
+            }
+        }
+
+
         private ICommand _loginCommand;
 
         public ICommand LoginCommand
         {
             get
             {
-                Inc.creator_name = MainWindow.curr_name;
-                if (MainWindow.curr_type == 3)
-                    Inc.if_childs = true;
-                else
-                    Inc.if_childs = false;
-                Inc.UserId = MainWindow.curr_id;
-
-                if (_saveCommand == null)
+                
+                if (_loginCommand == null)
                 {
-                    _saveCommand = new RelayCommand(param => this.SaveObject(), param => this.CanSave()
+                    _loginCommand = new RelayCommand(param => this.tryLogin(), param => this.CanLog()
                     );
                 }
-                return _saveCommand;
+                return _loginCommand;
             }
         }
 
-        private bool CanSave()
+        private bool CanLog()
         {
+            if (_username == "" || _password == "")
+            {
+                errorLog = "Wypełnij wszystkie pola";
+                return false;
+            }
+            if (_username == "Unlogged")
+            {
+                errorLog = "Unlogged jest zastrzeżoną nazwą";
+                return false;
+            }
             return true;
         }
 
-        private void SaveObject()
+        private void tryLogin()
         {
-            Inc.add();
+            if(MainWindow.user.LoginPasswordCorrect(_username, _password))
+            {
+                 errorLog = "Udało się zalogować";
+            }
+            else
+            {
+                errorLog = "Nie udało się zalogować";
+            }
         }
 
-        */
 
-
-        public ObservableCollection<string> GetUsersList()
+        private ICommand _AddAdminCommand;
+        public ICommand AddAdminCommand
         {
-            return usersList;
+            get
+            {
+
+                if (_AddAdminCommand == null)
+                {
+                    _AddAdminCommand = new RelayCommand(param => this.tryAdd(), param => this.CanAdd()
+                    );
+                }
+                return _AddAdminCommand;
+            }
         }
 
-        public void SetUsersList(ObservableCollection<string> value)
+        private bool CanAdd()
         {
-            usersList = value;
+            if (MainWindow.user.AdminExists())
+            {
+                if(_username!="Unlogged"&&_errorLog!= "Udało się zalogować"&&_errorLog!= "Nie udało się zalogować")
+                    errorLog = "Konto administratora już istnieje";
+                return false;
+            }
+            if(_username==""||_password=="")
+            {
+                return false;
+            }
+            if(_username=="Unlogged")
+            {
+                errorLog = "Unlogged jest zastrzeżoną nazwą";
+                return false;
+            }
+            return true;
         }
+
+        private void tryAdd()
+        {
+            MainWindow.user.AddToBase(username, password, 3);
+        }
+
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void onPropertyChanged(string property_name)

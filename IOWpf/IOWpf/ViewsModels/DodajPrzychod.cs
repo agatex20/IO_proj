@@ -51,12 +51,12 @@ namespace IOWpf.ViewsModels
         {
             get
             {
-                Inc.creator_name = MainWindow.curr_name;
-                if (MainWindow.curr_type == 3)
+                Inc.creator_name = MainWindow.user.name;
+                if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
                     Inc.if_childs = true;
                 else
                     Inc.if_childs = false;
-                Inc.UserId = MainWindow.curr_id;
+                Inc.UserId = MainWindow.user.ID;
 
                 if (_saveCommand == null)
                 {
@@ -69,6 +69,10 @@ namespace IOWpf.ViewsModels
 
         private bool CanSave()
         {
+            if(Inc.amount==0.0||Inc.date=="")
+            {
+                return false;
+            }
             return true;
         }
 

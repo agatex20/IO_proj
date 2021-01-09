@@ -126,33 +126,38 @@ namespace IOWpf.ViewsModels
         {
             get
             {
-                exp.creator_name = MainWindow.curr_name;
-                if(MainWindow.curr_type==3)
+                exp.creator_name = MainWindow.user.name;
+                if(MainWindow.user.GetType().ToString()=="IOWpf.Models.Child")
                     exp.if_childs = true;
                 else
                     exp.if_childs = false;
-                exp.UserId = MainWindow.curr_id;
+                exp.UserId = MainWindow.user.ID;
                 if (_saveCommand == null)
                 {
-                    _saveCommand = new RelayCommand(SaveObject, param => this.CanSave());
+                    _saveCommand = new RelayCommand(SaveObject,CanSave);
                 }
                 return _saveCommand;
             }
         }
 
-        private bool CanSave()
+        private bool CanSave(Object param)
         {
+            if (exp.amount == 0 || exp.date == "" )
+                return false;
             return true;
         }
 
         private void SaveObject(Object param)
-        {
-            exp.add();
+        {      
             System.Collections.IList items = (System.Collections.IList)param;
-            var collection = items.Cast<String>();
-            foreach (var item in collection)
+            if (items.Count != 0)
             {
-                exp_cat.newitem(item);
+                var collection = items.Cast<String>();
+                exp.add();
+                foreach (var item in collection)
+                {
+                    exp_cat.newitem(item);
+                }
             }
         }
 
@@ -177,9 +182,12 @@ namespace IOWpf.ViewsModels
             }
             else
             {
-                cat.addCategory(titleString);
-                this.CategoryList.Add(titleString);
-                titleString = "Wydatek:";
+                if (titleString != "Wpisz nazwę kategorii i naciśnij dodaj")
+                {
+                    cat.addCategory(titleString);
+                    this.CategoryList.Add(titleString);
+                    titleString = "Wydatek:";
+                }
             }
         }
 

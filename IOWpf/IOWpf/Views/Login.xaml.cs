@@ -24,9 +24,5 @@ namespace IOWpf.Views
         {
             InitializeComponent();
         }
-        public void ZalogujClicked(object sender, RoutedEventArgs e)
-        {
-           
-        }
     }
 }

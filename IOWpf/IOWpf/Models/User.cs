@@ -31,18 +31,46 @@ namespace IOWpf.Models
             this.password = password;
         }
 
-        /*
+        
         public bool LoginPasswordCorrect(String password, String login)
         {
-            // List < Balance > lists = db.Balances.ToList();
-            //ICollection<Balance> balans = lists;
+            User user = null;
             using (var db = new Application_context())
             {
-                db.Users.ToList();
-                
+                    user = db.Children.FirstOrDefault(i => (i.name == login && i.password == password));
+                if (user == null)
+                    user = db.Admins.FirstOrDefault(i => (i.name == login && i.password == password));
+                if (user == null)
+                    user = db.Grown_Ups.FirstOrDefault(i => (i.name == login && i.password == password));
+                if(user == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    MainWindow.user = user;
+                    return true;
+                }
             }
         }
-        */
 
+        public virtual void AddToBase(String name, String password, int type) { }
+
+        public bool AdminExists()
+        {
+            Admin temp = new Admin();
+            using (var db = new Application_context())
+            {
+                temp = db.Admins.FirstOrDefault();
+            }
+            if (temp == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

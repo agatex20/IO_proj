@@ -22,9 +22,10 @@
                 <TextBox Name="txtUsername"  Foreground="#FF2196F3" FontSize="18" Text="{Binding Path=username, Mode=TwoWay}"/>
                 <Label Content="Password" Foreground="#FF2196F3" FontFamily="Impact"/>
                 <TextBox Name="txtPassword"  Foreground="#FF2196F3" FontSize="18" Text="{Binding Path=password, Mode=TwoWay}"/>
-                <Button  Click="ZalogujClicked" Command="{Binding Path=LoginCommand}" Content="Zaloguj" Margin="60 20" Foreground="#FF514A4A" Background="#FF2196F3" FontSize="18" FontFamily="Impact"/>
-                <Button Command="{Binding Path=AddAdminCommand}" Content="Dodaj admina" Margin="60 20" Foreground="#FF514A4A" Background="#FF2196F3" FontSize="18" FontFamily="Impact"/>            
-                </StackPanel>
+                <Button Command="{Binding Path=LoginCommand}" Content="Zaloguj" Margin="60 20" Foreground="#FF514A4A" Background="#FF2196F3" FontSize="18" FontFamily="Impact"/>
+                <Button Command="{Binding Path=AddAdminCommand}" Content="Dodaj admina" Margin="60 20" Foreground="#FF514A4A" Background="#FF2196F3" FontSize="18" FontFamily="Impact"/>
+                <TextBox  IsReadOnly="True" Foreground="#FF2196F3" FontSize="18" Text="{Binding Path=errorLog, Mode=TwoWay}"/>
+            </StackPanel>
             </Border>
       
     </Grid>
