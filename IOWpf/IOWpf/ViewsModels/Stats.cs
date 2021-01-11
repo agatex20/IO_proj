@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
-namespace IOWpf.ViewsModels 
+namespace IOWpf.ViewsModels
 {
-    using Views;
     using Models;
-    using Commands;
     using LiveCharts;
-    using LiveCharts.Wpf;
 
     public class Stats : INotifyPropertyChanged
     {

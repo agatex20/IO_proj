@@ -34,7 +34,7 @@ namespace IOWpf.Models
             exp.date=date;
             exp.creator_name=creator_name;
             exp.description=description;
-           // exp.UserId = UserId; gdy będzie działać dodawanie userów to włączyć
+            exp.UserId = UserId;
             exp.if_childs=if_childs;
             exp.bill_photo_path = bill_photo_path;
             using (var db = new Application_context())
@@ -66,7 +66,11 @@ namespace IOWpf.Models
                 //{
                 //    sum += MainWindow.explist[i].amount;
                 //}
-                sum += MainWindow.explist[i].amount;
+
+                if (MainWindow.explist[i].UserId == MainWindow.curr_id)
+                {
+                    sum += MainWindow.explist[i].amount;
+                }
             }
 
             return sum;
@@ -89,7 +93,8 @@ namespace IOWpf.Models
                         {
                             k++;
                         }
-                        if (MainWindow.explist[k].ExpenseId == MainWindow.expense_categories_list[j].ExpenseId)
+                        if (MainWindow.explist[k].ExpenseId == MainWindow.expense_categories_list[j].ExpenseId && 
+                            MainWindow.explist[k].UserId == MainWindow.curr_id)
                         {
                             sum += MainWindow.explist[k].amount;
                         }

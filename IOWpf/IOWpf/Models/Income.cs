@@ -28,7 +28,7 @@ namespace IOWpf.Models
                 inc.date = date;
                 inc.creator_name = creator_name;
                 inc.description = description;
-                //exp.UserId = UserId; gdy będzie działać dodawanie userów to włączyć
+                inc.UserId = UserId;
                 inc.if_childs = if_childs;
                 
                 db.Incomes.Add(inc);
@@ -55,8 +55,12 @@ namespace IOWpf.Models
                 //if(DateTime.Parse(MainWindow.inclist[i].date) >= DateTime.Parse(startDate) &&
                 //    DateTime.Parse(MainWindow.inclist[i].date) <= DateTime.Parse(endDate))
                 //{
-                    sum += MainWindow.inclist[i].amount;
                 //}
+                if(MainWindow.inclist[i].UserId == MainWindow.curr_id)
+                {
+                    sum += MainWindow.inclist[i].amount;
+                }
+
             }
 
             return sum;
