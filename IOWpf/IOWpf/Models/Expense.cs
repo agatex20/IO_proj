@@ -41,7 +41,7 @@ namespace IOWpf.Models
             {
                 db.Expenses.Add(exp);
 
-                var balance = db.Balances.SingleOrDefault(b => b.BalanceId == 1);       // poki co dla konta nr 1, jak bedzie podzial na userow to bedzie inaczej
+                var balance = db.Balances.SingleOrDefault(b => b.BalanceId == MainWindow.user.BalanceId);       
                 if (balance != null)
                 {
                     balance.curr_balance -= exp.amount;
