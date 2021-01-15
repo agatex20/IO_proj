@@ -29,22 +29,86 @@ namespace IOWpf.Views
         {
             InitializeComponent();
 
-            lvDataBinding.ItemsSource = MainWindow.inclist;
+            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
+            {
+                List<Income> inclistChild = new List<Income>();
 
-            //if (which)
-            //    lvDataBinding.ItemsSource = MainWindow.inclist;
-            //else
-            //    lvDataBinding.ItemsSource = MainWindow.explist;
+                foreach (var income in MainWindow.inclist)
+                {
+                    if (income.UserId == MainWindow.user.ID)
+                        inclistChild.Add(income);
+                }
+
+                lvDataBinding.ItemsSource = inclistChild;
+            }
+            else
+            {
+                List<Income> inclistChild = new List<Income>();
+
+                foreach (var income in MainWindow.inclist)
+                {
+                    if (income.if_childs == false)
+                        inclistChild.Add(income);
+                }
+
+                lvDataBinding.ItemsSource = inclistChild;
+            }
         }
 
         private void ExpensesClicked(object sender, RoutedEventArgs e)
         {
-            lvDataBinding.ItemsSource = MainWindow.explist;
+            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
+            {
+                List<Expense> explistChild = new List<Expense>();
+
+                foreach (var expense in MainWindow.explist)
+                {
+                    if (expense.UserId == MainWindow.user.ID)
+                        explistChild.Add(expense);
+                }
+
+                lvDataBinding.ItemsSource = explistChild;
+            }
+            else
+            {
+                List<Expense> explistAdult = new List<Expense>();
+
+                foreach (var expense in MainWindow.explist)
+                {
+                    if (expense.if_childs == false)
+                        explistAdult.Add(expense);
+                }
+
+                lvDataBinding.ItemsSource = explistAdult;
+            }
         }
 
         private void IncomesClicked(object sender, RoutedEventArgs e)
         {
-            lvDataBinding.ItemsSource = MainWindow.inclist;
+            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
+            {
+                List<Income> inclistChild = new List<Income>();
+
+                foreach (var income in MainWindow.inclist)
+                {
+                    if (income.UserId == MainWindow.user.ID)
+                        inclistChild.Add(income);
+                }
+
+                lvDataBinding.ItemsSource = inclistChild;
+            }
+            else
+            {
+                List<Income> inclistChild = new List<Income>();
+
+                foreach (var income in MainWindow.inclist)
+                {
+                    if (income.if_childs == false)
+                        inclistChild.Add(income);
+                }
+
+                lvDataBinding.ItemsSource = inclistChild;
+            }
         }
 
     }
