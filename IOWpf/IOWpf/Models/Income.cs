@@ -56,7 +56,7 @@ namespace IOWpf.Models
                 //    DateTime.Parse(MainWindow.inclist[i].date) <= DateTime.Parse(endDate))
                 //{
                 //}
-                if(MainWindow.inclist[i].UserId == MainWindow.curr_id)
+                if(MainWindow.inclist[i].UserId == MainWindow.user.ID)
                 {
                     sum += MainWindow.inclist[i].amount;
                 }

@@ -67,7 +67,7 @@ namespace IOWpf.Models
                 //    sum += MainWindow.explist[i].amount;
                 //}
 
-                if (MainWindow.explist[i].UserId == MainWindow.curr_id)
+                if (MainWindow.explist[i].UserId == MainWindow.user.ID)
                 {
                     sum += MainWindow.explist[i].amount;
                 }
@@ -94,7 +94,7 @@ namespace IOWpf.Models
                             k++;
                         }
                         if (MainWindow.explist[k].ExpenseId == MainWindow.expense_categories_list[j].ExpenseId && 
-                            MainWindow.explist[k].UserId == MainWindow.curr_id)
+                            MainWindow.explist[k].UserId == MainWindow.user.ID)
                         {
                             sum += MainWindow.explist[k].amount;
                         }
