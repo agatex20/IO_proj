@@ -11,34 +11,34 @@ namespace IOWpf.ViewsModels
         private Income inc = new Income();
         private Category category = new Category();
 
-       //private string _startDate;
-       //private string _endDate;
+        private string _startDate;
+        private string _endDate;
 
 
-       // public string startDate
-       // {
-       //     get { return _startDate; }
-       //     set
-       //     {
-       //         onPropertyChanged(nameof(startDate));
-       //     }
-       // }
+        public string startDate
+        {
+            get { return _startDate; }
+            set
+            {
+                onPropertyChanged(nameof(startDate));
+            }
+        }
 
-       // public string endDate
-       // {
-       //     get { return _endDate; }
-       //     set
-       //     {
-       //         onPropertyChanged(nameof(endDate));
-       //     }
-       // }
+        public string endDate
+        {
+            get { return _endDate; }
+            set
+            {
+                onPropertyChanged(nameof(endDate));
+            }
+        }
 
 
         public string incomes
         {
             get
             {
-                return inc.summing(/*startDate, endDate*/) + " zł";
+                return inc.summing(startDate, endDate) + " zł";
             }
 
         }
@@ -46,7 +46,7 @@ namespace IOWpf.ViewsModels
         {
             get
             {
-                return exp.summing(/*startDate, endDate*/) + " zł";
+                return exp.summing(startDate, endDate) + " zł";
             }
 
         }

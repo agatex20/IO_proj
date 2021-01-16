@@ -18,9 +18,9 @@
             <Label x:Name="label2" Content="Wydatki" FontSize="20" HorizontalAlignment="Left" Margin="30,156,0,0" FontFamily="Impact" Foreground="#FF2196F3" VerticalAlignment="Top"/>
             <Grid HorizontalAlignment="Left" Height="139" Margin="30,65,0,0" VerticalAlignment="Top" Width="688">
                 <Label x:Name="label3" Content="Zakres dat        od:" FontSize="20" HorizontalAlignment="Left" Margin="0,20,0,0" FontFamily="Impact" Foreground="#FF2196F3" VerticalAlignment="Top"/>
-                <DatePicker FontSize="16" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Text="{Binding startDate, Mode=TwoWay}" Margin="151,20,345,87"  Foreground="#FF2196F3" FontWeight="Bold" BorderBrush="#89000000" Height="52" RenderTransformOrigin="0.5,0.5" />
+                <DatePicker FontSize="8" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Text="{Binding startDate, Mode=TwoWay}" Margin="151,20,345,87"  Foreground="#FF2196F3" FontWeight="Bold" BorderBrush="#89000000" Height="52" RenderTransformOrigin="0.5,0.5" />
                 <Label x:Name="label4" Content="do:" FontSize="20" HorizontalAlignment="Left" Margin="357,20,0,0" FontFamily="Impact" Foreground="#FF2196F3" VerticalAlignment="Top"/>
-                <DatePicker FontSize="16" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Text="{Binding endDate, Mode=TwoWay}" Margin="395,20,101,87"  Foreground="#FF2196F3" FontWeight="Bold" BorderBrush="#89000000" Height="52" RenderTransformOrigin="0.5,0.5" />
+                <DatePicker FontSize="8" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Text="{Binding endDate, Mode=TwoWay}" Margin="395,20,101,87"  Foreground="#FF2196F3" FontWeight="Bold" BorderBrush="#89000000" Height="52" RenderTransformOrigin="0.5,0.5" />
                 <TextBox FontSize="18" IsReadOnly="True" Margin="110,57,345,54" Text="{Binding incomes, Mode=OneWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
                 <TextBox FontSize="18" IsReadOnly="True" Margin="110,90,345,21" Text="{Binding expences, Mode=OneWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
             </Grid>
@@ -30,7 +30,7 @@
                     <ColumnDefinition Width="378*"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <lvc:CartesianChart Margin="0,0,10,0" ScrollMode="X">
+                <lvc:CartesianChart Margin="0,0,10,0">
                     <lvc:CartesianChart.Series>
                         <lvc:ColumnSeries Title="Tyle wydałem w tej kategorii" Values="{Binding categoriesValues}"/>
                     </lvc:CartesianChart.Series>

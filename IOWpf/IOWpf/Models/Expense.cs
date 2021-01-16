@@ -50,24 +50,28 @@ namespace IOWpf.Models
                 db.SaveChanges();
                 MainWindow.explist = db.Expenses.ToList();
                 MainWindow.ballist = db.Balances.ToList();
+                MainWindow.expense_categories_list = db.Expense_Categories.ToList();
             }
         }
 
-        public double summing(/*string startDate, string endDate*/)
+        public double summing(string startDate, string endDate)
         {
 
             var sum = 0.0;
+            var date = DateTime.Parse(MainWindow.explist[0].date);
 
             for (int i = 0; i < MainWindow.explist.Count; i++)
             {
-
-                //if (DateTime.Parse(MainWindow.explist[i].date) >= DateTime.Parse(startDate) &&
-                //    DateTime.Parse(MainWindow.explist[i].date) <= DateTime.Parse(endDate))
-                //{
-                //    sum += MainWindow.explist[i].amount;
-                //}
-
-                if (MainWindow.explist[i].UserId == MainWindow.user.ID)
+                if(startDate != null && endDate != null)
+                {
+                    if (DateTime.Parse(MainWindow.explist[i].date) >= DateTime.Parse(startDate) &&
+                    DateTime.Parse(MainWindow.explist[i].date) <= DateTime.Parse(endDate))
+                    {
+                        sum += MainWindow.explist[i].amount;
+                    }
+                }
+                
+                else if (MainWindow.explist[i].UserId == MainWindow.user.ID)
                 {
                     sum += MainWindow.explist[i].amount;
                 }
@@ -80,29 +84,37 @@ namespace IOWpf.Models
         {
             List<double> returning = new List<double>();
 
-            for (int i = 1; i < 8; i++)
+            using (var db = new Application_context())
             {
-                var sum = 0.0;
+               
+                MainWindow.expense_categories_list = db.Expense_Categories.ToList();
 
-                for (int j = 0; j < MainWindow.expense_categories_list.Count; j++)
+                for (int i = 1; i < 8; i++)
                 {
-                    if (MainWindow.expense_categories_list[j].CategoryId == i)
+                    var sum = 0.0;
+
+                    for (int j = 0; j < MainWindow.expense_categories_list.Count; j++)
                     {
-                        int k = 0;
-                        while (MainWindow.explist[k].ExpenseId != MainWindow.expense_categories_list[j].ExpenseId)
+                        if (MainWindow.expense_categories_list[j].CategoryId == i)
                         {
-                            k++;
-                        }
-                        if (MainWindow.explist[k].ExpenseId == MainWindow.expense_categories_list[j].ExpenseId && 
-                            MainWindow.explist[k].UserId == MainWindow.user.ID)
-                        {
-                            sum += MainWindow.explist[k].amount;
+                            int k = 0;
+                            while (MainWindow.explist[k].ExpenseId != MainWindow.expense_categories_list[j].ExpenseId)
+                            {
+                                k++;
+                            }
+                            if (MainWindow.explist[k].ExpenseId == MainWindow.expense_categories_list[j].ExpenseId &&
+                                MainWindow.explist[k].UserId == MainWindow.user.ID)
+                            {
+                                sum += MainWindow.explist[k].amount;
+                            }
                         }
                     }
-                }
 
-                returning.Add(sum);
+                    returning.Add(sum);
+                }
             }
+
+            
 
             return returning;
         }

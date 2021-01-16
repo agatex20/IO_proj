@@ -45,18 +45,24 @@ namespace IOWpf.Models
             }
         }
 
-        public double summing(/*string startDate, string endDate*/)
+        public double summing(string startDate, string endDate)
         {
 
             var sum = 0.0;
 
             for (int i = 0; i < MainWindow.inclist.Count; i++)
             {
-                //if(DateTime.Parse(MainWindow.inclist[i].date) >= DateTime.Parse(startDate) &&
-                //    DateTime.Parse(MainWindow.inclist[i].date) <= DateTime.Parse(endDate))
-                //{
-                //}
-                if(MainWindow.inclist[i].UserId == MainWindow.user.ID)
+                if (startDate != null && endDate != null)
+                {
+                    if (DateTime.Parse(MainWindow.inclist[i].date) >= DateTime.Parse(startDate) &&
+                        DateTime.Parse(MainWindow.inclist[i].date) <= DateTime.Parse(endDate))
+                    {
+                        sum += MainWindow.inclist[i].amount;
+
+                    }
+                }
+
+                else if (MainWindow.inclist[i].UserId == MainWindow.user.ID)
                 {
                     sum += MainWindow.inclist[i].amount;
                 }
