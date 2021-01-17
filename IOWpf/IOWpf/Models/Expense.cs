@@ -80,7 +80,7 @@ namespace IOWpf.Models
             return sum;
         }
 
-        public List<double> categorySum()
+        public List<double> categorySum(string startDate, string endDate)
         {
             List<double> returning = new List<double>();
 
@@ -105,6 +105,7 @@ namespace IOWpf.Models
                             if (MainWindow.explist[k].ExpenseId == MainWindow.expense_categories_list[j].ExpenseId &&
                                 MainWindow.explist[k].UserId == MainWindow.user.ID)
                             {
+                                if(DateTime.Parse(MainWindow.explist[k].date)>DateTime.Parse(startDate)&& DateTime.Parse(MainWindow.explist[k].date) < DateTime.Parse(endDate))
                                 sum += MainWindow.explist[k].amount;
                             }
                         }

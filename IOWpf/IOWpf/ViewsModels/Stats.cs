@@ -4,6 +4,7 @@ namespace IOWpf.ViewsModels
 {
     using Models;
     using LiveCharts;
+    using System;
 
     public class Stats : INotifyPropertyChanged
     {
@@ -11,51 +12,90 @@ namespace IOWpf.ViewsModels
         private Income inc = new Income();
         private Category category = new Category();
 
-        private string _startDate;
-        private string _endDate;
-
-
+        private string _startDate="01.01.2021";
         public string startDate
         {
             get { return _startDate; }
             set
             {
-                onPropertyChanged(nameof(startDate));
+                if (value != _startDate)
+                {
+                    _startDate = value;
+                    categoriesValues = new ChartValues<double>(exp.categorySum(_startDate, _endDate));
+                    expences = exp.summing(_startDate, _endDate) + " zł";
+                    incomes = inc.summing(_startDate, _endDate) + " zł";
+                    onPropertyChanged(nameof(startDate));
+                }
             }
         }
 
+        private string _endDate="30.01.2021";
         public string endDate
         {
             get { return _endDate; }
             set
             {
-                onPropertyChanged(nameof(endDate));
+                if (value != _endDate)
+                {
+                    _endDate = value;
+                    categoriesValues = new ChartValues<double>(exp.categorySum(_startDate, _endDate));
+                    expences=exp.summing(_startDate, _endDate) + " zł";
+                    incomes = inc.summing(_startDate, _endDate) + " zł";
+                    onPropertyChanged(nameof(endDate));
+                }
             }
         }
 
-
+        private string _incomes="0";
         public string incomes
         {
+            set
+            {
+                if (value != _incomes)
+                {
+                    _incomes = value;
+                    onPropertyChanged(nameof(incomes));
+                }
+            }
             get
             {
-                return inc.summing(startDate, endDate) + " zł";
+                return _incomes;
             }
 
         }
+
+        private string _expences="0";
         public string expences
         {
+            set
+            {
+                if(value!=_expences)
+                {
+                    _expences = value;
+                    onPropertyChanged(nameof(expences));
+                }
+            }
             get
             {
-                return exp.summing(startDate, endDate) + " zł";
+                return _expences;
             }
 
         }
 
+        private ChartValues<double> _categoriesValues;
         public ChartValues<double> categoriesValues 
-        { 
+        {
+            set 
+            { 
+                if(value!=_categoriesValues)
+                {
+                    _categoriesValues = value;
+                    onPropertyChanged(nameof(categoriesValues));
+                }
+            }
             get
             {
-                return new ChartValues<double>(exp.categorySum());
+                return _categoriesValues;
             }
         }
 

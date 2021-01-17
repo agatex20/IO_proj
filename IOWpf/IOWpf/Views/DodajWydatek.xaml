@@ -25,7 +25,8 @@
                         <RowDefinition Height="55" />
                         <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
-                    <TextBox Grid.Column="0" Grid.Row="0" Text="{Binding titleString,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="30" Margin="10 0 0 10" FontFamily="Impact" Foreground="#FF2196F3" Height="55"/>
+                    <TextBox Grid.Column="0" Grid.Row="0" Text="{Binding titleString,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" FontSize="30" Margin="10 0 0 10" FontFamily="Impact" Foreground="#FF2196F3" Height="55"/>
+                    <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding catString,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="30" Margin="10 0 0 10" FontFamily="Impact" Foreground="#FF2196F3" Height="55"/>
                     <Button Grid.Column="1" Grid.Row="0" Content="Dodaj kategorię" HorizontalAlignment="Center" Margin="0,0,0,0" Command="{Binding addCat}" Foreground="#FF514A4A" FontFamily="Impact"/>
                     <Button Grid.Column="1" Grid.Row="1" Content="Dodaj paragon" HorizontalAlignment="Center" Margin="0,0,0,0" Command="{Binding path}" Foreground="#FF514A4A" FontFamily="Impact"/>
                     <TextBox Text="{Binding pathString,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Grid.Column="0" Grid.Row="1" FontSize="18" HorizontalAlignment="Right" Margin="5 0 15 0" FontFamily="Impact" Foreground="#FF2196F3" Height="40"/>

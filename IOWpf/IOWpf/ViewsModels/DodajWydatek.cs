@@ -28,7 +28,6 @@ namespace IOWpf.ViewsModels
         {
             this.CategoryList = new ObservableCollection<string>(cat.getList());
         }
-
         private String _titleString = "Wydatek:";
         public String titleString
         {
@@ -42,6 +41,21 @@ namespace IOWpf.ViewsModels
                 }
             }
         }
+
+        private String _catString = "";
+        public String catString
+        {
+            get { return _catString; }
+            set
+            {
+                if(value!=_catString)
+                {
+                    _catString = value;
+                    onPropertyChanged(nameof(catString));
+                }
+            }
+        }
+
         private String _pathString;
         public String pathString
         {
@@ -178,15 +192,16 @@ namespace IOWpf.ViewsModels
         {
             if(titleString=="Wydatek:")
             {
-                titleString = "Wpisz nazwę kategorii i naciśnij dodaj";
+                titleString = "Wpisz nazwę kategorii i naciśnij dodaj:";
             }
             else
             {
                 if (titleString != "Wpisz nazwę kategorii i naciśnij dodaj")
                 {
-                    cat.addCategory(titleString);
-                    this.CategoryList.Add(titleString);
+                    cat.addCategory(_catString);
+                    this.CategoryList.Add(_catString);
                     titleString = "Wydatek:";
+                    catString = "";
                 }
             }
         }
