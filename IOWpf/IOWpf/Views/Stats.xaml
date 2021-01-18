@@ -25,20 +25,24 @@
                 <TextBox FontSize="18" IsReadOnly="True" Margin="110,90,345,21" Text="{Binding expences, Mode=OneWay}" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" />
             </Grid>
 
-            <Grid HorizontalAlignment="Left" Height="294" Margin="30,204,0,-88" VerticalAlignment="Top" Width="688">
+            <Grid HorizontalAlignment="Left" Height="294" Margin="10,204,0,-88" VerticalAlignment="Top" Width="689">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="89*"/>
+                    <RowDefinition Height="58*"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="378*"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <lvc:CartesianChart Margin="0,0,10,0" ScrollVerticalFrom="-5" ScrollHorizontalTo="100">
+                <lvc:CartesianChart Margin="0,0,10,0" ScrollVerticalFrom="-5" ScrollHorizontalTo="100" Grid.RowSpan="2">
                     <lvc:CartesianChart.Series>
                         <lvc:ColumnSeries Title="Tyle wydałem w tej kategorii" Values="{Binding categoriesValues, UpdateSourceTrigger=PropertyChanged}"/>
                     </lvc:CartesianChart.Series>
                     <lvc:CartesianChart.AxisX>
-                        <lvc:Axis FontSize="12" Labels="{Binding categoriesNames}">
-                        <lvc:Axis.Separator>
-                            <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
-                        </lvc:Axis.Separator>
+                        <lvc:Axis FontSize="12" Labels="{Binding categoriesNames}" LabelsRotation="-37" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+                            <lvc:Axis.Separator>
+                                <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
+                            </lvc:Axis.Separator>
                         </lvc:Axis>
                     </lvc:CartesianChart.AxisX>
                     <lvc:CartesianChart.AxisY>

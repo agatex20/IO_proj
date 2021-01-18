@@ -27,6 +27,7 @@ namespace IOWpf
         public static List<Piggy_bank> pblist;
         public static List<Balance> ballist;
         public static List<Expense_Category> expense_categories_list;
+        public static List<Category> catlist;
         public static User user = new Admin();
         
         public static int curr_id;
@@ -42,6 +43,7 @@ namespace IOWpf
                 pblist = db.Piggy_Banks.ToList();
                 ballist = db.Balances.ToList();
                 expense_categories_list = db.Expense_Categories.ToList();
+                catlist = db.Categories.ToList();
             }
 
             DataContext = new Login();
