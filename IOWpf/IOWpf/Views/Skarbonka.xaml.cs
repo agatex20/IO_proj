@@ -26,7 +26,24 @@ namespace IOWpf.Views
         public Skarbonka()
         {
             InitializeComponent();
-            lvDataBinding.ItemsSource = MainWindow.pblist;
+            List<Piggy_bank> banksList = new List<Piggy_bank>();
+
+            if (MainWindow.curr_type == 3)
+            {
+                foreach (Piggy_bank pb in MainWindow.pblist)
+                {
+                    if (pb.if_childs)
+                    {
+                        banksList.Add(pb);
+                    }
+                }
+            }
+            else
+            {
+                banksList = MainWindow.pblist;
+            }
+
+            lvDataBinding.ItemsSource = banksList;
         }
 
         private void AddBankClicked(object sender, RoutedEventArgs e)
@@ -43,22 +60,17 @@ namespace IOWpf.Views
 
         private void Deposit(object sender, RoutedEventArgs e)
         {
-            int id = (int)(((sender as Button).TransformToAncestor(lvDataBinding).Transform(new Point(0, 0)).Y)/49);
-            
+            int id = Int32.Parse((sender as Button).Uid);
             WybierzKwote wk = new WybierzKwote(id, true);
             wk.Show();
-
         }
 
         private void Payout(object sender, RoutedEventArgs e)
         {
-            int id = (int)(((sender as Button).TransformToAncestor(lvDataBinding).Transform(new Point(0, 0)).Y) / 49);
-            
+            int id = Int32.Parse((sender as Button).Uid);
+
             WybierzKwote wk = new WybierzKwote(id, false);
             wk.Show();
-            
-            DataContext = new Skarbonka();
-
         }
     }
 }

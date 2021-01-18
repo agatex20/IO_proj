@@ -34,7 +34,6 @@ namespace IOWpf.Views
             float mi = float.Parse(monthly_income.Text);
             float ta = float.Parse(start_amount.Text);
             float ga = float.Parse(goal_amount.Text);
-            // Child_service c_controller = new Child_service();
             g_controller.add_piggy_banks(ta, ga, mi, date.Text, pb_name.Text);
 
             using (var db = new Application_context())

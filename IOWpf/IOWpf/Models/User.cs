@@ -37,13 +37,21 @@ namespace IOWpf.Models
             User user = null;
             using (var db = new Application_context())
             {
-                    user = db.Children.FirstOrDefault(i => (i.name == login && i.password == password));
+                user = db.Children.FirstOrDefault(i => (i.name == login && i.password == password));
+                MainWindow.curr_type = 3;
                 if (user == null)
+                {
                     user = db.Admins.FirstOrDefault(i => (i.name == login && i.password == password));
+                    MainWindow.curr_type = 1;
+                }
                 if (user == null)
+                {
                     user = db.Grown_Ups.FirstOrDefault(i => (i.name == login && i.password == password));
+                    MainWindow.curr_type = 2;
+                }
                 if(user == null)
                 {
+                    MainWindow.curr_type = 0;
                     return false;
                 }
                 else

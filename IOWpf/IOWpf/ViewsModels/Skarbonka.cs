@@ -14,10 +14,6 @@ namespace IOWpf.ViewsModels
     { 
 
 
-
-
-
-
         public event PropertyChangedEventHandler PropertyChanged;
         private void onPropertyChanged(string property_name)
         {

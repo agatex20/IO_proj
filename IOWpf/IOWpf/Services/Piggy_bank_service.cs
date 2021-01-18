@@ -21,6 +21,7 @@ namespace IOWpf.Services
                 db.SaveChanges();
                 MainWindow.pblist.Clear();
                 MainWindow.pblist = db.Piggy_Banks.ToList();
+                
             }
         }
 

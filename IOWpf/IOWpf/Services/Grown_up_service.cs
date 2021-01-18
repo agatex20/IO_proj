@@ -23,13 +23,21 @@ namespace IOWpf.Services
 
                 Piggy_bank pBank = new Piggy_bank();
                 pBank.Piggy_bankId = next_id;
+                pBank.uid = next_id.ToString();
                 pBank.treasured_amount = _inamount;
                 pBank.goal = _goal;
                 pBank.goal_namel = _goalname;
-                pBank.if_childs = false; //temp
+                if (MainWindow.curr_type == 3)
+                {
+                    pBank.if_childs = true;
+                }
+                else
+                {
+                    pBank.if_childs = false;
+                }
                 pBank.monthly_income = _montlyincome;
                 pBank.start_day = 0; //temp
-                pBank.creator_name = "Seba"; //temp
+                pBank.creator_name = MainWindow.user.name; //temp
                 pBank.goal_date = _goaldate;
 
                 db.Piggy_Banks.Add(pBank);
@@ -37,19 +45,6 @@ namespace IOWpf.Services
 
             }
         }
-        public void check_piggy_banks()
-        {
 
-        }
-
-        public void check_statistics()
-        {
-
-        }
-
-        public void edit_account()
-        {
-
-        }
     }
 }

@@ -18,21 +18,21 @@
             <StackPanel>
             <TextBlock Text="Nowa skarbonka:" FontSize="40" Margin="10 0 0 20" FontFamily="Impact" Foreground="#FF2196F3"/>
 
-            <TextBox materialDesign:HintAssist.Hint="Nazwa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="pb_name"/>
+            <TextBox Text="{Binding Path=name, Mode=TwoWay}" materialDesign:HintAssist.Hint="Nazwa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="pb_name"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="91*"/>
                     <ColumnDefinition Width="709*"/>
                 </Grid.ColumnDefinitions>
                 <TextBox Text="Termin" Foreground="#FF2196F3" Grid.ColumnSpan="2" Margin="0,0,0,-0.6" />
-                <DatePicker Text="Data" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Grid.ColumnSpan="2" Margin="0,0,0,0.4" Name="date" />
+                <DatePicker Text="{Binding Path=date, Mode=TwoWay}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Grid.ColumnSpan="2" Margin="0,0,0,0.4" Name="date" />
             </Grid>
 
-            <TextBox materialDesign:HintAssist.Hint="Kwota początkowa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="start_amount"/>
-            <TextBox materialDesign:HintAssist.Hint="Kwota docelowa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="goal_amount"/>
-            <TextBox materialDesign:HintAssist.Hint="Miesięczna wpłata" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="monthly_income"/>
+            <TextBox Text="{Binding Path=startAmount, Mode=TwoWay}"  materialDesign:HintAssist.Hint="Kwota początkowa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="start_amount"/>
+            <TextBox Text="{Binding Path=targetAmount, Mode=TwoWay}" materialDesign:HintAssist.Hint="Kwota docelowa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="goal_amount"/>
+            <TextBox Text="{Binding Path=deposit, Mode=TwoWay}" materialDesign:HintAssist.Hint="Miesięczna wpłata" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="monthly_income"/>
             
-            <Button Content="Dodaj" Margin="0 20" Click="AddClicked" Foreground="#FF514A4A"/>
+            <Button Content="Dodaj" Margin="0 20" Command="{Binding Path=AddPiggyBank}" Foreground="#FF514A4A"/>
         </StackPanel>
 
         </Border>
