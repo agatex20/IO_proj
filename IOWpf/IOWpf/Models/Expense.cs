@@ -89,7 +89,7 @@ namespace IOWpf.Models
                
                 MainWindow.expense_categories_list = db.Expense_Categories.ToList();
 
-                for (int i = 1; i < MainWindow.catlist.Count; i++)
+                for (int i = 1; i <= MainWindow.catlist.Count; i++)
                 {
                     var sum = 0.0;
 
