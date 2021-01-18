@@ -12,7 +12,7 @@ namespace IOWpf.ViewsModels
         private Income inc = new Income();
         private Category category = new Category();
 
-        private string _startDate="01.01.2021";
+        private string _startDate = DateTime.Today.AddMonths(-1).ToString();
         public string startDate
         {
             get { return _startDate; }
@@ -29,7 +29,7 @@ namespace IOWpf.ViewsModels
             }
         }
 
-        private string _endDate="30.01.2021";
+        private string _endDate = DateTime.Today.ToString();
         public string endDate
         {
             get { return _endDate; }
