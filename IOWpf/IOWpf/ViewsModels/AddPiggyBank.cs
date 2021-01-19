@@ -11,6 +11,8 @@ namespace IOWpf.ViewsModels
     using Views;
     using Models;
     using Commands;
+    using System.Windows;
+
     public class AddPiggyBank : INotifyPropertyChanged
     {
 
@@ -96,6 +98,8 @@ namespace IOWpf.ViewsModels
         private void SaveBank()
         {
             pBank.Add();
+            MainWindow main = (MainWindow)Application.Current.MainWindow;
+            main.PiggyBankClicked(null, null);
         }
 
 

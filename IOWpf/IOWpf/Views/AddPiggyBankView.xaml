@@ -32,7 +32,7 @@
             <TextBox Text="{Binding Path=targetAmount, Mode=TwoWay}" materialDesign:HintAssist.Hint="Kwota docelowa" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="goal_amount"/>
             <TextBox Text="{Binding Path=deposit, Mode=TwoWay}" materialDesign:HintAssist.Hint="Miesięczna wpłata" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="monthly_income"/>
             
-            <Button Content="Dodaj" Margin="0 20" Command="{Binding Path=AddPiggyBank}" Foreground="#FF514A4A"/>
+            <Button Content="Dodaj" Margin="0 20" Command="{Binding Path=AddPiggyBankProp}" Foreground="#FF514A4A"/>
         </StackPanel>
 
         </Border>

@@ -98,6 +98,8 @@ namespace IOWpf.ViewsModels
             pBank.Deposit(amount);
             Window current = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             current.Close();
+            MainWindow main = (MainWindow)Application.Current.MainWindow;
+            main.PiggyBankClicked(null, null);
         }
 
         private void withdraw()
@@ -105,12 +107,16 @@ namespace IOWpf.ViewsModels
             pBank.Withdraw(amount);
             Window current = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             current.Close();
+            MainWindow main = (MainWindow)Application.Current.MainWindow;
+            main.PiggyBankClicked(null, null);
         }
         private void delete()
         {
             pBank.Delete();
             Window current = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             current.Close();
+            MainWindow main = (MainWindow)Application.Current.MainWindow;
+            main.PiggyBankClicked(null, null);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
