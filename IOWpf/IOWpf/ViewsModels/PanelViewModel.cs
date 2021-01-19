@@ -12,6 +12,8 @@ namespace IOWpf.ViewsModels
     using Models;
     using Commands;
     using System.Collections.ObjectModel;
+    using System.Diagnostics;
+    using System.IO;
 
     public class PanelViewModel : INotifyPropertyChanged
     {
@@ -21,28 +23,8 @@ namespace IOWpf.ViewsModels
 
         public PanelViewModel()
         {
-            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
-            {
-                foreach (var income in MainWindow.inclist)
-                {
-                    if (income.UserId == MainWindow.user.ID)
-                        inclist.Add(income);
-                }
-
-                this.list = new ObservableCollection<Money_flow>(inclist);
-                onPropertyChanged(nameof(list));
-            }
-            else
-            {
-                foreach (var income in MainWindow.inclist)
-                {
-                    if (income.if_childs == false)
-                        inclist.Add(income);
-                }
-
-                this.list = new ObservableCollection<Money_flow>(inclist);
-                onPropertyChanged(nameof(list));
-            }
+            showExpense();              // tymczasowo zeby explist byla wypelniona zeby nie wywalalo sie na otwieraniu zdjecia
+            showIncome();
         }
 
         private ICommand _expenseClicked;
@@ -124,6 +106,37 @@ namespace IOWpf.ViewsModels
 
                 this.list = new ObservableCollection<Money_flow>(inclist);
                 onPropertyChanged(nameof(list));
+            }
+        }
+
+        private ICommand _showPhotoClicked;
+        public ICommand showPhotoClicked
+        {
+            get
+            {
+                if (_showPhotoClicked == null)
+                {
+                    _showPhotoClicked = new RelayCommand(param => this.showPhoto());
+                }
+                return _showPhotoClicked;
+            }
+        }
+
+        private void showPhoto()
+        {
+            //string picturePath = explist[/* odpowiedni rzad + 1 */].bill_photo_path;
+            string picturePath = "D:\\Pictures\\Wallpapers\\campfire.jpg";
+
+            if (!String.IsNullOrEmpty(picturePath) && File.Exists(picturePath))
+            {
+                ProcessStartInfo info = new ProcessStartInfo();
+
+                info.FileName = Path.Combine("ms-photos://", picturePath);
+                info.UseShellExecute = true;
+                info.CreateNoWindow = true;
+                info.Verb = string.Empty;
+
+                Process.Start(info);
             }
         }
 

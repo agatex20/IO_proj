@@ -29,9 +29,11 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+        
         <TextBlock Text="Historia" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="36" Foreground="#FF2196F3"  Margin="5,0,0,0"/>
         <Button Command="{Binding Path=expenseClicked}" Content="Wydatki" Margin="230,0,0,0"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
         <Button Command="{Binding Path=incomeClicked}" Content="Przychody" Margin="30,0,0,0"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
+        
         <TextBlock Text="Saldo" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="5,0,0,0" />
         <TextBlock Text="{Binding curr_balance}" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="0,48,10,48" Width="43" />
 
@@ -56,12 +58,16 @@
         </Grid>
         <Grid Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Background="#FF514A4A">
         </Grid>
-
+        
+        <!--tymczasowo zeby w ogole dalo sie klinac przycisk-->
+        <Button Command="{Binding Path=showPhotoClicked}" Content="Edytuj" Foreground="#FF514A4A" Width="100"/>
+        <!--================================================-->
+        
         <ListView ItemsSource="{Binding list, NotifyOnSourceUpdated=True}" Name="lvDataBinding" Grid.ColumnSpan="3" Margin="0" Grid.Row="2" Grid.RowSpan="6" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Button  Content="Edytuj"   Foreground="#FF514A4A" Width="100"/>
+                        <!--<Button Command="{Binding Path=showPhotoClicked}" Content="Edytuj" Foreground="#FF514A4A" Width="100"/>-->
                         <TextBlock Text="{Binding description}"  Foreground="#FF2196F3" FontSize="18" Margin="20,0,0,0" Width="269"  />
                         <TextBlock Text="{Binding amount}" Grid.Column="1" Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" Margin="10,0,0,0" Width="197"  />
                         <TextBlock Text="{Binding date}"   Grid.Column="2" Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" Margin="0" Width="224"  />
