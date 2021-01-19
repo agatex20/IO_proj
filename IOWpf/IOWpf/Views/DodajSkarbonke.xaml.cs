@@ -27,19 +27,5 @@ namespace IOWpf.Views
         {
             InitializeComponent();
         }
-
-        private void AddClicked(object sender, RoutedEventArgs e)
-        {
-            Grown_up_service g_controller = new Grown_up_service();
-            float mi = float.Parse(monthly_income.Text);
-            float ta = float.Parse(start_amount.Text);
-            float ga = float.Parse(goal_amount.Text);
-            g_controller.add_piggy_banks(ta, ga, mi, date.Text, pb_name.Text);
-
-            using (var db = new Application_context())
-            {
-                MainWindow.pblist = db.Piggy_Banks.ToList();
-            }
-        }
     }
 }

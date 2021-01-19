@@ -196,7 +196,6 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Expense_Category.cs" />
     <Compile Include="Models\User_Piggy_bank.cs" />
-    <Compile Include="Services\Grown_up_service.cs" />
     <Compile Include="Services\Piggy_bank_service.cs" />
     <Compile Include="ViewsModels\DodajSkarbonke.cs" />
     <Compile Include="ViewsModels\DodajPrzychod.cs" />
