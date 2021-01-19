@@ -15,55 +15,123 @@ namespace IOWpf.ViewsModels
 
     public class PanelViewModel : INotifyPropertyChanged
     {
-        private ICommand _expenses;
-        public ICommand expenses
+        List<Income> inclist = new List<Income>();
+        List<Expense> explist = new List<Expense>();
+        public ObservableCollection<Money_flow> list { get; set; }
+
+        public PanelViewModel()
         {
-            get
+            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
             {
-                if (_expenses == null)
+                foreach (var income in MainWindow.inclist)
                 {
-                    _expenses = new RelayCommand(param => this.load_exp(), param => this.can_load_exp());
+                    if (income.UserId == MainWindow.user.ID)
+                        inclist.Add(income);
                 }
-                return _expenses;
+
+                this.list = new ObservableCollection<Money_flow>(inclist);
+                onPropertyChanged(nameof(list));
+            }
+            else
+            {
+                foreach (var income in MainWindow.inclist)
+                {
+                    if (income.if_childs == false)
+                        inclist.Add(income);
+                }
+
+                this.list = new ObservableCollection<Money_flow>(inclist);
+                onPropertyChanged(nameof(list));
             }
         }
 
-        private void load_exp()
-        {
-            PanelView.which = false;
-        }
-
-        private bool can_load_exp()
-        {
-            return true;
-        }
-
-        private ICommand _incomes;
-        public ICommand incomes
+        private ICommand _expenseClicked;
+        public ICommand expenseClicked
         {
             get
             {
-                if (_incomes == null)
+                if (_expenseClicked == null)
                 {
-                    _incomes = new RelayCommand(param => this.load_inc(), param => this.can_load_inc());
+                    _expenseClicked = new RelayCommand(param => this.showExpense());
                 }
-                return _incomes;
+                return _expenseClicked;
             }
         }
 
-        private void load_inc()
+        private void showExpense()
         {
-            PanelView.which = true;
+            explist.Clear();
+
+            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
+            {
+                foreach (var expense in MainWindow.explist)
+                {
+                    if (expense.UserId == MainWindow.user.ID)
+                        explist.Add(expense);
+                }
+
+                this.list = new ObservableCollection<Money_flow>(explist);
+                onPropertyChanged(nameof(list));
+            }
+            else
+            {
+                foreach (var expense in MainWindow.explist)
+                {
+                    if (expense.if_childs == false)
+                        explist.Add(expense);
+                }
+
+                this.list = new ObservableCollection<Money_flow>(explist);
+                onPropertyChanged(nameof(list));
+            }
         }
-        private bool can_load_inc()
+
+        private ICommand _incomeClicked;
+        public ICommand incomeClicked
         {
-            return true;
+            get
+            {
+                if (_incomeClicked == null)
+                {
+                    _incomeClicked = new RelayCommand(param => this.showIncome());
+                }
+                return _incomeClicked;
+            }
         }
+
+        private void showIncome()
+        {
+            inclist.Clear();
+
+            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
+            {
+                foreach (var income in MainWindow.inclist)
+                {
+                    if (income.UserId == MainWindow.user.ID)
+                        inclist.Add(income);
+                }
+
+                this.list = new ObservableCollection<Money_flow>(inclist);
+                onPropertyChanged(nameof(list));
+            }
+            else
+            {            
+                foreach (var income in MainWindow.inclist)
+                {
+                    if (income.if_childs == false)
+                        inclist.Add(income);
+                }
+
+                this.list = new ObservableCollection<Money_flow>(inclist);
+                onPropertyChanged(nameof(list));
+            }
+        }
+
         public double curr_balance
         {
             get
             {
-                return MainWindow.ballist[MainWindow.user.BalanceId - 1].curr_balance;       // powinno juz dzialac
+                return MainWindow.ballist[MainWindow.user.BalanceId - 1].curr_balance;
             }
         }
 
