@@ -30,9 +30,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Historia" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="36" Foreground="#FF2196F3"  Margin="5,0,0,0"/>
-        <!--<Button Click="ExpensesClicked" Content="Wydatki" Margin="230,0,0,0"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>-->
         <Button Command="{Binding Path=expenseClicked}" Content="Wydatki" Margin="230,0,0,0"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
-        <!--<Button Click="IncomesClicked" Content="Przychody" Margin="30,0,0,0"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>-->
         <Button Command="{Binding Path=incomeClicked}" Content="Przychody" Margin="30,0,0,0"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
         <TextBlock Text="Saldo" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="5,0,0,0" />
         <TextBlock Text="{Binding curr_balance}" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Column="1" Margin="0,48,10,48" Width="43" />
