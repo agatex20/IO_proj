@@ -42,8 +42,11 @@ namespace IOWpf.Models
                 var query = from pb in db.Piggy_Banks
                             orderby pb.Piggy_bankId descending
                             select pb;
-                int next_id = query.FirstOrDefault().Piggy_bankId + 1;
-
+                int next_id = 1;
+                if (query.Any())
+                {
+                    next_id = query.FirstOrDefault().Piggy_bankId + 1;
+                }
                 Piggy_bank pBank = new Piggy_bank();
                 pBank.Piggy_bankId = next_id;
                 pBank.treasured_amount = treasured_amount;
