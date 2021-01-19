@@ -12,58 +12,139 @@ namespace IOWpf.ViewsModels
     using Models;
     using Commands;
     using System.Collections.ObjectModel;
+    using System.Diagnostics;
+    using System.IO;
 
     public class PanelViewModel : INotifyPropertyChanged
     {
-        private ICommand _expenses;
-        public ICommand expenses
+        List<Income> inclist = new List<Income>();
+        List<Expense> explist = new List<Expense>();
+        public ObservableCollection<Money_flow> list { get; set; }
+
+        public PanelViewModel()
+        {
+            showExpense();              // tymczasowo zeby explist byla wypelniona zeby nie wywalalo sie na otwieraniu zdjecia
+            showIncome();
+        }
+
+        private ICommand _expenseClicked;
+        public ICommand expenseClicked
         {
             get
             {
-                if (_expenses == null)
+                if (_expenseClicked == null)
                 {
-                    _expenses = new RelayCommand(param => this.load_exp(), param => this.can_load_exp());
+                    _expenseClicked = new RelayCommand(param => this.showExpense());
                 }
-                return _expenses;
+                return _expenseClicked;
             }
         }
 
-        private void load_exp()
+        private void showExpense()
         {
-            PanelView.which = false;
+            explist.Clear();
+
+            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
+            {
+                foreach (var expense in MainWindow.explist)
+                {
+                    if (expense.UserId == MainWindow.user.ID)
+                        explist.Add(expense);
+                }
+
+                this.list = new ObservableCollection<Money_flow>(explist);
+                onPropertyChanged(nameof(list));
+            }
+            else
+            {
+                foreach (var expense in MainWindow.explist)
+                {
+                    if (expense.if_childs == false)
+                        explist.Add(expense);
+                }
+
+                this.list = new ObservableCollection<Money_flow>(explist);
+                onPropertyChanged(nameof(list));
+            }
         }
 
-        private bool can_load_exp()
-        {
-            return true;
-        }
-
-        private ICommand _incomes;
-        public ICommand incomes
+        private ICommand _incomeClicked;
+        public ICommand incomeClicked
         {
             get
             {
-                if (_incomes == null)
+                if (_incomeClicked == null)
                 {
-                    _incomes = new RelayCommand(param => this.load_inc(), param => this.can_load_inc());
+                    _incomeClicked = new RelayCommand(param => this.showIncome());
                 }
-                return _incomes;
+                return _incomeClicked;
             }
         }
 
-        private void load_inc()
+        private void showIncome()
         {
-            PanelView.which = true;
+            inclist.Clear();
+
+            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
+            {
+                foreach (var income in MainWindow.inclist)
+                {
+                    if (income.UserId == MainWindow.user.ID)
+                        inclist.Add(income);
+                }
+
+                this.list = new ObservableCollection<Money_flow>(inclist);
+                onPropertyChanged(nameof(list));
+            }
+            else
+            {            
+                foreach (var income in MainWindow.inclist)
+                {
+                    if (income.if_childs == false)
+                        inclist.Add(income);
+                }
+
+                this.list = new ObservableCollection<Money_flow>(inclist);
+                onPropertyChanged(nameof(list));
+            }
         }
-        private bool can_load_inc()
+
+        private ICommand _showPhotoClicked;
+        public ICommand showPhotoClicked
         {
-            return true;
+            get
+            {
+                if (_showPhotoClicked == null)
+                {
+                    _showPhotoClicked = new RelayCommand(param => this.showPhoto());
+                }
+                return _showPhotoClicked;
+            }
         }
+
+        private void showPhoto()
+        {
+            //string picturePath = explist[/* odpowiedni rzad + 1 */].bill_photo_path;
+            string picturePath = "D:\\Pictures\\Wallpapers\\campfire.jpg";
+
+            if (!String.IsNullOrEmpty(picturePath) && File.Exists(picturePath))
+            {
+                ProcessStartInfo info = new ProcessStartInfo();
+
+                info.FileName = Path.Combine("ms-photos://", picturePath);
+                info.UseShellExecute = true;
+                info.CreateNoWindow = true;
+                info.Verb = string.Empty;
+
+                Process.Start(info);
+            }
+        }
+
         public double curr_balance
         {
             get
             {
-                return MainWindow.ballist[MainWindow.user.BalanceId - 1].curr_balance;       // powinno juz dzialac
+                return MainWindow.ballist[MainWindow.user.BalanceId - 1].curr_balance;
             }
         }
 
