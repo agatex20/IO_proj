@@ -121,12 +121,11 @@ namespace IOWpf.Models
                 var query = from pb in db.Piggy_Banks
                             where pb.Piggy_bankId == PbId
                             select pb;
-                query.FirstOrDefault().treasured_amount -= _amount;
                 if (query.Any())
                 {
-                    if (query.FirstOrDefault().treasured_amount < 0)
+                    if (query.FirstOrDefault().treasured_amount >= _amount)
                     {
-                        query.FirstOrDefault().treasured_amount += _amount;
+                        query.FirstOrDefault().treasured_amount -= _amount;
                     }
                 }
                 db.SaveChanges();
