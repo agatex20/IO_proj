@@ -68,13 +68,11 @@ namespace IOWpf.ViewsModels
         private void Deposit(object sender)
         {
             pBank.piggyBankId = Int32.Parse((sender as Button).Uid);
-            Debug.WriteLine(pBank.piggyBankId);
             pBank.Deposit(amount);
         }
         private void Withdraw(object sender)
         {
             pBank.piggyBankId = Int32.Parse((sender as Button).Uid);
-            Debug.WriteLine(pBank.piggyBankId);
             pBank.Withdraw(amount);
         }
 

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace IOWpf.ViewsModels
@@ -95,15 +96,21 @@ namespace IOWpf.ViewsModels
         private void deposit()
         {
             pBank.Deposit(amount);
+            Window current = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            current.Close();
         }
 
         private void withdraw()
         {
             pBank.Withdraw(amount);
+            Window current = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            current.Close();
         }
         private void delete()
         {
             pBank.Delete();
+            Window current = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            current.Close();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
