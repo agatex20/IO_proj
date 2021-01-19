@@ -53,23 +53,9 @@ namespace IOWpf.Views
             lvDataBinding.ItemsSource = MainWindow.pblist;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OperationClicked(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Deposit(object sender, RoutedEventArgs e)
-        {
-            int id = Int32.Parse((sender as Button).Uid);
-            WybierzKwote wk = new WybierzKwote(id, true);
-            wk.Show();
-        }
-
-        private void Payout(object sender, RoutedEventArgs e)
-        {
-            int id = Int32.Parse((sender as Button).Uid);
-
-            WybierzKwote wk = new WybierzKwote(id, false);
+            WybierzKwote wk = new WybierzKwote();
             wk.Show();
         }
 

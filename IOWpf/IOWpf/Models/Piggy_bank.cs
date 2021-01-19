@@ -9,7 +9,6 @@ namespace IOWpf.Models
     public class Piggy_bank
     {
         public int Piggy_bankId { get; set; }
-        public string uid { get; set; }
         public virtual ICollection<User_Piggy_bank> User_Piggy_banks { get; set; }
 
         public string creator_name { get; set; }
@@ -41,12 +40,12 @@ namespace IOWpf.Models
             using (var db = new Application_context())
             {
                 var query = from pb in db.Piggy_Banks
+                            orderby pb.Piggy_bankId descending
                             select pb;
-                int next_id = query.Count() + 1;
+                int next_id = query.FirstOrDefault().Piggy_bankId + 1;
 
                 Piggy_bank pBank = new Piggy_bank();
                 pBank.Piggy_bankId = next_id;
-                pBank.uid = next_id.ToString();
                 pBank.treasured_amount = treasured_amount;
                 pBank.goal = goal;
                 pBank.goal_namel = goal_namel;
@@ -60,7 +59,7 @@ namespace IOWpf.Models
                 }
                 pBank.monthly_income = monthly_income;
                 pBank.start_day = MainWindow.curr_day;
-                pBank.creator_name = MainWindow.user.name; //temp
+                pBank.creator_name = MainWindow.user.name;
                 pBank.goal_date = goal_date;
 
                 db.Piggy_Banks.Add(pBank);
@@ -86,9 +85,26 @@ namespace IOWpf.Models
             }
         }
 
-        void end_piggy_bank()
+        public void delete()
         {
+            int PbId = this.Piggy_bankId;
+            using (var db = new Application_context())
+            {
+                var query = from pb in db.Piggy_Banks
+                            where pb.Piggy_bankId == PbId
+                            select pb;
+                if (query.Any())
+                {
+                    db.Piggy_Banks.Remove(query.FirstOrDefault());
+                }
+                query = from pb in db.Piggy_Banks
+                        select pb;
+                
+                db.SaveChanges();
+                MainWindow.pblist.Clear();
+                MainWindow.pblist = db.Piggy_Banks.ToList();
 
+            }
         }
 
         public void withdraw(float _amount)

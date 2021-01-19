@@ -11,30 +11,31 @@
     <UserControl.DataContext>
         <mw:Skarbonka/>
     </UserControl.DataContext>
-    
+
     <Border Background="#FF373333" CornerRadius="20" Margin="20">
-    <Grid Background="#FF514A4A">
-        
-        <Grid.RowDefinitions>
+        <Grid Background="#FF514A4A">
 
-            <RowDefinition/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
 
 
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" Background="#FF373333">
-            <TextBlock Grid.Column="0"  Grid.ColumnSpan="2" Text="Skarbonki:" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="40" Foreground="#FF2196F3"  Margin="10,-1,0,57" Height="44" Width="172"/>
-            <Button Click="AddBankClicked" Content="Dodaj skarbonkę" HorizontalAlignment="Right" Margin="0,0,10,0" Foreground="#FF514A4A"/>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="7" Background="#FF373333">
+                <TextBlock Grid.Column="0"  Grid.ColumnSpan="2" Text="Skarbonki:" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="40" Foreground="#FF2196F3"  Margin="10,-1,0,57" Height="44" Width="175"/>
+                <Button Click="AddBankClicked" Content="Dodaj skarbonkę" HorizontalAlignment="Right" Margin="0,0,10,0" Foreground="#FF514A4A"/>
+                <Button Click="OperationClicked" Content="Dokonaj operacji" HorizontalAlignment="Center" Margin="373,14,180,14" Foreground="#FF514A4A" Width="207"/>
 
-        </Grid>
+            </Grid>
 
-        <Grid Grid.Row="1" Grid.ColumnSpan="7" Grid.RowSpan="7" Background="#FF514A4A">
+            <Grid Grid.Row="1" Grid.ColumnSpan="7" Grid.RowSpan="7" Background="#FF514A4A">
                 <Grid.RowDefinitions>
 
                     <RowDefinition/>
@@ -55,16 +56,24 @@
                     <ColumnDefinition Width="95"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Nazwa" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" />
-                <TextBlock Text="Zebrano" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"  Grid.Row="1" Grid.Column="1"/>
-                <TextBlock Text="Wpłata" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="2"/>
-                <TextBlock Text="Cel" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="3" RenderTransformOrigin="1.909,0.506" Margin="11.4,13.6,0,12.8"/>
-                <TextBlock Text="Start" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="4"/>
-                <TextBlock Text="Termin" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="5"/>
+                <TextBlock Text="Lp." HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" />
+                <TextBlock Text="Nazwa" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" Grid.Column="1" />
+                <TextBlock Text="Zebrano" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"  Grid.Row="1" Grid.Column="2"/>
+                <TextBlock Text="Wpłata" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="3"/>
+                <TextBlock Text="Cel" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="4" RenderTransformOrigin="1.909,0.506" Margin="11.4,13.6,0,12.8"/>
+                <TextBlock Text="Start" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="5"/>
+                <TextBlock Text="Termin" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="6"/>
 
                 <ListView Name="lvDataBinding" Grid.RowSpan="7" Grid.ColumnSpan="7" Grid.Row="1" SelectionChanged="lvDataBinding_SelectionChanged">
                     <ListView.View>
                         <GridView>
+                            <GridViewColumn Width="95">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Piggy_bankId}" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                             <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
@@ -107,24 +116,16 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Width="95">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Uid="{Binding uid}" Click="Payout" Content="Edytuj" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            
                         </GridView>
-                        
+
                     </ListView.View>
                 </ListView>
 
             </Grid>
 
-        
 
-    </Grid>
+
+        </Grid>
 
     </Border>
 </UserControl>

@@ -205,6 +205,7 @@
     <Compile Include="ViewsModels\PanelViewModel.cs" />
     <Compile Include="ViewsModels\Skarbonka.cs" />
     <Compile Include="ViewsModels\Stats.cs" />
+    <Compile Include="ViewsModels\WybierzKwote.cs" />
     <Compile Include="Views\DodajPrzychod.xaml.cs">
       <DependentUpon>DodajPrzychod.xaml</DependentUpon>
     </Compile>
