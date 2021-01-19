@@ -14,9 +14,9 @@ namespace IOWpf.ViewsModels
     using System.Windows.Controls;
     using System.Diagnostics;
 
-    public class Skarbonka : INotifyPropertyChanged
+    public class PiggyBankVM : INotifyPropertyChanged
     {
-        private Piggy_bank pBank = new Piggy_bank();
+        private PiggyBank pBank = new PiggyBank();
         float amount;
         public float operationAmount
         {
@@ -49,7 +49,7 @@ namespace IOWpf.ViewsModels
         { 
             get 
             {
-                operation = new RelayCommand(param => this.deposit(_buttonPressed));
+                operation = new RelayCommand(param => this.Deposit(_buttonPressed));
                 return operation;
             } 
         
@@ -59,23 +59,23 @@ namespace IOWpf.ViewsModels
         {
             get
             {
-                operation = new RelayCommand(param => this.withdraw(_buttonPressed));
+                operation = new RelayCommand(param => this.Withdraw(_buttonPressed));
                 return operation;
             }
 
         }
 
-        private void deposit(object sender)
+        private void Deposit(object sender)
         {
-            pBank.Piggy_bankId = Int32.Parse((sender as Button).Uid);
-            Debug.WriteLine(pBank.Piggy_bankId);
-            pBank.deposit(amount);
+            pBank.piggyBankId = Int32.Parse((sender as Button).Uid);
+            Debug.WriteLine(pBank.piggyBankId);
+            pBank.Deposit(amount);
         }
-        private void withdraw(object sender)
+        private void Withdraw(object sender)
         {
-            pBank.Piggy_bankId = Int32.Parse((sender as Button).Uid);
-            Debug.WriteLine(pBank.Piggy_bankId);
-            pBank.withdraw(amount);
+            pBank.piggyBankId = Int32.Parse((sender as Button).Uid);
+            Debug.WriteLine(pBank.piggyBankId);
+            pBank.Withdraw(amount);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

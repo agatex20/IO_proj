@@ -183,7 +183,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\Relay.cs" />
-    <Compile Include="Data\Application_context.cs" />
+    <Compile Include="Data\ApplicationContext.cs" />
     <Compile Include="Migrations\20201031113220_Init.cs" />
     <Compile Include="Migrations\20201031113220_Init.designer.cs">
       <DependentUpon>20201031113220_Init.cs</DependentUpon>
@@ -194,29 +194,29 @@
     </Compile>
     <Compile Include="Migrations\Application_contextModelSnapshot.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Expense_Category.cs" />
-    <Compile Include="Models\User_Piggy_bank.cs" />
-    <Compile Include="Services\Piggy_bank_service.cs" />
-    <Compile Include="ViewsModels\DodajSkarbonke.cs" />
-    <Compile Include="ViewsModels\DodajPrzychod.cs" />
-    <Compile Include="ViewsModels\DodajUzytkownika.cs" />
-    <Compile Include="ViewsModels\DodajWydatek.cs" />
+    <Compile Include="Models\ExpenseCategory.cs" />
+    <Compile Include="Models\UserPiggybank.cs" />
+    <Compile Include="Services\PiggyBankService.cs" />
+    <Compile Include="ViewsModels\AddPiggyBank.cs" />
+    <Compile Include="ViewsModels\AddIncome.cs" />
+    <Compile Include="ViewsModels\AddUser.cs" />
+    <Compile Include="ViewsModels\AddExpense.cs" />
     <Compile Include="ViewsModels\Login.cs" />
     <Compile Include="ViewsModels\PanelViewModel.cs" />
-    <Compile Include="ViewsModels\Skarbonka.cs" />
+    <Compile Include="ViewsModels\PiggyBankVM.cs" />
     <Compile Include="ViewsModels\Stats.cs" />
-    <Compile Include="ViewsModels\WybierzKwote.cs" />
-    <Compile Include="Views\DodajPrzychod.xaml.cs">
-      <DependentUpon>DodajPrzychod.xaml</DependentUpon>
+    <Compile Include="ViewsModels\SelectAmount.cs" />
+    <Compile Include="Views\AddIncome.xaml.cs">
+      <DependentUpon>AddIncome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DodajSkarbonke.xaml.cs">
-      <DependentUpon>DodajSkarbonke.xaml</DependentUpon>
+    <Compile Include="Views\AddPiggyBankView.xaml.cs">
+      <DependentUpon>AddPiggyBankView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DodajUzytkownika.xaml.cs">
-      <DependentUpon>DodajUzytkownika.xaml</DependentUpon>
+    <Compile Include="Views\AddUserView.xaml.cs">
+      <DependentUpon>AddUserView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DodajWydatek.xaml.cs">
-      <DependentUpon>DodajWydatek.xaml</DependentUpon>
+    <Compile Include="Views\AddExpenseView.xaml.cs">
+      <DependentUpon>AddExpenseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -224,14 +224,14 @@
     <Compile Include="Views\PanelView.xaml.cs">
       <DependentUpon>PanelView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Skarbonka.xaml.cs">
-      <DependentUpon>Skarbonka.xaml</DependentUpon>
+    <Compile Include="Views\PiggyBankView.xaml.cs">
+      <DependentUpon>PiggyBankView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Stats.xaml.cs">
       <DependentUpon>Stats.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WybierzKwote.xaml.cs">
-      <DependentUpon>WybierzKwote.xaml</DependentUpon>
+    <Compile Include="Views\SelectAmountView.xaml.cs">
+      <DependentUpon>SelectAmountView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -245,28 +245,28 @@
     <Compile Include="Models\Balance.cs" />
     <Compile Include="Models\Child.cs" />
     <Compile Include="Models\Expense.cs" />
-    <Compile Include="Models\Grown_up.cs" />
+    <Compile Include="Models\GrownUp.cs" />
     <Compile Include="Models\Income.cs" />
-    <Compile Include="Models\Money_flow.cs" />
-    <Compile Include="Models\Piggy_bank.cs" />
+    <Compile Include="Models\MoneyFlow.cs" />
+    <Compile Include="Models\PiggyBank.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\DodajPrzychod.xaml">
+    <Page Include="Views\AddIncome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DodajSkarbonke.xaml">
+    <Page Include="Views\AddPiggyBankView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DodajUzytkownika.xaml">
+    <Page Include="Views\AddUserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DodajWydatek.xaml">
+    <Page Include="Views\AddExpenseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -278,7 +278,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Skarbonka.xaml">
+    <Page Include="Views\PiggyBankView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -286,7 +286,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WybierzKwote.xaml">
+    <Page Include="Views\SelectAmountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

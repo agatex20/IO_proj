@@ -12,17 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IOWpf.Models;
+using IOWpf.Services;
+using IOWpf.Views;
 
 namespace IOWpf.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy DodajUzytkownika.xaml
+    /// Logika interakcji dla klasy DodajPrzychod.xaml
     /// </summary>
-    public partial class DodajUzytkownika : UserControl
+    public partial class AddIncome : UserControl
     {
-        public DodajUzytkownika()
+        public AddIncome()
         {
             InitializeComponent();
         }
+       
     }
 }

@@ -21,18 +21,18 @@ namespace IOWpf.Views
     /// <summary>
     /// Logika interakcji dla klasy Skarbonka.xaml
     /// </summary>
-    public partial class Skarbonka : UserControl
+    public partial class PiggyBankView : UserControl
     {
-        public Skarbonka()
+        public PiggyBankView()
         {
             InitializeComponent();
-            List<Piggy_bank> banksList = new List<Piggy_bank>();
+            List<PiggyBank> banksList = new List<PiggyBank>();
 
-            if (MainWindow.curr_type == 3)
+            if (MainWindow.currentType == 3)
             {
-                foreach (Piggy_bank pb in MainWindow.pblist)
+                foreach (PiggyBank pb in MainWindow.piggyBanksList)
                 {
-                    if (pb.if_childs)
+                    if (pb.ifChilds)
                     {
                         banksList.Add(pb);
                     }
@@ -40,7 +40,7 @@ namespace IOWpf.Views
             }
             else
             {
-                banksList = MainWindow.pblist;
+                banksList = MainWindow.piggyBanksList;
             }
 
             lvDataBinding.ItemsSource = banksList;
@@ -49,13 +49,13 @@ namespace IOWpf.Views
         private void AddBankClicked(object sender, RoutedEventArgs e)
         {
             MainWindow mw = Window.GetWindow(this) as MainWindow;
-            mw.DodajSkarbonkeClicked(sender, e);
-            lvDataBinding.ItemsSource = MainWindow.pblist;
+            mw.AddPiggyBankClicked(sender, e);
+            lvDataBinding.ItemsSource = MainWindow.piggyBanksList;
         }
 
         private void OperationClicked(object sender, RoutedEventArgs e)
         {
-            WybierzKwote wk = new WybierzKwote();
+            SelectAmount wk = new SelectAmount();
             wk.Show();
         }
 

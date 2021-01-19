@@ -22,29 +22,29 @@ namespace IOWpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static List<Expense> explist;
-        public static List<Income> inclist;
-        public static List<Piggy_bank> pblist;
-        public static List<Balance> ballist;
-        public static List<Expense_Category> expense_categories_list;
-        public static List<Category> catlist;
+        public static List<Expense> expensesList;
+        public static List<Income> incomesList;
+        public static List<PiggyBank> piggyBanksList;
+        public static List<Balance> ballancesLst;
+        public static List<ExpenseCategory> expenseCategoriesList;
+        public static List<Category> categoriesList;
         public static User user = new Admin();
-        public static string curr_day;
-        public static int curr_id;
-        public static string curr_name;
-        public static int curr_type;//1-admin, 2- dorosły, 3-dziecko
+        public static string currentDay;
+        public static int currentId;
+        public static string currentName;
+        public static int currentType;//1-admin, 2- dorosły, 3-dziecko
     public MainWindow()
         {
             InitializeComponent();
-            using (var db = new Application_context())
+            using (var db = new ApplicationContext())
             {
-                explist = db.Expenses.ToList();
-                inclist = db.Incomes.ToList();
-                pblist = db.Piggy_Banks.ToList();
-                ballist = db.Balances.ToList();
-                expense_categories_list = db.Expense_Categories.ToList();
-                catlist = db.Categories.ToList();
-                curr_day = DateTime.Now.ToString("dd.MM.yyyy");
+                expensesList = db.expenses.ToList();
+                incomesList = db.incomes.ToList();
+                piggyBanksList = db.piggyBanks.ToList();
+                ballancesLst = db.balances.ToList();
+                expenseCategoriesList = db.expenseCategories.ToList();
+                categoriesList = db.categories.ToList();
+                currentDay = DateTime.Now.ToString("dd.MM.yyyy");
             }
 
             DataContext = new Login();
@@ -98,34 +98,34 @@ namespace IOWpf
 
         }
 
-        private void DodajWydatekClicked(object sender, RoutedEventArgs e)
+        private void AddExpenseClicked(object sender, RoutedEventArgs e)
         {
             if (user.name != "Unlogged")
-                DataContext = new DodajWydatek();
+                DataContext = new AddExpense();
         }
 
-        private void DodajPrzychodClicked(object sender, RoutedEventArgs e)
+        private void AddIncomeClicked(object sender, RoutedEventArgs e)
         {
             if (user.name != "Unlogged")
-                DataContext = new DodajPrzychod();
+                DataContext = new AddIncome();
         }
 
-        public void SkarbonkaClicked(object sender, RoutedEventArgs e)
+        public void PiggyBankClicked(object sender, RoutedEventArgs e)
         {
             if (user.name != "Unlogged")
-                DataContext = new Skarbonka();
+                DataContext = new PiggyBankView();
         }
 
-        private void StatystykiClicked(object sender, RoutedEventArgs e)
+        private void StatsClicked(object sender, RoutedEventArgs e)
         {
             if (user.name != "Unlogged")
                 DataContext = new Stats();
         }
 
-        public void DodajSkarbonkeClicked(object sender, RoutedEventArgs e)
+        public void AddPiggyBankClicked(object sender, RoutedEventArgs e)
         {
             if (user.name != "Unlogged")
-                DataContext = new DodajSkarbonke();
+                DataContext = new AddPiggyBankView();
         }
 
         public void LoginClicked(object sender, RoutedEventArgs e)
@@ -134,10 +134,10 @@ namespace IOWpf
                 DataContext = new Login();
         }
 
-        public void DodajUzytkownikaClicked(object sender, RoutedEventArgs e)
+        public void AddUserClicked(object sender, RoutedEventArgs e)
         {
             if (user.name != "Unlogged")
-                DataContext = new DodajUzytkownika();
+                DataContext = new AddUser();
         }
     }
        

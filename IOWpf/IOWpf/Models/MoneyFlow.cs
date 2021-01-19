@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace IOWpf.Models
 {
-    public abstract class Money_flow
+    public abstract class MoneyFlow
     {
         public float amount { get; set; }
-        public string creator_name { get; set; }
+        public string creatorName { get; set; }
         public string date { get; set; }
         public string description { get; set; }
-        public bool if_childs { get; set; }
+        public bool ifChilds { get; set; }
 
 
-        protected Money_flow() { }
+        protected MoneyFlow() { }
 
-        protected Money_flow(float amount, string creatorName, string date, string description, bool ifChilds)
+        protected MoneyFlow(float amount, string creatorName, string date, string description, bool ifChilds)
         {
             this.amount = amount;
-            creator_name = creatorName;
+            this.creatorName = creatorName;
             this.date = date;
             this.description = description;
-            if_childs = ifChilds;
+            this.ifChilds = ifChilds;
         }
 
-        public virtual void add()
+        public virtual void Add()
         {
         }
     }

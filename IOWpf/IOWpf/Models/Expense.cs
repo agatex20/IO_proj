@@ -9,14 +9,14 @@ using System.Windows.Media;
 
 namespace IOWpf.Models
 {
-    public class Expense : Money_flow
+    public class Expense : MoneyFlow
     {
-        public int ExpenseId { get; set; }
-        public string bill_photo_path { get; set; }
+        public int expenseId { get; set; }
+        public string billPhotoPath { get; set; }
 
-        public int? UserId { get; set; }                             // Foreign key 
-        public virtual User User { get; set; }                       // Expense is associated with one User
-        public virtual ICollection<Expense_Category> Expense_Categories { get; set; }
+        public int? userId { get; set; }                             // Foreign key 
+        public virtual User user { get; set; }                       // Expense is associated with one User
+        public virtual ICollection<ExpenseCategory> expenseCategories { get; set; }
         
 
         public Expense() { }
@@ -24,89 +24,88 @@ namespace IOWpf.Models
      
         public Expense(float amount, string creatorName, string date, string description, bool ifChilds, string bill_photo_path) : base(amount, creatorName, date, description, ifChilds)
         {
-            this.bill_photo_path = bill_photo_path;
+            this.billPhotoPath = bill_photo_path;
         }
 
-        public override void add()
+        public override void Add()
         {
             Expense exp = new Expense();
             exp.amount = amount;
             exp.date=date;
-            exp.creator_name=creator_name;
+            exp.creatorName=creatorName;
             exp.description=description;
-            exp.UserId = UserId;
-            exp.if_childs=if_childs;
-            exp.bill_photo_path = bill_photo_path;
-            using (var db = new Application_context())
+            exp.userId = userId;
+            exp.ifChilds=ifChilds;
+            exp.billPhotoPath = billPhotoPath;
+            using (var db = new ApplicationContext())
             {
-                db.Expenses.Add(exp);
+                db.expenses.Add(exp);
 
-                var balance = db.Balances.SingleOrDefault(b => b.BalanceId == MainWindow.user.BalanceId);       
+                var balance = db.balances.SingleOrDefault(b => b.balanceId == MainWindow.user.balanceId);       
                 if (balance != null)
                 {
-                    balance.curr_balance -= exp.amount;
+                    balance.currentBalance -= exp.amount;
                 }
                 
                 db.SaveChanges();
-                MainWindow.explist = db.Expenses.ToList();
-                MainWindow.ballist = db.Balances.ToList();
-                MainWindow.expense_categories_list = db.Expense_Categories.ToList();
+                MainWindow.expensesList = db.expenses.ToList();
+                MainWindow.ballancesLst = db.balances.ToList();
+                MainWindow.expenseCategoriesList = db.expenseCategories.ToList();
             }
         }
 
-        public double summing(string startDate, string endDate)
+        public double Summing(string startDate, string endDate)
         {
 
             var sum = 0.0;
-            var date = DateTime.Parse(MainWindow.explist[0].date);
 
-            for (int i = 0; i < MainWindow.explist.Count; i++)
+            for (int i = 0; i < MainWindow.expensesList.Count; i++)
             {
                 if(startDate != null && endDate != null)
                 {
-                    if (DateTime.Parse(MainWindow.explist[i].date) >= DateTime.Parse(startDate) &&
-                    DateTime.Parse(MainWindow.explist[i].date) <= DateTime.Parse(endDate))
+                    if (DateTime.Parse(MainWindow.expensesList[i].date) >= DateTime.Parse(startDate) &&
+                    DateTime.Parse(MainWindow.expensesList[i].date) <= DateTime.Parse(endDate))
                     {
-                        sum += MainWindow.explist[i].amount;
+                        sum += MainWindow.expensesList[i].amount;
                     }
                 }
                 
-                else if (MainWindow.explist[i].UserId == MainWindow.user.ID)
+                else if (MainWindow.expensesList[i].userId == MainWindow.user.ID)
                 {
-                    sum += MainWindow.explist[i].amount;
+                    sum += MainWindow.expensesList[i].amount;
                 }
             }
 
             return sum;
         }
 
-        public List<double> categorySum(string startDate, string endDate)
+        public List<double> CategorySum(string startDate, string endDate)
         {
             List<double> returning = new List<double>();
 
-            using (var db = new Application_context())
+            using (var db = new ApplicationContext())
             {
                
-                MainWindow.expense_categories_list = db.Expense_Categories.ToList();
+                MainWindow.expenseCategoriesList = db.expenseCategories.ToList();
 
-                for (int i = 1; i <= MainWindow.catlist.Count; i++)
+                for (int i = 1; i <= MainWindow.categoriesList.Count; i++)
                 {
                     var sum = 0.0;
 
-                    for (int j = 0; j < MainWindow.expense_categories_list.Count; j++)
+                    for (int j = 0; j < MainWindow.expenseCategoriesList.Count; j++)
                     {
-                        if (MainWindow.expense_categories_list[j].CategoryId == i)
+                        if (MainWindow.expenseCategoriesList[j].categoryId == i)
                         {
                             int k = 0;
-                            while (MainWindow.explist[k].ExpenseId != MainWindow.expense_categories_list[j].ExpenseId)
+                            while (MainWindow.expensesList[k].expenseId != MainWindow.expenseCategoriesList[j].expenseId)
                             {
                                 k++;
                             }
-                            if (MainWindow.explist[k].ExpenseId == MainWindow.expense_categories_list[j].ExpenseId &&
-                                MainWindow.explist[k].UserId == MainWindow.user.ID)
+                            if (MainWindow.expensesList[k].expenseId == MainWindow.expenseCategoriesList[j].expenseId &&
+                                MainWindow.expensesList[k].userId == MainWindow.user.ID)
                             {
-                                if(DateTime.Parse(MainWindow.explist[k].date)>DateTime.Parse(startDate)&& DateTime.Parse(MainWindow.explist[k].date) < DateTime.Parse(endDate))
-                                sum += MainWindow.explist[k].amount;
+                                if(DateTime.Parse(MainWindow.expensesList[k].date)>DateTime.Parse(startDate)&& DateTime.Parse(MainWindow.expensesList[k].date) < DateTime.Parse(endDate))
+                                sum += MainWindow.expensesList[k].amount;
                             }
                         }
                     }

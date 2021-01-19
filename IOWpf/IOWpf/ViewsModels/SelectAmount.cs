@@ -10,9 +10,9 @@ using System.Windows.Input;
 
 namespace IOWpf.ViewsModels
 {
-    class WybierzKwote : INotifyPropertyChanged
+    class SelectAmount : INotifyPropertyChanged
     {
-        private Piggy_bank pBank = new Piggy_bank();
+        private PiggyBank pBank = new PiggyBank();
         private float operationAmount;
 
         public float amount
@@ -32,7 +32,7 @@ namespace IOWpf.ViewsModels
         {
             set
             {
-                pBank.Piggy_bankId = (int)value;
+                pBank.piggyBankId = (int)value;
                 onPropertyChanged(nameof(id));
             }
         }
@@ -77,7 +77,7 @@ namespace IOWpf.ViewsModels
 
         private bool CanTransfer()
         {
-            if(amount == 0 || pBank.Piggy_bankId == 0)
+            if(amount == 0 || pBank.piggyBankId == 0)
             {
                 return false;
             }
@@ -85,7 +85,7 @@ namespace IOWpf.ViewsModels
         }
         private bool CanDelete()
         {
-            if (pBank.Piggy_bankId == 0)
+            if (pBank.piggyBankId == 0)
             {
                 return false;
             }
@@ -94,16 +94,16 @@ namespace IOWpf.ViewsModels
 
         private void deposit()
         {
-            pBank.deposit(amount);
+            pBank.Deposit(amount);
         }
 
         private void withdraw()
         {
-            pBank.withdraw(amount);
+            pBank.Withdraw(amount);
         }
         private void delete()
         {
-            pBank.delete();
+            pBank.Delete();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

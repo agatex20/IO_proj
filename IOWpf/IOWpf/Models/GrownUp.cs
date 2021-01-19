@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace IOWpf.Models
 {
-    public class Grown_up : User
+    public class GrownUp : User
     {
-        public Grown_up() { }
+        public GrownUp() { }
 
-        public Grown_up(string name, string password) : base(name, password) { }
+        public GrownUp(string name, string password) : base(name, password) { }
 
         public override void AddToBase(String name, String password, int type){}
     }

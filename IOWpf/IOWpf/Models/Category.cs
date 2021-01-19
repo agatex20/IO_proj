@@ -10,25 +10,25 @@ namespace IOWpf.Models
 {
     public class Category
     {
-        public int CategoryId { get; set; }
+        public int categoryId { get; set; }
 
-        public string Category_name { get; set; }
-        public virtual ICollection<Expense_Category> Expense_Categories { get; set; }    
+        public string categoryName { get; set; }
+        public virtual ICollection<ExpenseCategory> expenseCategories { get; set; }    
         
         /*
          * zwraca listę stringów z wszystkimi kategoriami wczytanymi z bazy danych - zamiast ,,globalnej" list z main window wczytywać liste ta metoda
          */
-        public List<string> getList()
+        public List<string> GetList()
         {
             List<String> catlist = new List<string>();
 
-            using (var db = new Application_context())
+            using (var db = new ApplicationContext())
             {
                 List<Category> cats = new List<Category> { };
-                cats = db.Categories.ToList();
+                cats = db.categories.ToList();
                 for (int i = 0; i < cats.Count(); i++)
                 {
-                    catlist.Add(cats[i].Category_name);
+                    catlist.Add(cats[i].categoryName);
                 }
             }
 
@@ -36,13 +36,13 @@ namespace IOWpf.Models
         }
 
 
-        public void addCategory(String catname)
+        public void AddCategory(String catname)
         {
-            using (var db = new Application_context())
+            using (var db = new ApplicationContext())
             {
                 Category category = new Category();
-                category.Category_name = catname;
-                db.Categories.Add(category);
+                category.categoryName = catname;
+                db.categories.Add(category);
                 db.SaveChanges();
             }
         }

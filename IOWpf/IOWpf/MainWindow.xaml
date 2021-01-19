@@ -14,18 +14,18 @@
 
         </DataTemplate>
 
-        <DataTemplate x:Name="WydatekTemplate" DataType="{x:Type ViewModels:DodajWydatek}">
-            <Views:DodajWydatek DataContext="{Binding}"/>
+        <DataTemplate x:Name="WydatekTemplate" DataType="{x:Type ViewModels:AddExpense}">
+            <Views:AddExpense DataContext="{Binding}"/>
 
         </DataTemplate>
 
-        <DataTemplate x:Name="PrzychodTemplate" DataType="{x:Type ViewModels:DodajPrzychod}">
-            <Views:DodajPrzychod DataContext="{Binding}"/>
+        <DataTemplate x:Name="PrzychodTemplate" DataType="{x:Type ViewModels:AddIncome}">
+            <Views:AddIncome DataContext="{Binding}"/>
 
         </DataTemplate>
 
-        <DataTemplate x:Name="SkarbonkaTemplate" DataType="{x:Type ViewModels:Skarbonka}">
-            <Views:Skarbonka DataContext="{Binding}"/>
+        <DataTemplate x:Name="SkarbonkaTemplate" DataType="{x:Type ViewModels:PiggyBankVM}">
+            <Views:PiggyBankView DataContext="{Binding}"/>
 
         </DataTemplate>
 
@@ -34,8 +34,8 @@
 
         </DataTemplate>
 
-        <DataTemplate x:Name="DodajSkarbonkeTemplate" DataType="{x:Type ViewModels:DodajSkarbonke}">
-            <Views:DodajSkarbonke DataContext="{Binding}"/>
+        <DataTemplate x:Name="DodajSkarbonkeTemplate" DataType="{x:Type ViewModels:AddPiggyBank}">
+            <Views:AddPiggyBankView DataContext="{Binding}"/>
 
         </DataTemplate>
 
@@ -44,8 +44,8 @@
 
         </DataTemplate>
 
-        <DataTemplate x:Name="DodajUzytkownikaTemplate" DataType="{x:Type ViewModels:DodajUzytkownika}">
-            <Views:DodajUzytkownika DataContext="{Binding}"/>
+        <DataTemplate x:Name="DodajUzytkownikaTemplate" DataType="{x:Type ViewModels:AddUser}">
+            <Views:AddUser DataContext="{Binding}"/>
 
         </DataTemplate>
     </Window.Resources>
@@ -86,28 +86,28 @@
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Click="DodajWydatekClicked">
+                <Button Margin="10" Click="AddExpenseClicked">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Minus" VerticalAlignment="Center" Foreground="#FF514A4A" />
                         <TextBlock HorizontalAlignment="Center" Text="Dodaj wydatek" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="10"  Click="DodajPrzychodClicked">
+                <Button Margin="10"  Click="AddIncomeClicked">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Add" VerticalAlignment="Center" Foreground="#FF514A4A" />
                         <TextBlock HorizontalAlignment="Center" Text="Dodaj przychod" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Click="SkarbonkaClicked">
+                <Button Margin="10" Click="PiggyBankClicked">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="PiggyBank" VerticalAlignment="Center" Foreground="#FF514A4A" />
                         <TextBlock HorizontalAlignment="Center" Text="Skarbonka" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Click="StatystykiClicked">
+                <Button Margin="10" Click="StatsClicked">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="ChartBarStacked" VerticalAlignment="Center" Foreground="#FF514A4A" />
                         <TextBlock HorizontalAlignment="Center" Text="Statystyki" FontFamily="Segoe UI Black" Foreground="#FF514A4A"/>
@@ -123,7 +123,7 @@
         <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#FF2196F3" MouseDown="GridBarTitle_MouseDown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0" Background="{x:Null}">
 
-                <Button Click="DodajUzytkownikaClicked" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF514A4A">
+                <Button Click="AddUserClicked" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF514A4A">
                     <materialDesign:PackIcon Kind="HeadDotsHorizontal"/>
                 </Button>
 

@@ -19,7 +19,7 @@ namespace IOWpf.ViewsModels
     {
         List<Income> inclist = new List<Income>();
         List<Expense> explist = new List<Expense>();
-        public ObservableCollection<Money_flow> list { get; set; }
+        public ObservableCollection<MoneyFlow> list { get; set; }
 
         public PanelViewModel()
         {
@@ -46,24 +46,24 @@ namespace IOWpf.ViewsModels
 
             if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
             {
-                foreach (var expense in MainWindow.explist)
+                foreach (var expense in MainWindow.expensesList)
                 {
-                    if (expense.UserId == MainWindow.user.ID)
+                    if (expense.userId == MainWindow.user.ID)
                         explist.Add(expense);
                 }
 
-                this.list = new ObservableCollection<Money_flow>(explist);
+                this.list = new ObservableCollection<MoneyFlow>(explist);
                 onPropertyChanged(nameof(list));
             }
             else
             {
-                foreach (var expense in MainWindow.explist)
+                foreach (var expense in MainWindow.expensesList)
                 {
-                    if (expense.if_childs == false)
+                    if (expense.ifChilds == false)
                         explist.Add(expense);
                 }
 
-                this.list = new ObservableCollection<Money_flow>(explist);
+                this.list = new ObservableCollection<MoneyFlow>(explist);
                 onPropertyChanged(nameof(list));
             }
         }
@@ -87,24 +87,24 @@ namespace IOWpf.ViewsModels
 
             if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
             {
-                foreach (var income in MainWindow.inclist)
+                foreach (var income in MainWindow.incomesList)
                 {
-                    if (income.UserId == MainWindow.user.ID)
+                    if (income.userId == MainWindow.user.ID)
                         inclist.Add(income);
                 }
 
-                this.list = new ObservableCollection<Money_flow>(inclist);
+                this.list = new ObservableCollection<MoneyFlow>(inclist);
                 onPropertyChanged(nameof(list));
             }
             else
             {            
-                foreach (var income in MainWindow.inclist)
+                foreach (var income in MainWindow.incomesList)
                 {
-                    if (income.if_childs == false)
+                    if (income.ifChilds == false)
                         inclist.Add(income);
                 }
 
-                this.list = new ObservableCollection<Money_flow>(inclist);
+                this.list = new ObservableCollection<MoneyFlow>(inclist);
                 onPropertyChanged(nameof(list));
             }
         }
@@ -144,7 +144,7 @@ namespace IOWpf.ViewsModels
         {
             get
             {
-                return MainWindow.ballist[MainWindow.user.BalanceId - 1].curr_balance;
+                return MainWindow.ballancesLst[MainWindow.user.balanceId - 1].currentBalance;
             }
         }
 

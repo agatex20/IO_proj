@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IOWpf.Migrations
 {
-    [DbContext(typeof(Application_context))]
+    [DbContext(typeof(ApplicationContext))]
     partial class Application_contextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

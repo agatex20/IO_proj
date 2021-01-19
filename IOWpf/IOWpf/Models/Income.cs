@@ -9,62 +9,62 @@ using System.Windows.Media;
 
 namespace IOWpf.Models
 {
-    public class Income : Money_flow
+    public class Income : MoneyFlow
     {
-        public int IncomeId { get; set; }
-        public int? UserId { get; set; }                            // Foreign key 
-        public virtual User User { get; set; }                       // Income is associated with one User
+        public int incomeId { get; set; }
+        public int? userId { get; set; }                            // Foreign key 
+        public virtual User user { get; set; }                       // Income is associated with one User
 
         public Income() { }
 
         public Income(float amount, string creatorName, string date, string description, bool ifChilds) : base(amount, creatorName, date, description, ifChilds) { }
 
-        public override void add()
+        public override void Add()
         {
-            using (var db = new Application_context())
+            using (var db = new ApplicationContext())
             {
                 Income inc = new Income();
                 inc.amount = amount;
                 inc.date = date;
-                inc.creator_name = creator_name;
+                inc.creatorName = creatorName;
                 inc.description = description;
-                inc.UserId = UserId;
-                inc.if_childs = if_childs;
+                inc.userId = userId;
+                inc.ifChilds = ifChilds;
                 
-                db.Incomes.Add(inc);
+                db.incomes.Add(inc);
 
-                var balance = db.Balances.SingleOrDefault(b => b.BalanceId == MainWindow.user.BalanceId); 
+                var balance = db.balances.SingleOrDefault(b => b.balanceId == MainWindow.user.balanceId); 
                 if (balance != null)
                 {
-                    balance.curr_balance += inc.amount;
+                    balance.currentBalance += inc.amount;
                 }
 
                 db.SaveChanges();
-                MainWindow.inclist = db.Incomes.ToList();
-                MainWindow.ballist = db.Balances.ToList();
+                MainWindow.incomesList = db.incomes.ToList();
+                MainWindow.ballancesLst = db.balances.ToList();
             }
         }
 
-        public double summing(string startDate, string endDate)
+        public double Summing(string startDate, string endDate)
         {
 
             var sum = 0.0;
 
-            for (int i = 0; i < MainWindow.inclist.Count; i++)
+            for (int i = 0; i < MainWindow.incomesList.Count; i++)
             {
                 if (startDate != null && endDate != null)
                 {
-                    if (DateTime.Parse(MainWindow.inclist[i].date) >= DateTime.Parse(startDate) &&
-                        DateTime.Parse(MainWindow.inclist[i].date) <= DateTime.Parse(endDate))
+                    if (DateTime.Parse(MainWindow.incomesList[i].date) >= DateTime.Parse(startDate) &&
+                        DateTime.Parse(MainWindow.incomesList[i].date) <= DateTime.Parse(endDate))
                     {
-                        sum += MainWindow.inclist[i].amount;
+                        sum += MainWindow.incomesList[i].amount;
 
                     }
                 }
 
-                else if (MainWindow.inclist[i].UserId == MainWindow.user.ID)
+                else if (MainWindow.incomesList[i].userId == MainWindow.user.ID)
                 {
-                    sum += MainWindow.inclist[i].amount;
+                    sum += MainWindow.incomesList[i].amount;
                 }
 
             }

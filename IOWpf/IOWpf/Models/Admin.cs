@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IOWpf.Models
 {
-    public class Admin : Grown_up
+    public class Admin : GrownUp
     {
         public Admin() 
         {
@@ -15,33 +15,33 @@ namespace IOWpf.Models
 
         public Admin(string name, string password) : base(name, password) { }
 
-        public override void AddToBase(String name, String password,int type)
+        public override void AddToBase(String name, String password, int type)
         {
-            using(var db = new Application_context())
+            using(var db = new ApplicationContext())
             {
                 if(type==1)
                 {
-                    var temp = new Grown_up();
+                    var temp = new GrownUp();
                     temp.name = name;
                     temp.password = password;
-                    temp.BalanceId = 1;
-                    db.Grown_Ups.Add(temp);
+                    temp.balanceId = 1;
+                    db.grownUps.Add(temp);
                 }
                 if(type==2)
                 {
                     var temp = new Child();
                     temp.name = name;
                     temp.password = password;
-                    temp.newBalanceId();
-                    db.Children.Add(temp);
+                    temp.NewBalanceId();
+                    db.children.Add(temp);
                 }
                 if(type==3)
                 {
                     var temp = new Admin();
                     temp.name = name;
                     temp.password = password;
-                    temp.BalanceId = 1;
-                    db.Admins.Add(temp);
+                    temp.balanceId = 1;
+                    db.admins.Add(temp);
                 }
 
                 db.SaveChanges();

@@ -13,7 +13,7 @@ namespace IOWpf.ViewsModels
     using Commands;
     using System.Runtime.InteropServices.WindowsRuntime;
 
-    public class DodajPrzychod : INotifyPropertyChanged
+    public class AddIncome : INotifyPropertyChanged
     {
         private Income Inc = new Income();
 
@@ -24,7 +24,7 @@ namespace IOWpf.ViewsModels
                 Inc.amount = (float)value;
                 onPropertyChanged(nameof(amount));
             }
-            
+           
         }
         public string date
         {
@@ -51,12 +51,12 @@ namespace IOWpf.ViewsModels
         {
             get
             {
-                Inc.creator_name = MainWindow.user.name;
+                Inc.creatorName = MainWindow.user.name;
                 if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
-                    Inc.if_childs = true;
+                    Inc.ifChilds = true;
                 else
-                    Inc.if_childs = false;
-                Inc.UserId = MainWindow.user.ID;
+                    Inc.ifChilds = false;
+                Inc.userId = MainWindow.user.ID;
 
                 if (_saveCommand == null)
                 {
@@ -78,7 +78,7 @@ namespace IOWpf.ViewsModels
 
         private void SaveObject()
         {
-            Inc.add();
+            Inc.Add();
         }
 
 

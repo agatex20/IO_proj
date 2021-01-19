@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IOWpf.Migrations
 {
-    [DbContext(typeof(Application_context))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20201031113220_Init")]
     partial class Init
     {

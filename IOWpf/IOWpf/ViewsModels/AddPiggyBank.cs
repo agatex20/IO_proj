@@ -11,16 +11,16 @@ namespace IOWpf.ViewsModels
     using Views;
     using Models;
     using Commands;
-    public class DodajSkarbonke : INotifyPropertyChanged
+    public class AddPiggyBank : INotifyPropertyChanged
     {
 
-        private Piggy_bank pBank = new Piggy_bank();
+        private PiggyBank pBank = new PiggyBank();
 
         public string name
         {
             set
             {
-                pBank.goal_namel = value;
+                pBank.goalName = value;
                 onPropertyChanged(nameof(name));
             }
         }
@@ -29,7 +29,7 @@ namespace IOWpf.ViewsModels
         {
             set
             {
-                pBank.goal_date = value;
+                pBank.goalDate = value;
                 onPropertyChanged(nameof(date));
             }
         }
@@ -38,7 +38,7 @@ namespace IOWpf.ViewsModels
         {
             set
             {
-                pBank.treasured_amount = (float)value;
+                pBank.treasuredAmount = (float)value;
                 onPropertyChanged(nameof(startAmount));
             }
         }
@@ -56,25 +56,25 @@ namespace IOWpf.ViewsModels
         {
             set
             {
-                pBank.monthly_income = (float)value;
+                pBank.monthlyIncome = (float)value;
                 onPropertyChanged(nameof(deposit));
             }
         }
 
         private ICommand _AddPiggyBank;
 
-        public ICommand AddPiggyBank
+        public ICommand AddPiggyBankProp
         {
             get
             {
-                pBank.creator_name = MainWindow.user.name;
+                pBank.creatorName = MainWindow.user.name;
                 if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
                 {
-                    pBank.if_childs = true;
+                    pBank.ifChilds = true;
                 }
                 else
                 {
-                    pBank.if_childs = false;
+                    pBank.ifChilds = false;
                 }
                 if(_AddPiggyBank == null)
                 {
@@ -86,7 +86,7 @@ namespace IOWpf.ViewsModels
 
         private bool CanSave()
         {
-            if (pBank.treasured_amount < 0.0 || pBank.goal_date == "")
+            if (pBank.treasuredAmount < 0.0 || pBank.goalDate == "")
             {
                 return false;
             }
@@ -95,7 +95,7 @@ namespace IOWpf.ViewsModels
 
         private void SaveBank()
         {
-            pBank.add();
+            pBank.Add();
         }
 
 

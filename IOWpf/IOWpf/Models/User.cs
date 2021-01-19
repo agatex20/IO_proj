@@ -12,17 +12,17 @@ namespace IOWpf.Models
         public string name { get; set; }
         public string password { get; set; }
 
-        public virtual ICollection<Income> Incomes { get; set; }                        // one User to many Incomes
-        public virtual ICollection<Expense> Expenses { get; set; }                      // one User to many Expenses
-        public virtual ICollection<User_Piggy_bank> User_Piggy_banks { get; set; }
-        public int BalanceId { get; set; }                                              // foreign key
-        public Balance Balance { get; set; }
+        public virtual ICollection<Income> incomes { get; set; }                        // one User to many Incomes
+        public virtual ICollection<Expense> expenses { get; set; }                      // one User to many Expenses
+        public virtual ICollection<UserPiggybank> userPiggyBanks { get; set; }
+        public int balanceId { get; set; }                                              // foreign key
+        public Balance balance { get; set; }
 
 
         protected User() 
         {
-            this.Incomes = new HashSet<Income>();                       // ?
-            this.Expenses = new HashSet<Expense>();                     // ?
+            this.incomes = new HashSet<Income>();                       // ?
+            this.expenses = new HashSet<Expense>();                     // ?
         }
 
         protected User(string name, string password)
@@ -35,23 +35,23 @@ namespace IOWpf.Models
         public bool LoginPasswordCorrect(String password, String login)
         {
             User user = null;
-            using (var db = new Application_context())
+            using (var db = new ApplicationContext())
             {
-                user = db.Children.FirstOrDefault(i => (i.name == login && i.password == password));
-                MainWindow.curr_type = 3;
+                user = db.children.FirstOrDefault(i => (i.name == login && i.password == password));
+                MainWindow.currentType = 3;
                 if (user == null)
                 {
-                    user = db.Admins.FirstOrDefault(i => (i.name == login && i.password == password));
-                    MainWindow.curr_type = 1;
+                    user = db.admins.FirstOrDefault(i => (i.name == login && i.password == password));
+                    MainWindow.currentType = 1;
                 }
                 if (user == null)
                 {
-                    user = db.Grown_Ups.FirstOrDefault(i => (i.name == login && i.password == password));
-                    MainWindow.curr_type = 2;
+                    user = db.grownUps.FirstOrDefault(i => (i.name == login && i.password == password));
+                    MainWindow.currentType = 2;
                 }
                 if(user == null)
                 {
-                    MainWindow.curr_type = 0;
+                    MainWindow.currentType = 0;
                     return false;
                 }
                 else
@@ -67,9 +67,9 @@ namespace IOWpf.Models
         public bool AdminExists()
         {
             Admin temp = new Admin();
-            using (var db = new Application_context())
+            using (var db = new ApplicationContext())
             {
-                temp = db.Admins.FirstOrDefault();
+                temp = db.admins.FirstOrDefault();
             }
             if (temp == null)
             {

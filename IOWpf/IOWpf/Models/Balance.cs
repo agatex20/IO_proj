@@ -8,17 +8,17 @@ namespace IOWpf.Models
 {
     public class Balance
     {
-        public int BalanceId { get; set; }
-        public ICollection<User> User { get; set; }
+        public int balanceId { get; set; }
+        public ICollection<User> user { get; set; }
 
-        public double curr_balance { get; set; }
+        public double currentBalance { get; set; }
 
 
         public Balance() { }
 
         public Balance(double currBalance)
         {
-            curr_balance = currBalance;
+            currentBalance = currBalance;
         }
     }
 }

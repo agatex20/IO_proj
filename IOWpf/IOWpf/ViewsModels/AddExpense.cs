@@ -16,17 +16,17 @@ namespace IOWpf.ViewsModels
     using Commands;
     using System.Collections.ObjectModel;
 
-    public class DodajWydatek : INotifyPropertyChanged
+    public class AddExpense : INotifyPropertyChanged
     {
         private Expense exp = new Expense();
-        private Expense_Category exp_cat = new Expense_Category();
+        private ExpenseCategory exp_cat = new ExpenseCategory();
         private Category cat = new Category();
         private List<String> selected_categories = new List<string>();
         public ObservableCollection<String> CategoryList { get; set; }
 
-        public DodajWydatek()
+        public AddExpense()
         {
-            this.CategoryList = new ObservableCollection<string>(cat.getList());
+            this.CategoryList = new ObservableCollection<string>(cat.GetList());
         }
         private String _titleString = "Wydatek:";
         public String titleString
@@ -128,8 +128,8 @@ namespace IOWpf.ViewsModels
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
-                exp.bill_photo_path = openFileDialog.FileName;
-                pathString = exp.bill_photo_path;
+                exp.billPhotoPath = openFileDialog.FileName;
+                pathString = exp.billPhotoPath;
             }
         }
 
@@ -140,12 +140,12 @@ namespace IOWpf.ViewsModels
         {
             get
             {
-                exp.creator_name = MainWindow.user.name;
+                exp.creatorName = MainWindow.user.name;
                 if(MainWindow.user.GetType().ToString()=="IOWpf.Models.Child")
-                    exp.if_childs = true;
+                    exp.ifChilds = true;
                 else
-                    exp.if_childs = false;
-                exp.UserId = MainWindow.user.ID;
+                    exp.ifChilds = false;
+                exp.userId = MainWindow.user.ID;
                 if (_saveCommand == null)
                 {
                     _saveCommand = new RelayCommand(SaveObject,CanSave);
@@ -167,10 +167,10 @@ namespace IOWpf.ViewsModels
             if (items.Count != 0)
             {
                 var collection = items.Cast<String>();
-                exp.add();
+                exp.Add();
                 foreach (var item in collection)
                 {
-                    exp_cat.newitem(item);
+                    exp_cat.NewItem(item);
                 }
             }
         }
@@ -198,7 +198,7 @@ namespace IOWpf.ViewsModels
             {
                 if (titleString != "Wpisz nazwę kategorii i naciśnij dodaj")
                 {
-                    cat.addCategory(_catString);
+                    cat.AddCategory(_catString);
                     this.CategoryList.Add(_catString);
                     titleString = "Wydatek:";
                     catString = "";

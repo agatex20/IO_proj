@@ -21,9 +21,9 @@ namespace IOWpf.ViewsModels
                 if (value != _startDate)
                 {
                     _startDate = value;
-                    categoriesValues = new ChartValues<double>(exp.categorySum(_startDate, _endDate));
-                    expences = exp.summing(_startDate, _endDate) + " zł";
-                    incomes = inc.summing(_startDate, _endDate) + " zł";
+                    categoriesValues = new ChartValues<double>(exp.CategorySum(_startDate, _endDate));
+                    expences = exp.Summing(_startDate, _endDate) + " zł";
+                    incomes = inc.Summing(_startDate, _endDate) + " zł";
                     onPropertyChanged(nameof(startDate));
                 }
             }
@@ -38,9 +38,9 @@ namespace IOWpf.ViewsModels
                 if (value != _endDate)
                 {
                     _endDate = value;
-                    categoriesValues = new ChartValues<double>(exp.categorySum(_startDate, _endDate));
-                    expences=exp.summing(_startDate, _endDate) + " zł";
-                    incomes = inc.summing(_startDate, _endDate) + " zł";
+                    categoriesValues = new ChartValues<double>(exp.CategorySum(_startDate, _endDate));
+                    expences=exp.Summing(_startDate, _endDate) + " zł";
+                    incomes = inc.Summing(_startDate, _endDate) + " zł";
                     onPropertyChanged(nameof(endDate));
                 }
             }
@@ -103,7 +103,7 @@ namespace IOWpf.ViewsModels
         {
             get
             {
-                return new ChartValues<string>(category.getList());
+                return new ChartValues<string>(category.GetList());
             }
         }
 

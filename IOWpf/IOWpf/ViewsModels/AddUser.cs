@@ -18,7 +18,7 @@ namespace IOWpf.ViewsModels
     using System.Collections.ObjectModel;
     
 
-    public class DodajUzytkownika : INotifyPropertyChanged
+    public class AddUser : INotifyPropertyChanged
     {
         private String _username = "";
         public String username
@@ -71,13 +71,13 @@ namespace IOWpf.ViewsModels
             {
                 if (_addUserCommand == null)
                 {
-                    _addUserCommand = new RelayCommand(param => this.AddUser(), param => this.CanAdd());
+                    _addUserCommand = new RelayCommand(param => this.AddUserMethod(), param => this.CanAdd());
                 }
                 return _addUserCommand;
             }
         }
 
-        private void AddUser()
+        private void AddUserMethod()
         {
             if(_selectedItem== "System.Windows.Controls.ListBoxItem: Dorosły")
             {

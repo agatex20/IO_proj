@@ -12,16 +12,16 @@ namespace IOWpf.Models
 
         public Child(string name, string password) : base(name, password) { }
 
-        public void newBalanceId()
+        public void NewBalanceId()
         {
             var temp = new Balance();
-            using(var db = new Application_context())
+            using(var db = new ApplicationContext())
             {
-                db.Balances.Add(temp);
-                temp = db.Balances.OrderByDescending(p => p.BalanceId).FirstOrDefault();
+                db.balances.Add(temp);
+                temp = db.balances.OrderByDescending(p => p.balanceId).FirstOrDefault();
                 db.SaveChanges();
             }
-            this.BalanceId = temp.BalanceId+1;
+            this.balanceId = temp.balanceId+1;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IOWpf.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,22 +11,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using IOWpf.Models;
-using IOWpf.Views;
-using IOWpf.Services;
 
 namespace IOWpf.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy DodajSkarbonke.xaml
+    /// Logika interakcji dla klasy WybierzKwote.xaml
     /// </summary>
-    public partial class DodajSkarbonke : UserControl
+    public partial class SelectAmount : Window
     {
-        public DodajSkarbonke()
+        public SelectAmount()
         {
             InitializeComponent();
         }
+
     }
 }
