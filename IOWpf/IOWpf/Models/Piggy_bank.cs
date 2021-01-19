@@ -18,13 +18,13 @@ namespace IOWpf.Models
         public string goal_namel { get; set; }
         public bool if_childs { get; set; }
         public float monthly_income { get; set; }
-        public int start_day { get; set; }
+        public string start_day { get; set; }
         public float treasured_amount { get; set; }
 
 
         public Piggy_bank() { }
 
-        public Piggy_bank(string creatorName, float goal, string goalDate, string goalNamel, bool ifChilds, float monthlyIncome, int startDay, float treasuredAmount)
+        public Piggy_bank(string creatorName, float goal, string goalDate, string goalNamel, bool ifChilds, float monthlyIncome, string startDay, float treasuredAmount)
         {
             creator_name = creatorName;
             this.goal = goal;
@@ -59,7 +59,7 @@ namespace IOWpf.Models
                     pBank.if_childs = false;
                 }
                 pBank.monthly_income = monthly_income;
-                pBank.start_day = 0; //temp
+                pBank.start_day = MainWindow.curr_day;
                 pBank.creator_name = MainWindow.user.name; //temp
                 pBank.goal_date = goal_date;
 

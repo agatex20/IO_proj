@@ -6,15 +6,19 @@
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:IOWpf.Views"
              mc:Ignorable="d" 
-        Title="Wprowadź kwotę" Height="120" Width="200"
+        Title="Wprowadź kwotę" Height="190" Width="250"
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow">
 
-    <Grid Background="#FF373333">
+    <Grid  Background="#FF373333">
+        
         <StackPanel>
-            <TextBox materialDesign:HintAssist.Hint="Kwota" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="amount"/>
-            <Button Content="OK" Click="ConfirmAmount" Foreground="#FF514A4A"/>
+            <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Kwota" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Foreground="#FF2196F3" SelectionBrush="#FF2196F3" FontWeight="Bold" Name="amount"/>
+            <Button Grid.Row="2" Content="Wpłać" Click="ConfirmAmount" Foreground="#FF514A4A"/>
+            <Button Grid.Row="3" Content="Wypłać" Click="ConfirmAmount" Foreground="#FF514A4A"/>
+            <Button Grid.Row="4" Content="Usuń skarbonkę" Click="ConfirmAmount" Foreground="#FF514A4A" />
         </StackPanel>
 
-        </Grid>
+    </Grid>
 </Window>

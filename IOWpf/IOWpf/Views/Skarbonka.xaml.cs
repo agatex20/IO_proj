@@ -72,5 +72,10 @@ namespace IOWpf.Views
             WybierzKwote wk = new WybierzKwote(id, false);
             wk.Show();
         }
+
+        private void lvDataBinding_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

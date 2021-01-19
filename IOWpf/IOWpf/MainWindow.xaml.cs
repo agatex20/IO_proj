@@ -28,7 +28,7 @@ namespace IOWpf
         public static List<Balance> ballist;
         public static List<Expense_Category> expense_categories_list;
         public static User user = new Admin();
-        
+        public static string curr_day;
         public static int curr_id;
         public static string curr_name;
         public static int curr_type;//1-admin, 2- dorosły, 3-dziecko
@@ -42,6 +42,7 @@ namespace IOWpf
                 pblist = db.Piggy_Banks.ToList();
                 ballist = db.Balances.ToList();
                 expense_categories_list = db.Expense_Categories.ToList();
+                curr_day = DateTime.Now.ToString("dd.MM.yyyy");
             }
 
             DataContext = new Login();

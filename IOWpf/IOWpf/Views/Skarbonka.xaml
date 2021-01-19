@@ -47,102 +47,74 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="105"/>
-                    <ColumnDefinition Width="105"/>
-                    <ColumnDefinition Width="105"/>
-                    <ColumnDefinition Width="105"/>
-                    <ColumnDefinition Width="105"/>
-                    <ColumnDefinition Width="105"/>
-                    <ColumnDefinition Width="105"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition Width="95"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Cel" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" />
+                <TextBlock Text="Nazwa" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3" Grid.Row="1" />
                 <TextBlock Text="Zebrano" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"  Grid.Row="1" Grid.Column="1"/>
                 <TextBlock Text="Wpłata" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="2"/>
+                <TextBlock Text="Cel" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="3" RenderTransformOrigin="1.909,0.506" Margin="11.4,13.6,0,12.8"/>
+                <TextBlock Text="Start" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="4"/>
+                <TextBlock Text="Termin" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="5"/>
 
-                <!--<ListView Name="lvDataBinding"  Grid.RowSpan="6" Grid.ColumnSpan="7" Grid.Row="0" >
-
-                    <ListView.View>
-                        
-                        <GridView>
-                            <GridViewColumn>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Grid.Column="0" Text="{Binding description}"  Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Width="207">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Grid.Column="1" Text="{Binding amount}"  Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Width="224">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Grid.Column="2" Text="{Binding date}"   Foreground="#FF2196F3" FontSize="18" HorizontalAlignment="Center" />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-
-                    </ListView.View>
-                </ListView>-->
-            <ListView Name="lvDataBinding" Grid.RowSpan="7" Grid.ColumnSpan="7" Grid.Row="1">
+                <ListView Name="lvDataBinding" Grid.RowSpan="7" Grid.ColumnSpan="7" Grid.Row="1" SelectionChanged="lvDataBinding_SelectionChanged">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Width="105">
+                            <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding goal_namel}" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
+                                        <TextBlock Text="{Binding goal_namel}" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding treasured_amount}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
+                                        <TextBlock Text="{Binding treasured_amount}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding monthly_income}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196F3"/>
+                                        <TextBlock Text="{Binding monthly_income}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Edytuj" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
+                                        <TextBlock Text="{Binding goal}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Uid="{Binding uid}" Click="Deposit" Content="Wpłać" HorizontalAlignment="Center" Foreground="#FF514A4A"/>
+                                        <TextBlock Text="{Binding start_day}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Uid="{Binding uid}" Click="Payout" Content="Wypłać" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
+                                        <TextBlock Text="{Binding goal_date}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="15" Foreground="#FF2196F3"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Width="95">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3">
-                                            <materialDesign:PackIcon Kind="InfoCircle"/>
-                                        </Button>
+                                        <Button Uid="{Binding uid}" Click="Payout" Content="Edytuj" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF514A4A"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+                            
                         </GridView>
                         
                     </ListView.View>
