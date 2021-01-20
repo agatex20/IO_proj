@@ -14,6 +14,7 @@ namespace IOWpf.ViewsModels
     using System.Collections.ObjectModel;
     using System.Diagnostics;
     using System.IO;
+    using System.Reflection;
 
     public class PanelViewModel : INotifyPropertyChanged
     {
@@ -116,27 +117,30 @@ namespace IOWpf.ViewsModels
             {
                 if (_showPhotoClicked == null)
                 {
-                    _showPhotoClicked = new RelayCommand(param => this.showPhoto());
+                    _showPhotoClicked = new RelayCommand(showPhoto);
                 }
                 return _showPhotoClicked;
             }
         }
 
-        private void showPhoto()
+        private void showPhoto(Object param)
         {
-            //string picturePath = explist[/* odpowiedni rzad + 1 */].bill_photo_path;
-            string picturePath = "D:\\Pictures\\Wallpapers\\campfire.jpg";
-
-            if (!String.IsNullOrEmpty(picturePath) && File.Exists(picturePath))
+            if (param.ToString() == "IOWpf.Models.Expense")
             {
-                ProcessStartInfo info = new ProcessStartInfo();
 
-                info.FileName = Path.Combine("ms-photos://", picturePath);
-                info.UseShellExecute = true;
-                info.CreateNoWindow = true;
-                info.Verb = string.Empty;
+                string picturePath = param.GetType().GetProperty("billPhotoPath").GetValue(param, null).ToString();
 
-                Process.Start(info);
+                if (!String.IsNullOrEmpty(picturePath) && File.Exists(picturePath))
+                {
+                    ProcessStartInfo info = new ProcessStartInfo();
+
+                    info.FileName = Path.Combine("ms-photos://", picturePath);
+                    info.UseShellExecute = true;
+                    info.CreateNoWindow = true;
+                    info.Verb = string.Empty;
+
+                    Process.Start(info);
+                }
             }
         }
 
