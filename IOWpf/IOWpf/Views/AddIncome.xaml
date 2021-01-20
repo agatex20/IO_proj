@@ -26,6 +26,8 @@
                 <Label Content="Opis" Foreground="#FF2196F3" FontFamily="Impact" Margin="10,0,0,0"/>
                 <TextBox  Text="{Binding Path=description, Mode=TwoWay}" Margin="10 0 10 5" Foreground="#FF2196F3" FontWeight="Bold" SelectionBrush="#FF2196F3" Name="des"/>
                 <Button Content="Dodaj" Command="{Binding Path=SaveCommand}" Foreground="#FF514A4A"  Margin="60 20" FontFamily="Impact"  />
+                <Label Content="Przychód powtarzający się co miesiąc" Foreground="#FF2196F3" FontFamily="Impact" Margin="507,0,0,0"/>
+                <CheckBox Margin="675,1,0,1" IsChecked="{Binding Path=cyclic}"/>
             </StackPanel>
 
 

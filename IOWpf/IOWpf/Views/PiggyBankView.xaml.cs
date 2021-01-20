@@ -28,7 +28,7 @@ namespace IOWpf.Views
             InitializeComponent();
             List<PiggyBank> banksList = new List<PiggyBank>();
 
-            if (MainWindow.currentType == 3)
+            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
             {
                 foreach (PiggyBank pb in MainWindow.piggyBanksList)
                 {

@@ -19,6 +19,7 @@ namespace IOWpf.ViewsModels
 
         public double amount
         {
+            get { return Inc.amount; }
             set
             {
                 Inc.amount = (float)value;
@@ -28,6 +29,7 @@ namespace IOWpf.ViewsModels
         }
         public string date
         {
+            get { return Inc.date; }
             set
             {
                 Inc.date = value;
@@ -37,6 +39,7 @@ namespace IOWpf.ViewsModels
 
         public string description
         {
+            get { return Inc.description; }
             set
             {
                 Inc.description = value;
@@ -44,9 +47,18 @@ namespace IOWpf.ViewsModels
             }
         }
 
+        private bool _cyclic;
+        public bool cyclic
+        {
+            get { return _cyclic; }
+            set
+            {
+                _cyclic = value;
+                onPropertyChanged(nameof(cyclic));
+            }
+        }
 
         private ICommand _saveCommand;
-
         public ICommand SaveCommand
         {
             get
@@ -56,7 +68,8 @@ namespace IOWpf.ViewsModels
                     Inc.ifChilds = true;
                 else
                     Inc.ifChilds = false;
-                Inc.userId = MainWindow.user.ID;
+
+                    Inc.userId = MainWindow.user.ID;
 
                 if (_saveCommand == null)
                 {
@@ -78,6 +91,8 @@ namespace IOWpf.ViewsModels
 
         private void SaveObject()
         {
+            if (_cyclic)
+                Inc.description = Inc.description + "(c)";
             Inc.Add();
         }
 

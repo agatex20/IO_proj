@@ -190,13 +190,13 @@ namespace IOWpf.ViewsModels
 
         private void addWindow()
         {
-            if(titleString=="Wydatek:")
+            if(_titleString=="Wydatek:")
             {
                 titleString = "Wpisz nazwę kategorii i naciśnij dodaj:";
             }
             else
             {
-                if (titleString != "Wpisz nazwę kategorii i naciśnij dodaj")
+                if (_titleString != "Wpisz nazwę kategorii i naciśnij dodaj"&&_catString!="")
                 {
                     cat.AddCategory(_catString);
                     this.CategoryList.Add(_catString);

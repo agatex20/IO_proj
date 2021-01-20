@@ -71,5 +71,37 @@ namespace IOWpf.Models
 
             return sum;
         }
+
+        public void checkCyclic()
+        {
+            List<Income> incomes;
+            using (var db = new ApplicationContext())
+            {
+                incomes = db.incomes.ToList();
+                foreach (var income in incomes)
+                {
+                    if (income.description != null)
+                    { 
+                        if (income.description.Substring(income.description.Length - 3) == "(c)")
+                        {
+                            if (DateTime.Now.AddMonths(-1).ToString("dd.MM.yyyy") == income.date)
+                            {
+                                 bool check = true;
+                                foreach(var income2 in incomes)
+                                {
+                                    if ((income2.date == DateTime.Now.ToString("dd.MM.yyyy")) && (income2.description == income.description))
+                                        check = false;
+                                }
+                                if (check)
+                                {
+                                    income.date = Convert.ToDateTime(income.date).AddMonths(1).ToString("dd.MM.yyyy");
+                                    income.Add();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

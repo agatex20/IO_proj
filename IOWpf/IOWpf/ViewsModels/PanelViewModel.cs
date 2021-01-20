@@ -28,6 +28,20 @@ namespace IOWpf.ViewsModels
             showIncome();
         }
 
+        private string _hiding;
+        public string hiding
+        {
+            get { return _hiding; }
+            set
+            {
+                if(value!=_hiding)
+                {
+                    _hiding = value;
+                    onPropertyChanged(nameof(hiding));
+                }
+            }
+        }
+
         private ICommand _expenseClicked;
         public ICommand expenseClicked
         {
@@ -44,7 +58,7 @@ namespace IOWpf.ViewsModels
         private void showExpense()
         {
             explist.Clear();
-
+            hiding = "Visible";
             if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
             {
                 foreach (var expense in MainWindow.expensesList)
@@ -85,7 +99,7 @@ namespace IOWpf.ViewsModels
         private void showIncome()
         {
             inclist.Clear();
-
+            hiding = "Hidden";
             if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
             {
                 foreach (var income in MainWindow.incomesList)
@@ -127,20 +141,24 @@ namespace IOWpf.ViewsModels
         {
             if (param.ToString() == "IOWpf.Models.Expense")
             {
-
-                string picturePath = param.GetType().GetProperty("billPhotoPath").GetValue(param, null).ToString();
-
-                if (!String.IsNullOrEmpty(picturePath) && File.Exists(picturePath))
+                string picturePath="";
+                if (param.GetType().GetProperty("billPhotoPath").GetValue(param, null) != null)
                 {
-                    ProcessStartInfo info = new ProcessStartInfo();
-
-                    info.FileName = Path.Combine("ms-photos://", picturePath);
-                    info.UseShellExecute = true;
-                    info.CreateNoWindow = true;
-                    info.Verb = string.Empty;
-
-                    Process.Start(info);
+                    picturePath = param.GetType().GetProperty("billPhotoPath").GetValue(param, null).ToString();
                 }
+
+                    if (!String.IsNullOrEmpty(picturePath) && File.Exists(picturePath))
+                    {
+                        ProcessStartInfo info = new ProcessStartInfo();
+
+                        info.FileName = Path.Combine("ms-photos://", picturePath);
+                        info.UseShellExecute = true;
+                        info.CreateNoWindow = true;
+                        info.Verb = string.Empty;
+
+                        Process.Start(info);
+                    }
+
             }
         }
 

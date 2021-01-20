@@ -29,7 +29,7 @@ namespace IOWpf.ViewsModels
         }
 
 
-        private string _password;
+        private string _password="";
         public string password
         {
             get { return _password; }
@@ -58,7 +58,7 @@ namespace IOWpf.ViewsModels
         {
             get
             {
-                
+
                 if (_loginCommand == null)
                 {
                     _loginCommand = new RelayCommand(param => this.tryLogin(), param => this.CanLog()
@@ -85,9 +85,9 @@ namespace IOWpf.ViewsModels
 
         private void tryLogin()
         {
-            if(MainWindow.user.LoginPasswordCorrect(_username, _password))
+            if (MainWindow.user.LoginPasswordCorrect(_username, _password))
             {
-                 errorLog = "Udało się zalogować";
+                errorLog = "Udało się zalogować";
             }
             else
             {
@@ -115,11 +115,11 @@ namespace IOWpf.ViewsModels
         {
             if (MainWindow.user.AdminExists())
             {
-                if(_username!="Unlogged"&&_errorLog!= "Udało się zalogować"&&_errorLog!= "Nie udało się zalogować")
+                if (_username != "Unlogged" && _errorLog != "Udało się zalogować" && _errorLog != "Nie udało się zalogować")
                     errorLog = "Konto administratora już istnieje";
                 return false;
             }
-            if(_username==""||_password=="")
+            if (_username == "" || _password == "" || _username ==null )
             {
                 return false;
             }

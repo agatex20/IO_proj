@@ -52,7 +52,7 @@ namespace IOWpf.Models
                 pBank.treasuredAmount = treasuredAmount;
                 pBank.goal = goal;
                 pBank.goalName = goalName;
-                if (MainWindow.currentType == 3)
+                if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Child")
                 {
                     pBank.ifChilds = true;
                 }
@@ -61,7 +61,7 @@ namespace IOWpf.Models
                     pBank.ifChilds = false;
                 }
                 pBank.monthlyIncome = monthlyIncome;
-                pBank.startDay = MainWindow.currentDay;
+                pBank.startDay = DateTime.Now.ToString("dd.MM.yyyy");
                 pBank.creatorName = MainWindow.user.name;
                 pBank.goalDate = goalDate;
 

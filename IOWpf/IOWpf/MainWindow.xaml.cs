@@ -29,10 +29,7 @@ namespace IOWpf
         public static List<ExpenseCategory> expenseCategoriesList;
         public static List<Category> categoriesList;
         public static User user = new Admin();
-        public static string currentDay;
-        public static int currentId;
-        public static string currentName;
-        public static int currentType;//1-admin, 2- dorosły, 3-dziecko
+
     public MainWindow()
         {
             InitializeComponent();
@@ -44,7 +41,8 @@ namespace IOWpf
                 ballancesLst = db.balances.ToList();
                 expenseCategoriesList = db.expenseCategories.ToList();
                 categoriesList = db.categories.ToList();
-                currentDay = DateTime.Now.ToString("dd.MM.yyyy");
+                if(incomesList.FirstOrDefault()!=null)
+                incomesList[0].checkCyclic();
             }
 
             DataContext = new Login();
