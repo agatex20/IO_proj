@@ -26,24 +26,6 @@ namespace IOWpf.Views
         public PiggyBankView()
         {
             InitializeComponent();
-            List<PiggyBank> banksList = new List<PiggyBank>();
-
-            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Admin")
-            {
-                banksList = MainWindow.piggyBanksList;
-            }
-            else
-            {
-                foreach (PiggyBank pb in MainWindow.piggyBanksList)
-                {
-                    if (pb.creatorName == MainWindow.user.name)
-                    {
-                        banksList.Add(pb);
-                    }
-                }
-            }
-
-            lvDataBinding.ItemsSource = banksList;
         }
 
         private void AddBankClicked(object sender, RoutedEventArgs e)
@@ -57,11 +39,6 @@ namespace IOWpf.Views
         {
             SelectAmount wk = new SelectAmount();
             wk.Show();
-        }
-
-        private void lvDataBinding_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

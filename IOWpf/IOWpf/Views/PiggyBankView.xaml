@@ -64,7 +64,7 @@
                 <TextBlock Text="Start" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="5"/>
                 <TextBlock Text="Termin" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Impact" FontSize="20" Foreground="#FF2196EB" Grid.Row="1" Grid.Column="6"/>
 
-                <ListView Name="lvDataBinding" Grid.RowSpan="7" Grid.ColumnSpan="7" Grid.Row="1" SelectionChanged="lvDataBinding_SelectionChanged">
+                <ListView ItemsSource="{Binding list, NotifyOnSourceUpdated=True}" x:Name="lvDataBinding" Grid.RowSpan="7" Grid.ColumnSpan="7" Grid.Row="1">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="95">

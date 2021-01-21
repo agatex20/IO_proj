@@ -13,67 +13,30 @@ namespace IOWpf.ViewsModels
     using System.Windows.Input;
     using System.Windows.Controls;
     using System.Diagnostics;
+    using System.Collections.ObjectModel;
 
     public class PiggyBankVM : INotifyPropertyChanged
     {
-        private PiggyBank pBank = new PiggyBank();
-        float amount;
-        public float operationAmount
-        {
-            set
+        List<PiggyBank> banksList = new List<PiggyBank>();
+
+        public ObservableCollection<PiggyBank> list { get; set; }
+        public PiggyBankVM()
+        {          
+            if (MainWindow.user.GetType().ToString() == "IOWpf.Models.Admin")
             {
-                amount = (float)value;
-                onPropertyChanged(nameof(operationAmount));
+                banksList = MainWindow.piggyBanksList;
             }
-
-        }
-
-
-        private Button _buttonPressed;
-        public Button buttonPressed
-        {
-            get
+            else
             {
-                return this._buttonPressed;
+                foreach (PiggyBank pb in MainWindow.piggyBanksList)
+                {
+                    if (pb.creatorName == MainWindow.user.name)
+                    {
+                        banksList.Add(pb);
+                    }
+                }
             }
-            set
-            {
-                this._buttonPressed = value;
-                onPropertyChanged(nameof(buttonPressed));
-            }
-        }
-
-        private ICommand operation;
-
-        public ICommand depositCommand
-        { 
-            get 
-            {
-                operation = new RelayCommand(param => this.Deposit(_buttonPressed));
-                return operation;
-            } 
-        
-        }
-
-        public ICommand withdrawCommand
-        {
-            get
-            {
-                operation = new RelayCommand(param => this.Withdraw(_buttonPressed));
-                return operation;
-            }
-
-        }
-
-        private void Deposit(object sender)
-        {
-            pBank.piggyBankId = Int32.Parse((sender as Button).Uid);
-            pBank.Deposit(amount);
-        }
-        private void Withdraw(object sender)
-        {
-            pBank.piggyBankId = Int32.Parse((sender as Button).Uid);
-            pBank.Withdraw(amount);
+            this.list = new ObservableCollection<PiggyBank>(banksList);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
