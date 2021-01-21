@@ -28,12 +28,12 @@ namespace IOWpf.Views
             InitializeComponent();
         }
 
-        private void AddBankClicked(object sender, RoutedEventArgs e)
+        /*private void AddBankClicked(object sender, RoutedEventArgs e)
         {
             MainWindow mw = Window.GetWindow(this) as MainWindow;
             mw.AddPiggyBankClicked(sender, e);
             lvDataBinding.ItemsSource = MainWindow.piggyBanksList;
-        }
+        }*/
 
         private void OperationClicked(object sender, RoutedEventArgs e)
         {

@@ -14,6 +14,7 @@ namespace IOWpf.ViewsModels
     using System.Windows.Controls;
     using System.Diagnostics;
     using System.Collections.ObjectModel;
+    using System.Windows;
 
     public class PiggyBankVM : INotifyPropertyChanged
     {
@@ -37,6 +38,25 @@ namespace IOWpf.ViewsModels
                 }
             }
             this.list = new ObservableCollection<PiggyBank>(banksList);
+        }
+
+        private ICommand _addBankClicked;
+        public ICommand addBankClicked
+        {
+            get
+            {
+                if (_addBankClicked == null)
+                {
+                    _addBankClicked = new RelayCommand(param => this.addBank());
+                }
+                return _addBankClicked;
+            }
+        }
+
+        private void addBank()
+        {
+            MainWindow mw = (MainWindow)Application.Current.MainWindow;
+            mw.AddPiggyBankClicked(null, null);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
