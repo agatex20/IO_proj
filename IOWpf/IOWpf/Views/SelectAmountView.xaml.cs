@@ -24,6 +24,5 @@ namespace IOWpf.Views
         {
             InitializeComponent();
         }
-
     }
 }
